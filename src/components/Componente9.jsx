@@ -14,34 +14,36 @@ function Componente9() {
   };
 
   return (
-    <>
-      <div className="header">Metas</div>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Objetivo</th>
-            <th>Fecha límite</th>
-            <th>Realizada</th>
-          </tr>
-        </thead>
-        <tbody>
-          {metas.map((meta, index) => (
-            <tr key={index}>
-              <td>{meta.objetivo}</td>
-              <td>{meta.fechaLimite}</td>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={meta.realizada}
-                  onChange={() => handleCheck(index)}
-                />
-              </td>
+    <div className="container">
+      <div className="tabla-container">
+        <div className="header">Metas</div>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Objetivo</th>
+              <th>Fecha límite</th>
+              <th>Realizada</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <button className="accept-button">Aceptar</button>
-    </>
+          </thead>
+          <tbody>
+            {metas.map((meta, index) => (
+              <tr key={index}>
+                <td>{meta.objetivo}</td>
+                <td>{meta.fechaLimite}</td>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={meta.realizada}
+                    onChange={() => handleCheck(index)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <button>Aceptar</button>
+    </div>
   );
 }
 
