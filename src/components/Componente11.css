@@ -1,0 +1,140 @@
+.App {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    width:375px;
+    background-color: black;
+    margin-top:40px;
+    margin-bottom:50px;
+  }
+  .tit {
+    width: 100%;
+    max-width: 400px;
+    margin: none;
+    margin-top:-40px;
+    background-color: black;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2{
+    margin:30px;
+    margin-left: -50px;
+    background: linear-gradient(
+    to right,
+    var(--gris) 0%,
+    var(--verde-lima) 50%,
+    var(--gris) 100%
+  );  
+  border-radius: 10px;
+}
+
+h5 {
+    text-align:left;
+    color: white;
+    border: 2px solid #00FF85;
+    border-radius: 10px; 
+    display: inline-block; 
+    padding: 5px 10px; 
+    align-items: flex-start;
+    margin-left: -100px;
+    margin-top: 0px;
+    margin-bottom: -10px;
+}
+  
+  .buttons {
+    margin: 20px 0;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .content button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 13, 13, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: rgb(22, 21, 21);
+    padding: 20px;
+    border-radius: 5px;
+    width:375px;
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 10px;
+  }
+
+  .react-time-picker {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .react-time-picker__wrapper {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  
+  .react-time-picker__inputGroup__input {
+    height: 30px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 2em; /* Ajuste para permitir dos caracteres en cada campo */
+    box-sizing: border-box;
+    padding: 0 5px; 
+  }
+  
+  .react-time-picker__inputGroup__divider {
+    margin: 0 5px;
+    color: #d5f0d7;
+    
+  }
+  
+  .react-time-picker__inputGroup__input--hasLeadingZero {
+    font-weight: bold;
+    margin:0px;
+  }
+  
+  .react-time-picker__inputGroup__input--hasError {
+    border: 2px solid red;
+  }
+  
+  .react-time-picker__clear-button,
+  .react-time-picker__clock-button {
+    background-color: aqua;
+    border: none;
+    cursor: pointer;
+    padding: 0 5px;
+
+  }
