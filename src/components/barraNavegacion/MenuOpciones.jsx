@@ -5,9 +5,19 @@ import "./MenuOpciones.css";
 
 const MenuOpciones = () => {
   const [estaAbierto, setEstaAbierto] = useState(false);
+  const [rutinasAbierto, setRutinasAbierto] = useState(false);
+  const [infoMaquinasAbierto, setInfoMaquinasAbierto] = useState(false);
 
   const botonDesplegable = () => {
     setEstaAbierto(!estaAbierto);
+  };
+
+  const alternarRutinas = () => {
+    setRutinasAbierto(!rutinasAbierto);
+  };
+
+  const alternarInfoMaquinas = () => {
+    setInfoMaquinasAbierto(!infoMaquinasAbierto);
   };
 
   return (
@@ -18,14 +28,22 @@ const MenuOpciones = () => {
       {estaAbierto && (
         <ul className="menu-lista">
           <li>Inicio</li>
-          <li>Información máquinas general</li>
-          <li>Información de máquinas disponibles</li>
-          <li>Escanear máquina</li>
-          <li>Rutinas</li>
-          <li>Generar mi propia rutina</li>
-          <li>Generar rutina con IA</li>
-          <li>Rutina con instructor</li>
-          <li>Ver rutina</li>
+          <li onClick={alternarInfoMaquinas}>Información de máquinas general</li>
+          {infoMaquinasAbierto && (
+            <>
+              <li className="sub-item">Información de máquinas disponibles</li>
+              <li className="sub-item">Escanear máquina</li>
+            </>
+          )}
+          <li onClick={alternarRutinas}>Rutinas</li>
+          {rutinasAbierto && (
+            <>
+              <li className="sub-item">Generar mi propia rutina</li>
+              <li className="sub-item">Generar rutina con IA</li>
+              <li className="sub-item">Rutina con instructor</li>
+              <li className="sub-item">Ver rutina</li>
+            </>
+          )}
           <li>Ver evolución</li>
           <li>Asesoramiento</li>
         </ul>

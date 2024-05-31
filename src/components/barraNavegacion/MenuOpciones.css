@@ -56,3 +56,9 @@
 .menu-lista li:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
+
+.sub-item {
+    padding-left: 40px;
+    font-weight: normal;
+    margin-left: 20px;
+}
