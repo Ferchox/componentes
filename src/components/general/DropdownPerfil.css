@@ -40,8 +40,9 @@
           var(--morado-oscuro) 0%,
           var(--naranja-claro) 50%,
           var(--morado-oscuro) 100%);
-  border-radius: 5px;
+  border-radius: 20px; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border: 3px solid var(--naranja-claro); 
 }
 
 .dropdown-menu li {
@@ -57,11 +58,11 @@
 }
 
 .dropdown-menu li:first-child {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 20px; 
+  border-top-right-radius: 20px; 
 }
 
 .dropdown-menu li:last-child {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 20px; 
+  border-bottom-right-radius: 20px; 
 }
