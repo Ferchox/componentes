@@ -8,6 +8,7 @@ import InformacionPrincipal from "./components/inicio/InformacionPrincipal.jsx";
 import DropdownPerfil from "./components/general/DropdownPerfil.jsx";
 import SeleccionParteCuerpo from "./components/generarRutina/SeleccionParteCuerpo.jsx";
 import GraficoEvaluacionUsuario from "./components/evaluacionUsuario/GraficoEvaluacionUsuario.jsx";
+import DescripcionEjerciciosDesplegable from "./components/generarRutina/DescripcionEjerciciosDesplegable.jsx";
 import MenuOpciones from "./components/general/MenuOpciones.jsx";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <SeleccionParteCuerpo />
       <MenuOpciones />
       <DropdownPerfil />
+      <DescripcionEjerciciosDesplegable/>
     </>
   );
 }
