@@ -1,8 +1,8 @@
 import React from "react";
-import "./Componente3.css";
-import gymLogo from "../assets/gym-logo.jpg"; 
-import waterIcon from "../assets/water-icon.jpg"; 
-import exerciseIcon from "../assets/exercise-icon.jpg"; 
+import "./RecordatoriosActividad.css";
+import gymLogo from "../../assets/gym-logo.jpg";
+import waterIcon from "../../assets/water-icon.jpg";
+import exerciseIcon from "../../assets/exercise-icon.jpg";
 
 const Notification = ({ title, body, image, className }) => {
   return (
@@ -21,7 +21,7 @@ const Notification = ({ title, body, image, className }) => {
   );
 };
 
-function Componente3() {
+function RecordatoriosActividad() {
   return (
     <div className="container">
       <Notification
@@ -46,4 +46,4 @@ function Componente3() {
   );
 }
 
-export default Componente3;
+export default RecordatoriosActividad;

@@ -1,9 +1,9 @@
 import React from "react";
 import bienvenidoaTF from "../../assets/bienvenidoa-tf.jpeg";
 import telefonoGym from "../../assets/telefono-gym.jpeg";
-import "./ComponenteOcho.css";
+import "./InformacionPrincipal.css";
 
-const ComponenteOcho = () => {
+const InformacionPrincipal = () => {
   return (
     <div className="pantalla-principal">
       <h3>Sobre nosotros</h3>
@@ -30,4 +30,4 @@ const ComponenteOcho = () => {
   );
 };
 
-export default ComponenteOcho;
+export default InformacionPrincipal;

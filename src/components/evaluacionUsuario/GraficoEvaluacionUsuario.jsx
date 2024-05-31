@@ -1,7 +1,7 @@
 import React from "react";
-import "./Componente12.css";
+import "./GraficoEvaluacionUsuario.css";
 
-function Componente12() {
+function GraficoEvaluacionUsuario() {
   return (
     <div className="container">
       <h1 className="title">CUADRO DE EVOLUCIÓN</h1>
@@ -36,5 +36,5 @@ function Componente12() {
   );
 }
 
-export default Componente12;
+export default GraficoEvaluacionUsuario;
 

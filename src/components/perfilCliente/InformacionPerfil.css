@@ -10,12 +10,10 @@
 
 .imagen-perfil {
     border-radius: 50%;
-    width: 250px;
-    height: 250px;
 }
 
 .contenedor-informacion {
-    height: 30%;
+    height: 60%;
     width: 60%;
     margin: 0.5rem 0;
     border: 2px solid #00FF85;

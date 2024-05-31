@@ -1,26 +1,26 @@
 import "./App.css";
-import Componente3 from "./components/Componente3.jsx";
-import Componente5 from "./components/Componente5.jsx";
-import Componente6 from "./components/Componente6.jsx";
-import Componente9 from "./components/Componente9.jsx";
+import RecordatoriosActividad from "./components/notificaciones/RecordatoriosActividad.jsx";
+import DescripcionEjercicio from "./components/rutinaDia/DescripcionEjercicio.jsx";
+import FormularioMeta from "./components/crearMetas/FormularioMeta.jsx";
+import MetasPendientes from "./components/metas/MetasPendientes.jsx";
 import InformacionPerfil from "./components/perfilCliente/InformacionPerfil.jsx";
-import ComponenteOcho from "./components/ComponenteOcho/ComponenteOcho.jsx";
-import DropdownPerfil from "./components/DropdownPerfil/DropdownPerfil.jsx";
-import Componente12 from "./components/Componente12.jsx";
-import MenuOpciones from "./components/barraNavegacion/MenuOpciones.jsx";
+import InformacionPrincipal from "./components/inicio/InformacionPrincipal.jsx";
+import DropdownPerfil from "./components/general/DropdownPerfil.jsx";
+import GraficoEvaluacionUsuario from "./components/evaluacionUsuario/GraficoEvaluacionUsuario.jsx";
+import MenuOpciones from "./components/general/MenuOpciones.jsx";
 function App() {
 
   return (
     <>
-      <Componente3 />
-      <Componente5 />
-      <Componente6 />
-      <Componente9 />
-      <Componente12 />
+      <RecordatoriosActividad />
+      <DescripcionEjercicio />
+      <FormularioMeta />
+      <MetasPendientes />
+      <GraficoEvaluacionUsuario />
       <InformacionPerfil />
-      <ComponenteOcho />
-      <DropdownPerfil />
+      <InformacionPrincipal />
       <MenuOpciones />
+      <DropdownPerfil />
     </>
   );
 }
