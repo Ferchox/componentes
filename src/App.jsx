@@ -7,6 +7,7 @@ import InformacionPerfil from "./components/perfilCliente/InformacionPerfil.jsx"
 import ComponenteOcho from "./components/ComponenteOcho/ComponenteOcho.jsx";
 import DropdownPerfil from "./components/DropdownPerfil/DropdownPerfil.jsx";
 import Componente12 from "./components/Componente12.jsx";
+import MenuOpciones from "./components/barraNavegacion/MenuOpciones.jsx";
 function App() {
 
   return (
@@ -17,8 +18,9 @@ function App() {
       <Componente9 />
       <Componente12 />
       <InformacionPerfil />
-      <ComponenteOcho/>
-      <DropdownPerfil/>
+      <ComponenteOcho />
+      <DropdownPerfil />
+      <MenuOpciones />
     </>
   );
 }
