@@ -8,7 +8,7 @@ import InformacionPrincipal from "./components/inicio/InformacionPrincipal.jsx";
 import DropdownPerfil from "./components/general/DropdownPerfil.jsx";
 import GraficoEvaluacionUsuario from "./components/evaluacionUsuario/GraficoEvaluacionUsuario.jsx";
 import MenuOpciones from "./components/general/MenuOpciones.jsx";
-
+import SeleccionParteCuerpo from "./components/generarRutina/SeleccionParteCuerpo.jsx";
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
       <InformacionPrincipal />
       <MenuOpciones />
       <DropdownPerfil />
+      <SeleccionParteCuerpo />
     </>
   );
 }

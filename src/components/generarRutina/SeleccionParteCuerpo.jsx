@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Componente10.css';
+import './SeleccionParteCuerpo.css';
 
-function Componente10() {
+function SeleccionParteCuerpo() {
   const [selectedOptions, setSelectedOptions] = useState([]);
 
   const options = {
@@ -48,4 +48,4 @@ function Componente10() {
   );
 }
 
-export default Componente10;
+export default SeleccionParteCuerpo;
