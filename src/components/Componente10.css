@@ -47,12 +47,18 @@ h5 {
   
   .buttons {
     margin: 5px 0;
+    
   }
   
   button {
     margin: 5px;
     padding: 5px 10px;
     font-size: 10px;
+  }
+  
+  button :hover {
+    background-color: rgb(87, 87, 170);
+
   }
   
   .content {
