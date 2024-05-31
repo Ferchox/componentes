@@ -20,11 +20,8 @@
     "date-fns": "^2.30.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
-    "react-fontawesome": "^1.7.1"
-=======
+    "react-fontawesome": "^1.7.1",
     "react-time-picker": "^7.0.0"
->>>>>>> f1e4010 (Componente 10)
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
