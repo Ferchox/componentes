@@ -28,9 +28,13 @@ function App() {
       <MenuOpciones />
       <DropdownPerfil />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <DescripcionEjerciciosDesplegable />
 >>>>>>> de850fa (notificacion)
+=======
+      <DescripcionEjerciciosDesplegable />
+>>>>>>> main
     </>
   );
 }
