@@ -50,19 +50,26 @@ function Chat() {
             .map((mensaje) => `Role: ${mensaje.role}, Text: ${mensaje.text}`)
             .join("\n");
         const instruccion = `
-        ${config.instruccionBase}
-        Usuario: ${input}
-        Historial de la conversación:
-        ${historial}
-        Fecha y hora del este mensaje:
-        Día de la semana: ${diaSemana}, Día: ${dia}, Mes: ${mes}, Año: ${año}, Hora: ${hora}:${minutos}
-        Respuesta:
+            ${config.instruccionBase}
+            Usuario: ${input}
+            Historial de la conversación:
+            ${historial}
+            Fecha y hora del este mensaje:
+            Día de la semana: ${diaSemana}, Día: ${dia}, Mes: ${mes}, Año: ${año}, Hora: ${hora}:${minutos}
+            Respuesta:
         `;
 
         try {
             const textoRespuesta = await enviarMensaje(chat, instruccion, config.generationConfig);
-            const mensajeBot = { role: "model", text: textoRespuesta, diaSemana, dia, mes, año, hora, minutos };
-            setMensajes((prevMensajes) => [...prevMensajes, mensajeBot]);
+            const parrafosRespuesta = textoRespuesta.split(/\n\s*\n/).filter(parrafo => parrafo.trim() !== "");
+            const delayEntreMensajes = config.delayEntreMensajes || 100;
+
+            for (let i = 0; i < parrafosRespuesta.length; i++) {
+                const parrafo = parrafosRespuesta[i];
+                const mensajeBot = { role: "model", text: parrafo, diaSemana, dia, mes, año, hora, minutos };
+                setMensajes((prevMensajes) => [...prevMensajes, mensajeBot]);
+                await new Promise(res => setTimeout(res, delayEntreMensajes));
+            }
         } catch (error) {
             console.error("Error al generar contenido:", error);
             setError(config.errores.enviarMensaje);
@@ -71,6 +78,8 @@ function Chat() {
             setEscribiendo(false);
         }
     };
+
+
 
     const procesarMensaje = (texto) => {
         const partes = texto.split(/(\*\*[^*]+\*\*)/);
