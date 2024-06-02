@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { iniciarChat, enviarMensaje } from '../geminiApi';
-import './Chat.css';
+import React, { useState, useEffect } from "react";
+import { iniciarChat, enviarMensaje } from "../GeminiApi";
+import "./Chat.css";
+import config from "../data/Configuracion.json";
 
-const Chat = () => {
-    const [mensajes, setMensajes] = useState([
-        {
-            role: 'model',
-            text: '¡Hola! Soy tu asistente de ejercicios y postura. ¿En qué puedo ayudarte hoy?',
-        },
-    ]);
-    const [input, setInput] = useState('');
+function Chat() {
+    const [mensajes, setMensajes] = useState(config.mensajesIniciales);
+    const [input, setInput] = useState("");
+    const [estaCargando, setEstaCargando] = useState(false);
+    const [error, setError] = useState("");
     const [chat, setChat] = useState(null);
-    const [error, setError] = useState('');
+    const [escribiendo, setEscribiendo] = useState(false);
 
     useEffect(() => {
         const iniciarConversacion = async () => {
@@ -19,49 +17,53 @@ const Chat = () => {
                 const nuevoChat = await iniciarChat([]);
                 setChat(nuevoChat);
             } catch (error) {
-                console.error('Error al iniciar la conversación:', error);
-                setError('Hubo un problema al iniciar la conversación. Intenta nuevamente.');
+                console.error("Error al iniciar la conversación:", error);
+                setError(config.errores.iniciarConversacion);
             }
         };
         iniciarConversacion();
     }, []);
 
-    const manejarEnvio = async (e) => {
+    const manejarGeneracion = async (e) => {
         e.preventDefault();
         if (!input.trim()) return;
 
-        const nuevoMensaje = { role: 'user', text: input };
+        const nuevoMensaje = { role: "user", text: input };
         setMensajes((prevMensajes) => [...prevMensajes, nuevoMensaje]);
-        setInput('');
+        setInput("");
+        setEstaCargando(true);
+        setEscribiendo(true);
 
-        const generationConfig = {
-            stopSequences: ["\n", "."],
-            maxOutputTokens: 500,
-            temperature: 0.7,
-            topP: 0.9,
-            topK: 40,
-        };
-
+        const historial = mensajes
+            .map((mensaje) => `Role: ${mensaje.role}, Text: ${mensaje.text}`)
+            .join("\n");
         const instruccion = `
-        Eres un entrenador personal especializado en ejercicios de fuerza y acondicionamiento que esta en un gymm llamado 'Territorio F4:13'. Responde a la siguiente pregunta del usuario:
+        ${config.instruccionBase}
         Usuario: ${input}
+        Historial de conversación:
+        ${historial}
         Respuesta:
         `;
 
         try {
-            const respuesta = await enviarMensaje(chat, instruccion, generationConfig);
-            await respuesta;
-            setMensajes((prevMensajes) => [...prevMensajes, { role: 'model', text: respuesta }]);
+            const textoRespuesta = await enviarMensaje(chat, instruccion, config.generationConfig);
+            setMensajes((prevMensajes) => [
+                ...prevMensajes,
+                { role: "model", text: textoRespuesta },
+            ]);
         } catch (error) {
-            console.error('Error al enviar el mensaje:', error);
-            setError('Hubo un problema al enviar el mensaje. Intenta nuevamente.');
+            console.error("Error al generar contenido:", error);
+            setError(config.errores.enviarMensaje);
+        } finally {
+            setEstaCargando(false);
+            setEscribiendo(false);
         }
     };
 
     const procesarMensaje = (texto) => {
         const partes = texto.split(/(\*\*[^*]+\*\*)/);
         return partes.map((parte, index) => {
-            if (parte.startsWith('**') && parte.endsWith('**')) {
+            if (parte.startsWith("**") && parte.endsWith("**")) {
                 return <strong key={index}>{parte.slice(2, -2)}</strong>;
             }
             return <span key={index}>{parte}</span>;
@@ -69,20 +71,26 @@ const Chat = () => {
     };
 
     return (
-        <div className="chat-container">
-            <div className="mensajes">
+        <div className="contenedor">
+            <div className="chat-header">Asesoramiento</div>
+            <div className="chat-mensajes">
                 {mensajes.map((msg, index) => (
                     <div key={index} className={`mensaje ${msg.role}`}>
                         {procesarMensaje(msg.text)}
                     </div>
                 ))}
+                {escribiendo && (
+                    <div className="mensaje mensaje-bot">
+                        <span>Escribiendo...</span>
+                    </div>
+                )}
             </div>
-            <form onSubmit={manejarEnvio}>
+            <form className="chat-input" onSubmit={manejarGeneracion}>
                 <input
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder="Escribe tu mensaje..."
+                    placeholder={config.inputPlaceholder}
                     aria-label="Campo para escribir mensaje"
                 />
                 <button type="submit">Enviar</button>
@@ -90,6 +98,6 @@ const Chat = () => {
             {error && <div className="error">{error}</div>}
         </div>
     );
-};
+}
 
 export default Chat;
