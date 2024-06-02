@@ -24,22 +24,23 @@ function Chat() {
         iniciarConversacion();
     }, []);
 
+    const obtenerFechaHoraActual = () => {
+        const fecha = new Date();
+        const diaSemana = fecha.toLocaleDateString('es-ES', { weekday: 'long' });
+        const dia = String(fecha.getDate()).padStart(2, '0');
+        const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+        const año = fecha.getFullYear();
+        const hora = String(fecha.getHours()).padStart(2, '0');
+        const minutos = String(fecha.getMinutes()).padStart(2, '0');
+        return { diaSemana, dia, mes, año, hora, minutos };
+    };
+
     const manejarGeneracion = async (e) => {
         e.preventDefault();
         if (!input.trim()) return;
 
-        const obtenerFechaHoraActual = () => {
-            const fecha = new Date();
-            const dia = String(fecha.getDate()).padStart(2, '0');
-            const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Los meses comienzan en 0
-            const año = fecha.getFullYear();
-            const hora = String(fecha.getHours()).padStart(2, '0');
-            const minutos = String(fecha.getMinutes()).padStart(2, '0');
-            return { dia, mes, año, hora, minutos };
-        };
-
-        const { dia, mes, año, hora, minutos } = obtenerFechaHoraActual();
-        const nuevoMensaje = { role: "user", text: input, dia, mes, año, hora, minutos };
+        const { diaSemana, dia, mes, año, hora, minutos } = obtenerFechaHoraActual();
+        const nuevoMensaje = { role: "user", text: input, diaSemana, dia, mes, año, hora, minutos };
         setMensajes((prevMensajes) => [...prevMensajes, nuevoMensaje]);
         setInput("");
         setEstaCargando(true);
@@ -54,13 +55,13 @@ function Chat() {
         Historial de la conversación:
         ${historial}
         Fecha y hora del este mensaje:
-        Día: ${dia}, Mes: ${mes}, Año: ${año}, Hora: ${hora}:${minutos}
+        Día de la semana: ${diaSemana}, Día: ${dia}, Mes: ${mes}, Año: ${año}, Hora: ${hora}:${minutos}
         Respuesta:
         `;
 
         try {
             const textoRespuesta = await enviarMensaje(chat, instruccion, config.generationConfig);
-            const mensajeBot = { role: "model", text: textoRespuesta, dia, mes, año, hora, minutos };
+            const mensajeBot = { role: "model", text: textoRespuesta, diaSemana, dia, mes, año, hora, minutos };
             setMensajes((prevMensajes) => [...prevMensajes, mensajeBot]);
         } catch (error) {
             console.error("Error al generar contenido:", error);
@@ -88,7 +89,7 @@ function Chat() {
                 {mensajes.map((msg, index) => (
                     <div key={index} className={`mensaje ${msg.role}`}>
                         {procesarMensaje(msg.text)}
-                        <div className="mensaje-hora">{`${msg.dia}/${msg.mes}/${msg.año}, Hora: ${msg.hora}:${msg.minutos}`}</div>
+                        <div className="mensaje-hora">{`${msg.diaSemana}, ${msg.dia}/${msg.mes}/${msg.año}, Hora: ${msg.hora}:${msg.minutos}`}</div>
                     </div>
                 ))}
                 {escribiendo && (
