@@ -8,7 +8,6 @@ const Notificaciones = ({ notificaciones }) => {
           <h2>{notificacion.title}</h2>
           <p>{notificacion.body}</p>
           {notificacion.image && <img src={notificacion.image} alt="Icon" />}
-          {/* Agrega aquí cualquier otra información que desees mostrar */}
         </div>
       ))}
     </div>
