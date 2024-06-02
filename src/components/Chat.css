@@ -1,0 +1,61 @@
+/* src/components/Chat.css */
+.mensajes {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.mensaje {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.mensaje.user {
+    background-color: #353535;
+    text-align: right;
+    margin-left: auto;
+    color: white;
+    /* Color del texto del usuario */
+}
+
+.mensaje.model {
+    background-color: #424242;
+    text-align: left;
+    margin-right: auto;
+    color: white;
+    /* Color del texto del modelo */
+}
+
+form {
+    display: flex;
+    margin-top: 20px;
+    /* Separación entre mensajes y el formulario */
+}
+
+input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    /* Cambia el cursor al pasar por el botón */
+}
+
+button:hover {
+    background-color: #0056b3;
+    /* Cambio de color al pasar el cursor */
+}

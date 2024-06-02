@@ -10,6 +10,7 @@ import SeleccionParteCuerpo from "./components/generarRutina/SeleccionParteCuerp
 import GraficoEvaluacionUsuario from "./components/evaluacionUsuario/GraficoEvaluacionUsuario.jsx";
 import DescripcionEjerciciosDesplegable from "./components/generarRutina/DescripcionEjerciciosDesplegable.jsx";
 import MenuOpciones from "./components/general/MenuOpciones.jsx";
+import GeminiChat from "./components/Chat.jsx";
 
 function App() {
 
@@ -26,6 +27,8 @@ function App() {
       <DescripcionEjerciciosDesplegable />
       <MenuOpciones />
       <DropdownPerfil />
+
+      <GeminiChat />
     </>
   );
 }
