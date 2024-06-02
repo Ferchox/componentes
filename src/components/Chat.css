@@ -59,3 +59,9 @@ button:hover {
     background-color: #0056b3;
     /* Cambio de color al pasar el cursor */
 }
+
+.mensaje-hora {
+    font-size: 0.8em;
+    color: gray;
+    text-align: right;
+}
