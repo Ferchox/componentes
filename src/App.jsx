@@ -1,5 +1,7 @@
+// src/App.jsx
+import React from 'react';
 import "./App.css";
-import RecordatoriosActividad from "./components/notificaciones/RecordatoriosActividad.jsx";
+import Notificaciones from "./components/general/Notificaciones.jsx";
 import DescripcionEjercicio from "./components/generarRutina/DescripcionEjercicio.jsx";
 import FormularioMeta from "./components/crearMetas/FormularioMeta.jsx";
 import MetasPendientes from "./components/metas/MetasPendientes.jsx";
@@ -12,10 +14,9 @@ import DescripcionEjerciciosDesplegable from "./components/generarRutina/Descrip
 import MenuOpciones from "./components/general/MenuOpciones.jsx";
 
 function App() {
-
   return (
     <>
-      <RecordatoriosActividad />
+      <Notificaciones />
       <DescripcionEjercicio />
       <FormularioMeta />
       <MetasPendientes />
@@ -25,7 +26,7 @@ function App() {
       <SeleccionParteCuerpo />
       <MenuOpciones />
       <DropdownPerfil />
-      <DescripcionEjerciciosDesplegable/>
+      <DescripcionEjerciciosDesplegable />
     </>
   );
 }
