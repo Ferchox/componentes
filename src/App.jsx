@@ -23,9 +23,9 @@ function App() {
       <InformacionPerfil />
       <InformacionPrincipal />
       <SeleccionParteCuerpo />
+      <DescripcionEjerciciosDesplegable />
       <MenuOpciones />
       <DropdownPerfil />
-      <DescripcionEjerciciosDesplegable/>
     </>
   );
 }
