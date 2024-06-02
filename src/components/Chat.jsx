@@ -105,6 +105,7 @@ function Chat() {
                     onChange={(e) => setInput(e.target.value)}
                     placeholder={config.inputPlaceholder}
                     aria-label="Campo para escribir mensaje"
+                    disabled={escribiendo}
                 />
                 <button type="submit">Enviar</button>
             </form>
