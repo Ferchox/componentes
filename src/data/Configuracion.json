@@ -11,5 +11,5 @@
         "temperature": 0.7,
         "max_tokens": 150
     },
-    "delayEntreMensajes": 300
+    "delayEntreMensajes": 400
 }
