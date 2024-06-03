@@ -1,21 +1,42 @@
-import React from 'react';
-import Perfil from '../../assets/perfil.png';
+import React, { useState, useEffect } from 'react';
 import './InformacionPerfil.css';
 
 const InformacionPerfil = () => {
+    const [perfil, setPerfil] = useState({
+        nombre: "Juan Pérez",
+        edad: 30,
+        sexo: "Masculino"
+    });
+
+    const [imagenAleatoria, setImagenAleatoria] = useState('');
+
+    useEffect(() => {
+        fetch('https://picsum.photos/200')
+            .then(respuesta => {
+                setImagenAleatoria(respuesta.url);
+            })
+            .catch(error => {
+                console.error('Error al buscar la imagen', error);
+            });
+    }, []);
+
     return (
         <div className='contenedor-informacion-perfil'>
             <div className='contenedor-imagen-perfil'>
-                <img src={Perfil} alt="Perfil" className="imagen-perfil" />
+                {imagenAleatoria ? (
+                    <img src={imagenAleatoria} alt="Perfil aleatorio" className="imagen-perfil" />
+                ) : (
+                    <div>Cargando imagen...</div>
+                )}
             </div>
             <div className='contenedor-informacion'>
-                <label>Nombre cliente</label>
+                <label>Nombre cliente: {perfil.nombre}</label>
             </div>
             <div className='contenedor-informacion'>
-                <label>Edad</label>
+                <label>Edad: {perfil.edad}</label>
             </div>
             <div className='contenedor-informacion'>
-                <label>Sexo</label>
+                <label>Sexo: {perfil.sexo}</label>
             </div>
         </div>
     );

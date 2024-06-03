@@ -1,21 +1,34 @@
 import "./App.css";
-import Componente3 from "./components/Componente3.jsx";
-import Componente5 from "./components/Componente5.jsx";
-import Componente6 from "./components/Componente6.jsx";
-import Componente9 from "./components/Componente9.jsx";
-import Chat from './components/Chat.jsx'
+import RecordatoriosActividad from "./components/notificaciones/RecordatoriosActividad.jsx";
+import DescripcionEjercicio from "./components/generarRutina/DescripcionEjercicio.jsx";
+import FormularioMeta from "./components/crearMetas/FormularioMeta.jsx";
+import MetasPendientes from "./components/metas/MetasPendientes.jsx";
 import InformacionPerfil from "./components/perfilCliente/InformacionPerfil.jsx";
+import InformacionPrincipal from "./components/inicio/InformacionPrincipal.jsx";
+import DropdownPerfil from "./components/general/DropdownPerfil.jsx";
+import SeleccionParteCuerpo from "./components/generarRutina/SeleccionParteCuerpo.jsx";
+import GraficoEvaluacionUsuario from "./components/evaluacionUsuario/GraficoEvaluacionUsuario.jsx";
+import DescripcionEjerciciosDesplegable from "./components/generarRutina/DescripcionEjerciciosDesplegable.jsx";
+import MenuOpciones from "./components/general/MenuOpciones.jsx";
+import GeminiChat from "./components/Chat.jsx";
 
 function App() {
 
   return (
     <>
-      <Chat/>
-      <Componente3 />
-      <Componente5 />
-      <Componente6 />
-      <Componente9 />
+      <RecordatoriosActividad />
+      <DescripcionEjercicio />
+      <FormularioMeta />
+      <MetasPendientes />
+      <GraficoEvaluacionUsuario />
       <InformacionPerfil />
+      <InformacionPrincipal />
+      <SeleccionParteCuerpo />
+      <DescripcionEjerciciosDesplegable />
+      <MenuOpciones />
+      <DropdownPerfil />
+
+      <GeminiChat />
     </>
   );
 }

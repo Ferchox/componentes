@@ -1,81 +1,124 @@
-import React, { useState } from "react";
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
+import React, { useState, useEffect } from "react";
+import { iniciarChat, enviarMensaje } from "../GeminiApi";
 import "./Chat.css";
+import config from "../data/Configuracion.json";
 
-function App() {
-  const [messages, setMessages] = useState([
-    {
-      text: 'Este es un chatbot de asesoramiento... ¡Úsala con responsabilidad!',
-      isUser: false,
-    },
-  ]);
-  const [isLoading, setIsLoading] = useState(false);
+function Chat() {
+    const [mensajes, setMensajes] = useState(config.mensajesIniciales);
+    const [input, setInput] = useState("");
+    const [estaCargando, setEstaCargando] = useState(false);
+    const [error, setError] = useState("");
+    const [chat, setChat] = useState(null);
+    const [escribiendo, setEscribiendo] = useState(false);
 
-  const handleGenerate = async () => {
-    const inputText = document.getElementById('inputText').value;
-    setMessages([...messages, { text: inputText, isUser: true }]);
-    document.getElementById('inputText').value = '';
-    setIsLoading(true);
+    useEffect(() => {
+        const iniciarConversacion = async () => {
+            try {
+                const nuevoChat = await iniciarChat([]);
+                setChat(nuevoChat);
+            } catch (error) {
+                console.error("Error al iniciar la conversación:", error);
+                setError(config.errores.iniciarConversacion);
+            }
+        };
+        iniciarConversacion();
+    }, []);
 
-    const API_KEY = 'AIzaSyC5wwZ2NCDXuMuArJWpXYaf43tEeEogQ5w'; 
-    const genAI = new GoogleGenerativeAI(API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro-latest' });
+    const obtenerFechaHoraActual = () => {
+        const fecha = new Date();
+        const diaSemana = fecha.toLocaleDateString('es-ES', { weekday: 'long' });
+        const dia = String(fecha.getDate()).padStart(2, '0');
+        const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+        const año = fecha.getFullYear();
+        const hora = String(fecha.getHours()).padStart(2, '0');
+        const minutos = String(fecha.getMinutes()).padStart(2, '0');
+        return { diaSemana, dia, mes, año, hora, minutos };
+    };
 
-    try {
-      const result = await model.generateContent(inputText);
-      const responseText = await result.response.text();
+    const manejarGeneracion = async (e) => {
+        e.preventDefault();
+        if (!input.trim()) return;
 
-      const htmlResponse = responseText
-        .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
-        .replace(/\*_(.*?)_*./g, '<em>$1</em>')
-        .replaceAll(/^\s*\*\s*(.*?)\s*$/gm, '<li>$1</li>')
-        .replace(/^(.*?)\n\s*$/gm, '<p>$1</p>');
+        const { diaSemana, dia, mes, año, hora, minutos } = obtenerFechaHoraActual();
+        const nuevoMensaje = { role: "user", text: input, diaSemana, dia, mes, año, hora, minutos };
+        setMensajes((prevMensajes) => [...prevMensajes, nuevoMensaje]);
+        setInput("");
+        setEstaCargando(true);
+        setEscribiendo(true);
 
-      setMessages([
-        ...messages,
-        { text: inputText, isUser: true },
-        { text: htmlResponse, isUser: false },
-      ]);
-    } catch (error) {
-      console.error('Error al generar contenido:', error);
-      setMessages([
-        ...messages,
-        { text: 'Error al procesar la solicitud', isUser: false },
-      ]);
-    } finally {
-      setIsLoading(false); 
-    }
-  };
+        const historial = mensajes
+            .map((mensaje) => `Role: ${mensaje.role}, Text: ${mensaje.text}`)
+            .join("\n");
+        const instruccion = `
+            ${config.instruccionBase}
+            Usuario: ${input}
+            Historial de la conversación:
+            ${historial}
+            Fecha y hora del este mensaje:
+            Día de la semana: ${diaSemana}, Día: ${dia}, Mes: ${mes}, Año: ${año}, Hora: ${hora}:${minutos}
+            Respuesta:
+        `;
 
-  return (
-    <div className="container">
-      <div className="chat-header">Asesoramiento</div>
-      <div className="chat-messages">
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`message ${
-              message.isUser ? "user-message" : "bot-message"
-            }`}
-          >
-            <div dangerouslySetInnerHTML={{ __html: message.text }} />
-          </div>
-        ))}
-        {isLoading && ( 
-          <div className="message bot-message">
-            <div className="loading-icon" />
-          </div>
-        )}
-      </div>
-      <div className="chat-input">
-        <input type="text" id="inputText" placeholder="Escribe en que puedo ayudarte" />
-        <button id="generateButton" onClick={handleGenerate}>
-          Enviar
-        </button>
-      </div>
-    </div>
-  );
+        try {
+            const textoRespuesta = await enviarMensaje(chat, instruccion, config.generationConfig);
+            const parrafosRespuesta = textoRespuesta.split(/\n\s*\n/).filter(parrafo => parrafo.trim() !== "");
+            const delayEntreMensajes = config.delayEntreMensajes || 100;
+
+            for (let i = 0; i < parrafosRespuesta.length; i++) {
+                const parrafo = parrafosRespuesta[i];
+                const mensajeBot = { role: "model", text: parrafo, diaSemana, dia, mes, año, hora, minutos };
+                setMensajes((prevMensajes) => [...prevMensajes, mensajeBot]);
+                await new Promise(res => setTimeout(res, delayEntreMensajes));
+            }
+        } catch (error) {
+            console.error("Error al generar contenido:", error);
+            setError(config.errores.enviarMensaje);
+        } finally {
+            setEstaCargando(false);
+            setEscribiendo(false);
+        }
+    };
+
+    const procesarMensaje = (texto) => {
+        const partes = texto.split(/(\*\*[^*]+\*\*)/);
+        return partes.map((parte, index) => {
+            if (parte.startsWith("**") && parte.endsWith("**")) {
+                return <strong key={index}>{parte.slice(2, -2)}</strong>;
+            }
+            return <span key={index}>{parte}</span>;
+        });
+    };
+
+    return (
+        <div className="contenedor">
+            <div className="chat-header">Asesoramiento</div>
+            <div className="chat-mensajes">
+                {mensajes.map((msg, index) => (
+                    <div key={index} className={`mensaje ${msg.role}`}>
+                        {procesarMensaje(msg.text)}
+                        <div className="mensaje-hora">{`${msg.diaSemana}, ${msg.dia}/${msg.mes}/${msg.año}, Hora: ${msg.hora}:${msg.minutos}`}</div>
+                    </div>
+                ))}
+                {escribiendo && (
+                    <div className="mensaje mensaje-bot">
+                        <span>Escribiendo...</span>
+                    </div>
+                )}
+            </div>
+            <form className="chat-input" onSubmit={manejarGeneracion}>
+                <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    placeholder={config.inputPlaceholder}
+                    aria-label="Campo para escribir mensaje"
+                    disabled={escribiendo}
+                />
+                <button type="submit">Enviar</button>
+            </form>
+            {error && <div className="error">{error}</div>}
+        </div>
+    );
 }
 
-export default App;
+export default Chat;

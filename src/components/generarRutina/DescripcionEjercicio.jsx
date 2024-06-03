@@ -1,8 +1,8 @@
 import React from "react";
-import "./Componente5.css";
-import sentadillasIcon from "../assets/sentadillas-icon.jpg";
-import flexionesIcon from "../assets/flexiones-icon.jpg";
-import abdominalesIcon from "../assets/abdominales-icon.jpg";
+import "./DescripcionEjercicio.css";
+import sentadillasIcon from "../../assets/sentadillas-icon.jpg";
+import flexionesIcon from "../../assets/flexiones-icon.jpg";
+import abdominalesIcon from "../../assets/abdominales-icon.jpg";
 
 const ExerciseCard = ({ title, description, image }) => {
   return (
@@ -16,7 +16,7 @@ const ExerciseCard = ({ title, description, image }) => {
   );
 };
 
-function Componente5() {
+function DescripcionEjercicio() {
   return (
     <div className="container">
       <ExerciseCard
@@ -38,4 +38,4 @@ function Componente5() {
   );
 }
 
-export default Componente5;
+export default DescripcionEjercicio;

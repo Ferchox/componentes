@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Componente9.css";
+import "./MetasPendientes.css";
 
-function Componente9() {
+function MetasPendientes() {
   const [metas, setMetas] = useState([
     { objetivo: "Meta 1", fechaLimite: "20/04", realizada: true },
     { objetivo: "Meta 2", fechaLimite: "20/06", realizada: false },
@@ -47,4 +47,4 @@ function Componente9() {
   );
 }
 
-export default Componente9;
+export default MetasPendientes;

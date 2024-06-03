@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Componente6";
+import "./FormularioMeta";
 
-function App() {
+function FormularioMeta() {
   const [value, setValue] = useState("");
 
   return (
@@ -25,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default FormularioMeta;
