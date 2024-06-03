@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-const Notificaciones = () => {
-    return (
-        <div>Notificaciones</div>
-    )
-}
+const Notificaciones = ({ notificaciones }) => {
+  return (
+    <div className="notificaciones-container">
+      {notificaciones.map((notificacion, index) => (
+        <div key={index} className="notificacion">
+          <h2>{notificacion.title}</h2>
+          <p>{notificacion.body}</p>
+          {notificacion.image && <img src={notificacion.image} alt="Icon" />}
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default Notificaciones
+export default Notificaciones;

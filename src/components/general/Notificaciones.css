@@ -5,7 +5,8 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    width: 350px; 
+    width: 350px;
+    background-color: white; 
   }
   
   .notification-icon {
@@ -21,20 +22,19 @@
   
   .notification-title {
     font-size: 18px;
-    color: white;
+    color: black; 
     font-weight: bold;
   }
   
   .notification-body {
     font-size: 14px;
-    color: white;
+    color: black; 
     font-weight: bold;
     margin-top: 5px;
   }
   
   .territorio-notification.notification-container {
-    background-color: black;
-    border: 2px solid orange; 
+    border: 2px solid orange;
   }
   
   .territorio-notification .notification-content {
@@ -43,7 +43,7 @@
   }
   
   .territorio-notification .notification-content img {
-    width: 70px; /* Ajusta el ancho del logo */
+    width: 70px;
     height: auto;
     margin-right: 10px;
   }
