@@ -3,7 +3,7 @@ const CLAVE_API = import.meta.env.VITE_GEMINI_API_KEY;
 export const getApiKey = () => CLAVE_API;
 export const iniciarChat = async (params) => {
     try {
-        const genAI = new GoogleGenerativeAI('AIzaSyC5wwZ2NCDXuMuArJWpXYaf43tEeEogQ5w');
+        const genAI = new GoogleGenerativeAI(CLAVE_API);
         const modelo = genAI.getGenerativeModel({ model: 'gemini-1.5-pro-latest' });
         return { modelo, params };
     } catch (error) {
