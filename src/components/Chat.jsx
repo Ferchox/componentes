@@ -10,13 +10,13 @@ function App() {
       isUser: false,
     },
   ]);
-  const [isLoading, setIsLoading] = useState(false); // Estado para la carga
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGenerate = async () => {
     const inputText = document.getElementById('inputText').value;
     setMessages([...messages, { text: inputText, isUser: true }]);
     document.getElementById('inputText').value = '';
-    setIsLoading(true); // Activar la carga
+    setIsLoading(true);
 
     const API_KEY = 'AIzaSyC5wwZ2NCDXuMuArJWpXYaf43tEeEogQ5w'; 
     const genAI = new GoogleGenerativeAI(API_KEY);
@@ -44,7 +44,7 @@ function App() {
         { text: 'Error al procesar la solicitud', isUser: false },
       ]);
     } finally {
-      setIsLoading(false); // Desactivar la carga, haya o no error
+      setIsLoading(false); 
     }
   };
 
@@ -62,7 +62,7 @@ function App() {
             <div dangerouslySetInnerHTML={{ __html: message.text }} />
           </div>
         ))}
-        {isLoading && ( // Mostrar icono de carga si isLoading es true
+        {isLoading && ( 
           <div className="message bot-message">
             <div className="loading-icon" />
           </div>

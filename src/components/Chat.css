@@ -1,4 +1,3 @@
-/* Estilos globales */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -10,23 +9,23 @@
 .container {
   background-color: black;
   width: 400px;
-  margin: 20px auto; /* Añadido margen superior e inferior */
+  margin: 20px auto; 
   padding: 20px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  color: white; /* Añadido color de texto blanco */
+  color: white; 
 }
 
 .asesoramiento-button {
-  background-color: red; /* Fondo rojo para el botón "Asesoramiento" */
+  background-color: red;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 20px;
-  margin-bottom: 20px; /* Añadido margen inferior */
+  margin-bottom: 20px; 
   font-size: 16px;
 }
 
@@ -36,13 +35,14 @@
     255,
     255,
     0.1
-  ); /* Fondo semi-transparente para la caja de respuesta */
+  );
+  
   border-radius: 10px;
   padding: 15px;
-  margin-bottom: 20px; /* Añadido margen inferior */
+  margin-bottom: 20px;
   width: 100%;
   box-sizing: border-box;
-  overflow-wrap: break-word; /* Ajustar texto largo */
+  overflow-wrap: break-word; 
 }
 
 .initial-message {
@@ -62,11 +62,13 @@
 
 .chat-messages {
   width: 100%;
-  height: 300px; /* Ajusta la altura según necesites */
+  height: 300px; 
   overflow-y: scroll;
   padding: 10px;
   box-sizing: border-box;
   margin-bottom: 10px;
+  font-size: 9px;
+  text-align: justify;
 }
 
 .message {
@@ -74,7 +76,7 @@
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
-  max-width: 80%; /* Ajusta el ancho máximo del mensaje */
+  max-width: 80%;
   clear: both;
 }
 
