@@ -27,7 +27,6 @@ function App() {
       <DescripcionEjerciciosDesplegable />
       <MenuOpciones />
       <DropdownPerfil />
-
       <GeminiChat />
     </>
   );
