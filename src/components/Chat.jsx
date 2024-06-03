@@ -100,8 +100,8 @@ function Chat() {
                     </div>
                 ))}
                 {escribiendo && (
-                    <div className="mensaje mensaje-bot">
-                        <span>Escribiendo...</span>
+                    <div className="mensaje mensaje-bot escribiendo">
+                        <span>Escribiendo.</span>
                     </div>
                 )}
             </div>

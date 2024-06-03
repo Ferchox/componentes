@@ -59,3 +59,36 @@ button:hover {
     color: gray;
     text-align: right;
 }
+
+.mensaje-bot.escribiendo span {
+    display: inline-block;
+    position: relative;
+}
+
+.mensaje-bot.escribiendo span::after {
+    content: '...';
+    display: inline-block;
+    position: absolute;
+    animation: typing 1.5s steps(4, end) infinite;
+}
+
+@keyframes typing {
+
+    0%,
+    20% {
+        content: '.';
+    }
+
+    40% {
+        content: '..';
+    }
+
+    60% {
+        content: '...';
+    }
+
+    80%,
+    100% {
+        content: '';
+    }
+}
