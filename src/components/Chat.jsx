@@ -79,8 +79,6 @@ function Chat() {
         }
     };
 
-
-
     const procesarMensaje = (texto) => {
         const partes = texto.split(/(\*\*[^*]+\*\*)/);
         return partes.map((parte, index) => {
