@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from 'react';
 import "./App.css";
 import Notificaciones from "./components/general/Notificaciones.jsx";
@@ -27,14 +26,7 @@ function App() {
       <DescripcionEjerciciosDesplegable />
       <MenuOpciones />
       <DropdownPerfil />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
       <DescripcionEjerciciosDesplegable />
->>>>>>> de850fa (notificacion)
-=======
-      <DescripcionEjerciciosDesplegable />
->>>>>>> main
     </>
   );
 }
