@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { iniciarChat, enviarMensaje } from "../GeminiApi";
+import { iniciarChat, enviarMensaje } from "../../GeminiApi";
 import "./Chat.css";
-import config from "../data/Configuracion.json";
-import ReactMarkdown from 'react-markdown';
+import config from "../../data/Configuracion.json";
+import FormularioChat from "./FormularioChat";
+import HistorialChat from "./HistorialChat";
 
 function Chat() {
   const [mensajes, setMensajes] = useState(config.mensajesIniciales);
@@ -51,6 +52,7 @@ function Chat() {
       año,
       hora,
       minutos,
+      imagen,
     };
     setMensajes((prevMensajes) => [...prevMensajes, nuevoMensaje]);
     setInput("");
@@ -77,7 +79,7 @@ function Chat() {
         config.generationConfig
       );
 
-      const mensajeBot = {
+      const mensajeIA = {
         role: "model",
         text: textoRespuesta,
         diaSemana,
@@ -86,8 +88,10 @@ function Chat() {
         año,
         hora,
         minutos,
+        imagen:
+          "https://vilmanunez.com/wp-content/uploads/2017/07/curso-bots-facebook.png",
       };
-      setMensajes((prevMensajes) => [...prevMensajes, mensajeBot]);
+      setMensajes((prevMensajes) => [...prevMensajes, mensajeIA]);
     } catch (error) {
       console.error("Error al generar contenido:", error);
       setError(config.errores.enviarMensaje);
@@ -97,37 +101,16 @@ function Chat() {
     }
   };
 
-  const procesarMensaje = (texto) => {
-    return <ReactMarkdown>{texto}</ReactMarkdown>;
-  };
-
   return (
     <div className="contenedor">
-      <div className="chat-mensajes">
-        {mensajes.map((msg, index) => (
-          <div key={index} className={`mensaje ${msg.role}`}>
-            {msg.role === "model" && <ul>{procesarMensaje(msg.text)}</ul>}
-            {msg.role === "user" && <p>{msg.text}</p>}
-            <div className="mensaje-hora">{`${msg.diaSemana}, ${msg.dia}/${msg.mes}/${msg.año}, Hora: ${msg.hora}:${msg.minutos}`}</div>
-          </div>
-        ))}
-        {escribiendo && (
-          <div className="mensaje mensaje-bot escribiendo">
-            <span>Escribiendo.</span>
-          </div>
-        )}
-      </div>
-      <form className="chat-input" onSubmit={manejarGeneracion}>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder={config.inputPlaceholder}
-          aria-label="Campo para escribir mensaje"
-          disabled={escribiendo}
-        />
-        <button type="submit">Enviar</button>
-      </form>
+      <HistorialChat mensajes={mensajes} escribiendo={escribiendo} />
+      <FormularioChat
+        input={input}
+        setInput={setInput}
+        manejarGeneracion={manejarGeneracion}
+        escribiendo={escribiendo}
+        config={config}
+      />
       {error && <div className="error">{error}</div>}
     </div>
   );
