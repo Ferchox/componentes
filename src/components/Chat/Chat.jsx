@@ -20,6 +20,7 @@ function Chat() {
         const respuesta = await fetch('https://picsum.photos/200');
         setImagenAleatoria(respuesta.url);
       } catch (error) {
+        console.error("Error al obtener imagen aleatoria", error);
       }
     };
 
@@ -33,6 +34,7 @@ function Chat() {
         setChat(nuevoChat);
       } catch (error) {
         setError(config.errores.iniciarConversacion);
+        console.error("Error al iniciar conversación", error);
       }
     };
     iniciarConversacion();
@@ -52,6 +54,7 @@ function Chat() {
   const manejarGeneracion = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
+    console.clear();
 
     const { diaSemana, dia, mes, año, hora, minutos } = obtenerFechaHoraActual();
     const nuevoMensaje = {
@@ -82,6 +85,8 @@ function Chat() {
       Día de la semana: ${diaSemana}, Día: ${dia}, Mes: ${mes}, Año: ${año}, Hora: ${hora}:${minutos}
       Respuesta:
     `;
+
+    console.log(instruccion);
 
     let intentos = 0;
     let mensajeEnviado = false;
@@ -126,6 +131,7 @@ function Chat() {
           setMensajes((prevMensajes) => [...prevMensajes, mensajeBot]);
 
           setError(config.errores.enviarMensaje);
+          console.error("Error al enviar mensaje", error);
         }
       }
     }
