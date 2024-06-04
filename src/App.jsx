@@ -16,7 +16,7 @@ import GeminiChat from "./components/Chat/Chat.jsx";
 function App() {
   return (
     <>
-      <Notificaciones />
+      {/* <Notificaciones /> */}
       <DescripcionEjercicio />
       <FormularioMeta />
       <MetasPendientes />

@@ -12,6 +12,20 @@ function Chat() {
   const [error, setError] = useState("");
   const [chat, setChat] = useState(null);
   const [escribiendo, setEscribiendo] = useState(false);
+  const [imagenAleatoria, setImagenAleatoria] = useState('');
+
+  useEffect(() => {
+    const obtenerImagenAleatoria = async () => {
+      try {
+        const respuesta = await fetch('https://picsum.photos/200');
+        setImagenAleatoria(respuesta.url);
+      } catch (error) {
+        // No mostrar error en la consola
+      }
+    };
+
+    obtenerImagenAleatoria();
+  }, []);
 
   useEffect(() => {
     const iniciarConversacion = async () => {
@@ -19,7 +33,7 @@ function Chat() {
         const nuevoChat = await iniciarChat([]);
         setChat(nuevoChat);
       } catch (error) {
-        console.error("Error al iniciar la conversación:", error);
+        // No mostrar error en la consola
         setError(config.errores.iniciarConversacion);
       }
     };
@@ -41,8 +55,7 @@ function Chat() {
     e.preventDefault();
     if (!input.trim()) return;
 
-    const { diaSemana, dia, mes, año, hora, minutos } =
-      obtenerFechaHoraActual();
+    const { diaSemana, dia, mes, año, hora, minutos } = obtenerFechaHoraActual();
     const nuevoMensaje = {
       role: "user",
       text: input,
@@ -52,7 +65,7 @@ function Chat() {
       año,
       hora,
       minutos,
-      imagen,
+      imagen: imagenAleatoria,
     };
     setMensajes((prevMensajes) => [...prevMensajes, nuevoMensaje]);
     setInput("");
@@ -63,42 +76,51 @@ function Chat() {
       .map((mensaje) => `Role: ${mensaje.role}, Text: ${mensaje.text}`)
       .join("\n");
     const instruccion = `
-            ${config.instruccionBase}
-            Usuario: ${input}
-            Historial de la conversación:
-            ${historial}
-            Fecha y hora del este mensaje:
-            Día de la semana: ${diaSemana}, Día: ${dia}, Mes: ${mes}, Año: ${año}, Hora: ${hora}:${minutos}
-            Respuesta:
-        `;
+      ${config.instruccionBase}
+      Usuario: ${input}
+      Historial de la conversación:
+      ${historial}
+      Fecha y hora del este mensaje:
+      Día de la semana: ${diaSemana}, Día: ${dia}, Mes: ${mes}, Año: ${año}, Hora: ${hora}:${minutos}
+      Respuesta:
+    `;
 
-    try {
-      const textoRespuesta = await enviarMensaje(
-        chat,
-        instruccion,
-        config.generationConfig
-      );
+    let intentos = 0;
+    let mensajeEnviado = false;
+    setError("");  // Limpiar error al iniciar el envío
 
-      const mensajeIA = {
-        role: "model",
-        text: textoRespuesta,
-        diaSemana,
-        dia,
-        mes,
-        año,
-        hora,
-        minutos,
-        imagen:
-          "https://vilmanunez.com/wp-content/uploads/2017/07/curso-bots-facebook.png",
-      };
-      setMensajes((prevMensajes) => [...prevMensajes, mensajeIA]);
-    } catch (error) {
-      console.error("Error al generar contenido:", error);
-      setError(config.errores.enviarMensaje);
-    } finally {
-      setEstaCargando(false);
-      setEscribiendo(false);
+    while (intentos < 4 && !mensajeEnviado) {
+      try {
+        const textoRespuesta = await enviarMensaje(
+          chat,
+          instruccion,
+          config.generationConfig
+        );
+
+        const mensajeIA = {
+          role: "model",
+          text: textoRespuesta,
+          diaSemana,
+          dia,
+          mes,
+          año,
+          hora,
+          minutos,
+          imagen: "https://vilmanunez.com/wp-content/uploads/2017/07/curso-bots-facebook.png",
+        };
+        setMensajes((prevMensajes) => [...prevMensajes, mensajeIA]);
+        mensajeEnviado = true;
+      } catch (error) {
+        // No mostrar error en la consola
+        intentos++;
+        if (intentos === 4) {
+          setError(config.errores.enviarMensaje);
+        }
+      }
     }
+
+    setEstaCargando(false);
+    setEscribiendo(false);
   };
 
   return (
