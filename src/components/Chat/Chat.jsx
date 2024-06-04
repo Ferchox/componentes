@@ -20,7 +20,6 @@ function Chat() {
         const respuesta = await fetch('https://picsum.photos/200');
         setImagenAleatoria(respuesta.url);
       } catch (error) {
-        // No mostrar error en la consola
       }
     };
 
@@ -33,7 +32,6 @@ function Chat() {
         const nuevoChat = await iniciarChat([]);
         setChat(nuevoChat);
       } catch (error) {
-        // No mostrar error en la consola
         setError(config.errores.iniciarConversacion);
       }
     };
@@ -87,7 +85,7 @@ function Chat() {
 
     let intentos = 0;
     let mensajeEnviado = false;
-    setError("");  // Limpiar error al iniciar el envío
+    setError("");
 
     while (intentos < 4 && !mensajeEnviado) {
       try {
@@ -111,9 +109,22 @@ function Chat() {
         setMensajes((prevMensajes) => [...prevMensajes, mensajeIA]);
         mensajeEnviado = true;
       } catch (error) {
-        // No mostrar error en la consola
         intentos++;
         if (intentos === 4) {
+          setMensajes((prevMensajes) => prevMensajes.filter((msg) => msg !== nuevoMensaje));
+          const mensajeBot = {
+            role: "model",
+            text: "Parece que hay un problema con ese tema. ¿Podemos hablar de otra cosa?",
+            diaSemana,
+            dia,
+            mes,
+            año,
+            hora,
+            minutos,
+            imagen: "https://vilmanunez.com/wp-content/uploads/2017/07/curso-bots-facebook.png",
+          };
+          setMensajes((prevMensajes) => [...prevMensajes, mensajeBot]);
+
           setError(config.errores.enviarMensaje);
         }
       }
