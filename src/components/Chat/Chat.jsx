@@ -68,7 +68,15 @@ function Chat() {
       minutos,
       imagen: imagenAleatoria,
     };
-    setMensajes((prevMensajes) => [...prevMensajes, nuevoMensaje]);
+
+    setMensajes((prevMensajes) => {
+      const nuevosMensajes = [...prevMensajes, nuevoMensaje];
+      if (nuevosMensajes.length > 7) {
+        nuevosMensajes.shift();
+      }
+      return nuevosMensajes;
+    });
+
     setInput("");
     setEstaCargando(true);
     setEscribiendo(true);
@@ -81,7 +89,7 @@ function Chat() {
       Usuario: ${input}
       Historial de la conversación:
       ${historial}
-      Fecha y hora del este mensaje:
+      Fecha y hora de este mensaje:
       Día de la semana: ${diaSemana}, Día: ${dia}, Mes: ${mes}, Año: ${año}, Hora: ${hora}:${minutos}
       Respuesta:
     `;
@@ -111,7 +119,13 @@ function Chat() {
           minutos,
           imagen: "https://vilmanunez.com/wp-content/uploads/2017/07/curso-bots-facebook.png",
         };
-        setMensajes((prevMensajes) => [...prevMensajes, mensajeIA]);
+        setMensajes((prevMensajes) => {
+          const nuevosMensajes = [...prevMensajes, mensajeIA];
+          if (nuevosMensajes.length > 30) {
+            nuevosMensajes.shift();
+          }
+          return nuevosMensajes;
+        });
         mensajeEnviado = true;
       } catch (error) {
         intentos++;
@@ -128,7 +142,13 @@ function Chat() {
             minutos,
             imagen: "https://vilmanunez.com/wp-content/uploads/2017/07/curso-bots-facebook.png",
           };
-          setMensajes((prevMensajes) => [...prevMensajes, mensajeBot]);
+          setMensajes((prevMensajes) => {
+            const nuevosMensajes = [...prevMensajes, mensajeBot];
+            if (nuevosMensajes.length > 30) {
+              nuevosMensajes.shift();
+            }
+            return nuevosMensajes;
+          });
 
           setError(config.errores.enviarMensaje);
           console.error("Error al enviar mensaje", error);
