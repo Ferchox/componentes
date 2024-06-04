@@ -71,7 +71,7 @@ function Chat() {
 
     setMensajes((prevMensajes) => {
       const nuevosMensajes = [...prevMensajes, nuevoMensaje];
-      if (nuevosMensajes.length > 7) {
+      if (nuevosMensajes.length > 10) {
         nuevosMensajes.shift();
       }
       return nuevosMensajes;
