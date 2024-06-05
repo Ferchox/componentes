@@ -1,5 +1,6 @@
 import React from "react";
 import Mensaje from "./Mensaje";
+import "./MensajeUsuario.css"
 
 const MensajeUsuario = ({ mensaje, nombre }) => {
   return (

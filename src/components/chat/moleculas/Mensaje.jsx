@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Mensaje.css"
 const Mensaje = ({ text, role, imagen }) => {
   return (
     <div className={`mensaje-contenedor-${role}`}>
