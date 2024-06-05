@@ -26,9 +26,9 @@ const InformacionPerfil = () => {
     return (
         <div className='contenedor-informacion-perfil'>
             <ImagenPerfil src={imagenAleatoria} />
-            <EtiquetaInformacion label="Nombre cliente" value={perfil.nombre} />
-            <EtiquetaInformacion label="Edad" value={perfil.edad} />
-            <EtiquetaInformacion label="Sexo" value={perfil.sexo} />
+            <EtiquetaInformacion etiqueta="Nombre cliente" valor={perfil.nombre} />
+            <EtiquetaInformacion etiqueta="Edad" valor={perfil.edad} />
+            <EtiquetaInformacion etiqueta="Sexo" valor={perfil.sexo} />
             <BotonesPerfil />
         </div>
     );

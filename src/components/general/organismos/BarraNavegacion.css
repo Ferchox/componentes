@@ -3,6 +3,8 @@
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #161616;
+    background-color: var(--fondo-gris-oscuro);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
