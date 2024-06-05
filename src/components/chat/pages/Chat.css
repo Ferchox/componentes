@@ -7,9 +7,6 @@
   max-width: 800px;
 }
 
-
-
-
 .mensaje-hora {
   font-size: 0.8em;
   color: gray;
@@ -38,20 +35,16 @@
   animation: typing 1.5s steps(4, end) infinite;
 }
 
-
-
-
-
 form {
   display: flex;
   margin-top: 20px;
 }
 
-
 .error {
   color: red;
   margin-top: 10px;
 }
+
 
 @keyframes typing {
   0%,

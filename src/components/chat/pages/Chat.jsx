@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { iniciarChat, enviarMensaje } from "../../GestorApi";
+import { iniciarChat, enviarMensaje } from "../../../GestorApi";
 import "./Chat.css";
 import config from "../../../data/Configuracion.json";
 import FormularioChat from "../organismos/FormularioChat";
 import HistorialChat from "../organismos/HistorialChat";
+import Cabecera from "../../general/organismos/Cabecera";
+import PiePagina from "../../general/organismos/PiePagina";
 
 function Chat() {
   const [mensajes, setMensajes] = useState(config.mensajesIniciales);
@@ -12,12 +14,12 @@ function Chat() {
   const [error, setError] = useState("");
   const [chat, setChat] = useState(null);
   const [escribiendo, setEscribiendo] = useState(false);
-  const [imagenAleatoria, setImagenAleatoria] = useState('');
+  const [imagenAleatoria, setImagenAleatoria] = useState("");
 
   useEffect(() => {
     const obtenerImagenAleatoria = async () => {
       try {
-        const respuesta = await fetch('https://picsum.photos/200');
+        const respuesta = await fetch("https://picsum.photos/200");
         setImagenAleatoria(respuesta.url);
       } catch (error) {
         console.error("Error al obtener imagen aleatoria", error);
@@ -56,7 +58,8 @@ function Chat() {
     if (!input.trim()) return;
     console.clear();
 
-    const { diaSemana, dia, mes, año, hora, minutos } = obtenerFechaHoraActual();
+    const { diaSemana, dia, mes, año, hora, minutos } =
+      obtenerFechaHoraActual();
     const nuevoMensaje = {
       role: "user",
       text: input,
@@ -117,7 +120,8 @@ function Chat() {
           año,
           hora,
           minutos,
-          imagen: "https://vilmanunez.com/wp-content/uploads/2017/07/curso-bots-facebook.png",
+          imagen:
+            "https://vilmanunez.com/wp-content/uploads/2017/07/curso-bots-facebook.png",
         };
         setMensajes((prevMensajes) => {
           const nuevosMensajes = [...prevMensajes, mensajeIA];
@@ -130,7 +134,9 @@ function Chat() {
       } catch (error) {
         intentos++;
         if (intentos === 4) {
-          setMensajes((prevMensajes) => prevMensajes.filter((msg) => msg !== nuevoMensaje));
+          setMensajes((prevMensajes) =>
+            prevMensajes.filter((msg) => msg !== nuevoMensaje)
+          );
           const mensajeBot = {
             role: "model",
             text: "Parece que hay un problema con ese tema. ¿Podemos hablar de otra cosa?",
@@ -140,7 +146,8 @@ function Chat() {
             año,
             hora,
             minutos,
-            imagen: "https://vilmanunez.com/wp-content/uploads/2017/07/curso-bots-facebook.png",
+            imagen:
+              "https://vilmanunez.com/wp-content/uploads/2017/07/curso-bots-facebook.png",
           };
           setMensajes((prevMensajes) => {
             const nuevosMensajes = [...prevMensajes, mensajeBot];
@@ -161,17 +168,21 @@ function Chat() {
   };
 
   return (
-    <div className="contenedor">
-      <HistorialChat mensajes={mensajes} escribiendo={escribiendo} />
-      <FormularioChat
-        input={input}
-        setInput={setInput}
-        manejarGeneracion={manejarGeneracion}
-        escribiendo={escribiendo}
-        config={config}
-      />
-      {error && <div className="error">{error}</div>}
-    </div>
+    <>
+      <Cabecera />
+      <div className="contenedor">
+        <HistorialChat mensajes={mensajes} escribiendo={escribiendo} />
+        <FormularioChat
+          input={input}
+          setInput={setInput}
+          manejarGeneracion={manejarGeneracion}
+          escribiendo={escribiendo}
+          config={config}
+        />
+        {error && <div className="error">{error}</div>}
+      </div>
+      <PiePagina />
+    </>
   );
 }
 
