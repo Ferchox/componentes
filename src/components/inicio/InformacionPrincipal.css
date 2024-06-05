@@ -38,3 +38,19 @@ p {
     line-height: 1.5;
     margin: 0;
 }
+
+.search-bar {
+    border: 1px solid var(--naranja-claro);
+    border-radius: 30px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    width: 50%; 
+    height: 120px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px; 
+    color: white; 
+}
+  
