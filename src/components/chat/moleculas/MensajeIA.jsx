@@ -1,6 +1,7 @@
 import React from "react";
 import Mensaje from "./Mensaje";
 import ReactMarkdown from "react-markdown";
+import "./MensajeIA.css"
 
 const MensajeIA = ({ mensaje }) => {
   return (

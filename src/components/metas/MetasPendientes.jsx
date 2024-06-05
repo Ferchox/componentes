@@ -6,6 +6,7 @@ function MetasPendientes() {
   const [metas, setMetas] = useState([
     { objetivo: "Meta 1", fechaLimite: "20/04", realizada: true },
     { objetivo: "Meta 2", fechaLimite: "20/06", realizada: false },
+    {objetivo:"Meta 3", fechaLimite: "20/09", realizada:false},
   ]);
 
   const handleCheck = (index) => {

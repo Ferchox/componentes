@@ -1,6 +1,7 @@
 import React from "react";
-import Input from "./atoms/Input";
-import Button from "./atoms/Button";
+import Input from "../atomos/Input";
+import Button from "../atomos/Button";
+import "./FormularioChat.css"
 
 const FormularioChat = ({ input, setInput, manejarGeneracion, escribiendo, config }) => {
   return (

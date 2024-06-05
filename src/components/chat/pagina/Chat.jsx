@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { iniciarChat, enviarMensaje } from "../../GestorApi";
 import "./Chat.css";
-import config from "../../data/Configuracion.json";
-import FormularioChat from "./FormularioChat";
-import HistorialChat from "./HistorialChat";
+import config from "../../../data/Configuracion.json";
+import FormularioChat from "../organismos/FormularioChat";
+import HistorialChat from "../organismos/HistorialChat";
 
 function Chat() {
   const [mensajes, setMensajes] = useState(config.mensajesIniciales);
