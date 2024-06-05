@@ -1,6 +1,6 @@
 import React from 'react';
 import "./App.css";
-import Perfil from "./components/chat/pages/Chat.jsx"
+import Perfil from "./components/perfilCliente/pages/Perfil"
 
 function App() {
   return (
