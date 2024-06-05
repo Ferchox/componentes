@@ -2,7 +2,6 @@ import React from "react";
 import bienvenidoaTF from "../../assets/bienvenidoa-tf.jpeg";
 import telefonoGym from "../../assets/telefono-gym.jpeg";
 import "./InformacionPrincipal.css";
-import gymLogo from "../../assets/gym-logo.jpg";
 
 const data = [
   {
@@ -20,16 +19,17 @@ const data = [
 const InformacionPrincipal = () => {
   return (
     <div className="pantalla-principal">
-      {data.map((item, index) => (
-        <div key={index} className="seccion">
-          <h3>{item.title}</h3>
-          <div className="contenido">
-            <img src={item.image} alt={item.title} />
-            <p>{item.description}</p>
+      <div className="seccion">
+        {data.map((item, index) => (
+          <div key={index} className="seccion-item">
+            <h3>{item.title}</h3>
+            <div className="contenido">
+              <img src={item.image} alt={item.title} />
+              <p>{item.description}</p>
+            </div>
           </div>
-        </div>
-      ))}
-      <img src={gymLogo} alt="Logo del gimnasio" className="logo-gimnasio" />
+        ))}
+      </div>
       <div className="search-bar">Contactos</div>
     </div>
   );
