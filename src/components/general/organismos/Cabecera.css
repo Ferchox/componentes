@@ -1,9 +1,9 @@
 .contenedor-cabecera {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 10px 20px;
-    background-color: #f8f9fa;
+    background-color: #202020;
     border-bottom: 1px solid #dee2e6;
 }
 
