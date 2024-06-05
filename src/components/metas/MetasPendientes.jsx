@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./MetasPendientes.css";
+import gymLogo from "../../assets/gym-logo.jpg"; 
 
 function MetasPendientes() {
   const [metas, setMetas] = useState([
@@ -15,6 +16,10 @@ function MetasPendientes() {
 
   return (
     <div className="container">
+      <img src={gymLogo} alt="Gym Logo" className="gym-logo" /> 
+      <div className="metas-info">
+        <span>Metas actuales</span>
+      </div>
       <div className="tabla-container">
         <div className="header">Metas</div>
         <table className="table">
@@ -42,9 +47,15 @@ function MetasPendientes() {
           </tbody>
         </table>
       </div>
-      <button>Aceptar</button>
+      <button className="button">Aceptar</button>
+      <div className="nueva-meta">
+        <span>Crear nueva meta</span>
+      </div>
+      <button className="crear-meta-button">Crear meta</button>
+      <div className="search-bar">Contactos</div>
     </div>
   );
 }
 
 export default MetasPendientes;
+

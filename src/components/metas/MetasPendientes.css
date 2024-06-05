@@ -61,8 +61,62 @@ button {
   border-radius: 20px;
   width: 140px;
   padding: 10px 20px;
+  margin-top: 20px; 
 }
 
 .button:hover {
   border-color: var(--verde-lima);
+}
+
+.gym-logo {
+  width: 170px;
+  margin-bottom: 20px;
+}
+
+.metas-info {
+  border: 2px solid red;
+  border-radius: 20px;
+  padding: 5px 25px;
+  background: linear-gradient(
+    to right,
+    var(--morado-oscuro) 0%,
+    red 50%,
+    var(--morado-oscuro) 100%
+  );
+  font-size: 0.9em;
+  width: 200px; 
+  margin-top: -30px; 
+  margin-left: -120px; 
+  white-space: nowrap; 
+}
+
+.nueva-meta {
+  border: 2px solid red;
+  border-radius: 20px;
+  padding: 5px 25px;
+  background: linear-gradient(
+    to right,
+    var(--morado-oscuro) 0%,
+    red 50%,
+    var(--morado-oscuro) 100%
+  );
+  font-size: 0.9em;
+  width: 200px; 
+  margin-top: -10px; 
+  margin-left: -120px; 
+  white-space: nowrap; 
+}
+
+
+.search-bar {
+  border: 1px solid var(--naranja-claro);
+  border-radius: 30px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+  width: 50%; 
+  height: 120px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
