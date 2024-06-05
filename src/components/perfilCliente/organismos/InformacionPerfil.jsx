@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import InformacionArticulo from '../moleculas/InformacionArticulo';
-import ImagenPerfil from '../atomos/ImagenPerfil';
 import './InformacionPerfil.css';
+import ImagenPerfil from '../moleculas/ImagenPerfil';
+import EtiquetaInformacion from '../moleculas/EtiquetaInformacion';
 
 const InformacionPerfil = () => {
     const [perfil, setPerfil] = useState({
@@ -24,12 +24,10 @@ const InformacionPerfil = () => {
 
     return (
         <div className='contenedor-informacion-perfil'>
-            <div className='contenedor-imagen-perfil'>
-                <ImagenPerfil src={imagenAleatoria} />
-            </div>
-            <InformacionArticulo label="Nombre cliente" value={perfil.nombre} />
-            <InformacionArticulo label="Edad" value={perfil.edad} />
-            <InformacionArticulo label="Sexo" value={perfil.sexo} />
+            <ImagenPerfil src={imagenAleatoria} />
+            <EtiquetaInformacion label="Nombre cliente" value={perfil.nombre} />
+            <EtiquetaInformacion label="Edad" value={perfil.edad} />
+            <EtiquetaInformacion label="Sexo" value={perfil.sexo} />
         </div>
     );
 }

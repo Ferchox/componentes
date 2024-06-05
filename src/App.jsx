@@ -17,19 +17,19 @@ import GeminiChat from "./components/chat/Chat.jsx";
 function App() {
   return (
     <>
-      {/* <Notificaciones /> */}
+      {/* <Notificaciones /> */}{/* 
       <DescripcionEjercicio />
       <FormularioMeta />
       <MetasPendientes />
-      <GraficoEvaluacionUsuario />
-      <Perfil />
+      <GraficoEvaluacionUsuario /> */}
+      <Perfil />{/* 
       <InformacionPrincipal />
       <SeleccionParteCuerpo />
       <DescripcionEjerciciosDesplegable />
       <MenuOpciones />
       <DropdownPerfil />
       <DescripcionEjerciciosDesplegable />
-      <GeminiChat />
+      <GeminiChat /> */}
     </>
   );
 }
