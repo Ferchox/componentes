@@ -1,6 +1,7 @@
 import React from "react";
-import MensajeUsuario from "./MensajeUsuario";
-import MensajeIA from "./MensajeIA";
+import MensajeUsuario from "../moleculas/MensajeUsuario";
+import MensajeIA from "../moleculas/MensajeIA";
+import "./HistorialChat.css"
 
 const HistorialChat = ({ mensajes, escribiendo }) => {
   return (

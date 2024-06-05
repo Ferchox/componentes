@@ -1,0 +1,6 @@
+.mensaje-contenedor-user {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  margin-bottom: 15px;
+}

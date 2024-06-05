@@ -11,7 +11,7 @@ import SeleccionParteCuerpo from "./components/generarRutina/SeleccionParteCuerp
 import GraficoEvaluacionUsuario from "./components/evaluacionUsuario/GraficoEvaluacionUsuario.jsx";
 import DescripcionEjerciciosDesplegable from "./components/generarRutina/DescripcionEjerciciosDesplegable.jsx";
 import MenuOpciones from "./components/general/MenuOpciones.jsx";
-import GeminiChat from "./components/chat/Chat.jsx";
+import GeminiChat from "./components/chat/pagina/Chat.jsx";
 
 function App() {
   return (
