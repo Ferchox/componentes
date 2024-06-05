@@ -29,27 +29,7 @@ const InformacionPrincipal = () => {
           </div>
         </div>
       ))}
-      <img src={logoGimnasio} alt="Logo del gimnasio" className="logo-gimnasio" />
-      <h3>Sobre nosotros</h3>
-      <div className="sobre-nosotros">
-        <img src={bienvenidoaTF} alt="Bienvenido a TF" />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita hic
-          fugiat a voluptates nobis sequi velit, numquam sunt incidunt, minima
-          sed modi veniam necessitatibus voluptas earum repellendus atque neque
-          consectetur.
-        </p>
-      </div>
-      <h3>¿Qué te ofrece esta web?</h3>
-      <div className="sobre-nosotros">
-        <img src={telefonoGym} alt="Telefono en gimnasio" />
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-          animi rem, dolore rerum saepe non aspernatur porro possimus magnam
-          beatae explicabo nam, eveniet minus perspiciatis hic enim? Veniam,
-          porro cupiditate!
-        </p>
-      </div>
+      <img src={gymLogo} alt="Logo del gimnasio" className="logo-gimnasio" />
       <div className="search-bar">Contactos</div>
     </div>
   );
