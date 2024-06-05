@@ -1,11 +1,11 @@
 import React from 'react';
 import "./App.css";
-import Perfil from "./components/perfilCliente/pages/Perfil"
+import CrearMeta from "./components/metas/pages/Metas"
 
 function App() {
   return (
     <>
-      <Perfil />
+      <CrearMeta />
     </>
   );
 }
