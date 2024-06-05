@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-const CLAVE_API = import.meta.env.VITE_GEMINI_API_KEY;
+const CLAVE_API = import.meta.env.VITE_API_KEY;
 
 export const getApiKey = () => CLAVE_API;
 
