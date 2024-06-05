@@ -2,10 +2,12 @@ import React from "react";
 import bienvenidoaTF from "../../assets/bienvenidoa-tf.jpeg";
 import telefonoGym from "../../assets/telefono-gym.jpeg";
 import "./InformacionPrincipal.css";
+import logoGimnasio from "../../assets/gym-logo.jpg";
 
 const InformacionPrincipal = () => {
   return (
     <div className="pantalla-principal">
+      <img src={logoGimnasio} alt="Logo del gimnasio" className="logo-gimnasio" />
       <h3>Sobre nosotros</h3>
       <div className="sobre-nosotros">
         <img src={bienvenidoaTF} alt="Bienvenido a TF" />
@@ -26,6 +28,7 @@ const InformacionPrincipal = () => {
           porro cupiditate!
         </p>
       </div>
+      <div className="search-bar">Contactos</div>
     </div>
   );
 };
