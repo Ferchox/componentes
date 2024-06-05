@@ -4,7 +4,8 @@ import Notificaciones from "./components/general/Notificaciones.jsx";
 import DescripcionEjercicio from "./components/generarRutina/DescripcionEjercicio.jsx";
 import FormularioMeta from "./components/crearMetas/FormularioMeta.jsx";
 import MetasPendientes from "./components/metas/MetasPendientes.jsx";
-import InformacionPerfil from "./components/perfilCliente/InformacionPerfil.jsx";
+import Perfil from "./components/perfilCliente/pagina/Perfil.jsx"
+
 import InformacionPrincipal from "./components/inicio/InformacionPrincipal.jsx";
 import DropdownPerfil from "./components/general/DropdownPerfil.jsx";
 import SeleccionParteCuerpo from "./components/generarRutina/SeleccionParteCuerpo.jsx";
@@ -21,7 +22,7 @@ function App() {
       <FormularioMeta />
       <MetasPendientes />
       <GraficoEvaluacionUsuario />
-      <InformacionPerfil />
+      <Perfil />
       <InformacionPrincipal />
       <SeleccionParteCuerpo />
       <DescripcionEjerciciosDesplegable />

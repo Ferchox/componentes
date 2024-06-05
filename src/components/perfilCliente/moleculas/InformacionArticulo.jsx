@@ -1,10 +1,11 @@
 import React from 'react';
-import Label from './Label';
+import Etiqueta from '../atomos/Etiqueta';
+import './InformacionArticulo.css'
 
 const InformacionArticulo = ({ label, value }) => {
     return (
         <div className='contenedor-informacion'>
-            <Label text={`${label}: ${value}`} />
+            <Etiqueta text={`${label}: ${value}`} />
         </div>
     );
 }

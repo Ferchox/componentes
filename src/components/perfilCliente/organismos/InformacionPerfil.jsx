@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import InformacionItem from './InformacionItem';
-import ImagenPerfil from './ImagenPerfil';
+import InformacionArticulo from '../moleculas/InformacionArticulo';
+import ImagenPerfil from '../atomos/ImagenPerfil';
 import './InformacionPerfil.css';
 
 const InformacionPerfil = () => {
@@ -27,9 +27,9 @@ const InformacionPerfil = () => {
             <div className='contenedor-imagen-perfil'>
                 <ImagenPerfil src={imagenAleatoria} />
             </div>
-            <InformacionItem label="Nombre cliente" value={perfil.nombre} />
-            <InformacionItem label="Edad" value={perfil.edad} />
-            <InformacionItem label="Sexo" value={perfil.sexo} />
+            <InformacionArticulo label="Nombre cliente" value={perfil.nombre} />
+            <InformacionArticulo label="Edad" value={perfil.edad} />
+            <InformacionArticulo label="Sexo" value={perfil.sexo} />
         </div>
     );
 }
