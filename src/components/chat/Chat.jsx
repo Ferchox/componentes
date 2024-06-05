@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { iniciarChat, enviarMensaje } from "../../GeminiApi";
+import { iniciarChat, enviarMensaje } from "../../GestorApi";
 import "./Chat.css";
 import config from "../../data/Configuracion.json";
 import FormularioChat from "./FormularioChat";
@@ -71,7 +71,7 @@ function Chat() {
 
     setMensajes((prevMensajes) => {
       const nuevosMensajes = [...prevMensajes, nuevoMensaje];
-      if (nuevosMensajes.length > 10) {
+      if (nuevosMensajes.length > 9) {
         nuevosMensajes.shift();
       }
       return nuevosMensajes;

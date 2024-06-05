@@ -1,0 +1,13 @@
+.contenedor-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #202020;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.logo-gym {
+    width: 170px;
+    margin-bottom: 20px;
+}
