@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './InformacionPerfil.css';
 import ImagenPerfil from '../moleculas/ImagenPerfil';
 import EtiquetaInformacion from '../moleculas/EtiquetaInformacion';
+import BotonesPerfil from '../moleculas/BotonesPerfil';
 
 const InformacionPerfil = () => {
     const [perfil, setPerfil] = useState({
@@ -28,6 +29,7 @@ const InformacionPerfil = () => {
             <EtiquetaInformacion label="Nombre cliente" value={perfil.nombre} />
             <EtiquetaInformacion label="Edad" value={perfil.edad} />
             <EtiquetaInformacion label="Sexo" value={perfil.sexo} />
+            <BotonesPerfil />
         </div>
     );
 }
