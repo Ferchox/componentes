@@ -27,11 +27,11 @@ function MetasPendientes() {
       </div>
       <TablaMetas metas={metas} handleCheck={handleCheck} />
       <BarraProgreso porcentaje={porcentajeCompletado} />
-      <button className="button">Aceptar</button>
+      <button>Aceptar</button>
       <div className="nueva-meta">
         <span>Crear nueva meta</span>
       </div>
-      <button className="crear-meta-button">Crear meta</button>
+      <button>Crear meta</button>
     </div>
   );
 }

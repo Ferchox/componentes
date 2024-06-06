@@ -1,9 +1,9 @@
-h1 {
+.titulo-text {
   font-size: 20px;
+  color: var(--blanco);
 }
 
 .container {
-  background: #e26972;
   width: auto;
   margin: 0 auto 20px;
   padding: 20px;
@@ -39,13 +39,16 @@ input[type="text"] {
 }
 
 .crear-meta {
-  border-radius: 20px;
-  padding: 5px 25px;
-  background: #572c57;
-  font-size: 14px;
-  width: 200px;
-  margin-top: -20px;
-  margin-left: -120px;
-  white-space: nowrap;
-  box-shadow: #9f5f91 3px 3px;
+  background-color: var(--morado-oscuro);
+  width: 25%;
+  color: var(--blanco);
+  padding: 15px 30px;
+  border-radius: 25px;
+  text-align: center;
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgb(0, 0, 0);
 }

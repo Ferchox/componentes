@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./CrearMeta.css";
-import Cabecera from "../../general/organismos/Cabecera.jsx";
-import PiePagina from "../../general/organismos/PiePagina.jsx";
+import BarraNavegacion from "../../general/organismos/BarraNavegacion";
+import Cabecera from "../../general/organismos/Cabecera";
+import PiePagina from "../../general/organismos/PiePagina";
+
 import FormularioMeta from "../organismos/FormularioMeta.jsx";
 
 function CrearMeta() {
@@ -10,6 +12,7 @@ function CrearMeta() {
   return (
     <>
       <Cabecera />
+      <BarraNavegacion />
       <FormularioMeta />
       <PiePagina />
     </>

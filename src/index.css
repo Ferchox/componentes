@@ -1,11 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 :root {
-<<<<<<< HEAD
-  background-color: #242424;
-  color: rgba(255, 255, 255, 0.87);
-  font-family: 'Inter';
-=======
   --blanco: #F5F5F5;
   --morado-claro: #9F5F91;
   --morado-oscuro: #7c4c7cf6;
@@ -43,5 +38,4 @@ button {
 
 a {
   color: var(--amarillo-claro);
->>>>>>> 6d79b54015d666601f99356e79350925ce05d601
 }
