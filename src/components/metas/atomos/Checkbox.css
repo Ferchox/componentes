@@ -1,0 +1,36 @@
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .checkbox::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .checkbox:checked::before {
+    opacity: 1;
+  }
