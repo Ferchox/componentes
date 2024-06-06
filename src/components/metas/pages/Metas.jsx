@@ -7,12 +7,12 @@ import BarraNavegacion from '../../general/organismos/BarraNavegacion';
 
 function Metas() {
   return (
-    <>
+    <div className="contenedor-metas">
       <Cabecera />
       <BarraNavegacion />
       <MetasPendientes />
       <PiePagina />
-    </>
+    </div>
   );
 }
 

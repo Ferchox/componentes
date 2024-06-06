@@ -171,9 +171,9 @@ function Chat() {
   };
 
   return (
-    <>
+    <div className="contenedor-chat-fondo">
       <Cabecera />
-      <BarraNavegacion/>
+      <BarraNavegacion />
       <div className="contenedor-chat">
         <HistorialChat mensajes={mensajes} escribiendo={escribiendo} />
         <FormularioChat
@@ -186,7 +186,7 @@ function Chat() {
         {error && <div className="error">{error}</div>}
       </div>
       <PiePagina />
-    </>
+    </div>
   );
 }
 

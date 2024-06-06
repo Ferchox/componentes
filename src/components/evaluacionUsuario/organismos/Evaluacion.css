@@ -1,9 +1,13 @@
-.App {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    background-color: #3b3b3bf6;
-    margin-left: 35%;
-  }
+.contenedor-evaluacion {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #fafafa10;
+  background: #fafafa10;
+  backdrop-filter: blur(10rem);
+  padding: 1rem;
+  border-radius: 15px;
+  width: 100%;
+  margin: 30px auto;
+  position: relative;
+  z-index: 1;
+}

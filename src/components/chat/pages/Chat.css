@@ -11,8 +11,14 @@
   margin: 0 auto;
   padding: 20px;
   max-width: 800px;
-  color: var(--blanco);
 }
+
+.contenedor-chat-fondo {
+  background-image: url('../../../assets/fondo-perfil.png');
+  background-size: cover;
+  background-position: center;
+}
+
 .mensaje-hora {
   font-size: 0.8em;
   color: gray;
@@ -67,6 +73,7 @@ form {
 }
 
 @keyframes typing {
+
   0%,
   20% {
     content: ".";

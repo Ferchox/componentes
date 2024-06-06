@@ -12,11 +12,7 @@
   position: relative;
   z-index: 1;
 }
-#root{
-  background-image: url('../../../assets/fondo-perfil.png');
-  background-size: cover;
-  background-position: center;
-}
+
 .tit {
   width: 100%;
   max-width: 400px;
@@ -28,12 +24,10 @@
 h1 {
   margin: 30px;
   margin-left: -50px;
-  background: linear-gradient(
-    to right,
-    var(--gris) 0%,
-    var(--verde-lima) 50%,
-    var(--gris) 100%
-  );
+  background: linear-gradient(to right,
+      var(--gris) 0%,
+      var(--verde-lima) 50%,
+      var(--gris) 100%);
   border-radius: 10px;
 }
 

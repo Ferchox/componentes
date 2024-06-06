@@ -6,13 +6,13 @@ function FormularioMeta() {
   const [value, setValue] = useState("");
 
   return (
-    <div className="container">
-      <div className="crear-meta">
+    <div className="registro-formulario-metas">
+      <div>
         <span>Crear nueva meta</span>
       </div>
-      <h1 className="titulo-text">Título de meta</h1>
+      <h1 className="crear-meta">Título de meta</h1>
       <input type="text" />
-      <h1 className="titulo-text">Seleccionar fecha límite:</h1>
+      <h1 className="crear-meta">Seleccionar fecha límite:</h1>
       <InputFecha />
       <button className="button">Aceptar</button>
     </div>
