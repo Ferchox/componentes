@@ -12,11 +12,7 @@
   position: relative;
   z-index: 1;
 }
-#root{
-  background-image: url('../../assets/fondo-perfil.png');
-  background-size: cover;
-  background-position: center;
-}
+
 .title {
   color: #7c4c7cf6;
   margin-bottom: 20px;

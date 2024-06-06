@@ -6,9 +6,9 @@ import GraficoEvaluacionUsuario from '../moleculas/GraficoEvaluacionUsuario';
 function Evaluacion() {
 
   return (
-    <div className="App">
+    <div className="contenedor-evaluacion">
       < DescripcionEvaluacionUsuario />
-      <GraficoEvaluacionUsuario /> 
+      <GraficoEvaluacionUsuario />
     </div>
   );
 }

@@ -5,7 +5,7 @@ function InputFecha() {
   const [value, setValue] = useState("");
 
   return (
-    <input
+    <input className="entrada-fecha"
       type="date"
       value={value}
       onChange={(e) => setValue(e.target.value)}

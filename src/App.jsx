@@ -1,13 +1,10 @@
 import React from 'react';
 import "./App.css";
-// import InicioSesion from './components/inicioSesionUsuario/pages/InicioSesion'
-import Chat from './components/chat/pages/Chat'
-
+import Rutas from './routes/Rutas';
 function App() {
   return (
     <>
-        {/* <InicioSesion/> */}
-        <Chat/>
+        <Rutas/>
     </>
   );
 }
