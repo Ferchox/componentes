@@ -8,6 +8,7 @@ import Cabecera from "../../general/organismos/Cabecera";
 import PiePagina from "../../general/organismos/PiePagina";
 import DropdownPerfil from "../../general/moleculas/DropdownPerfil";
 import MenuOpciones from "../../general/moleculas/MenuOpciones";
+import BarraNavegacion from "../../general/organismos/BarraNavegacion";
 
 function Chat() {
   const [mensajes, setMensajes] = useState(config.mensajesIniciales);
@@ -172,11 +173,8 @@ function Chat() {
   return (
     <>
       <Cabecera />
-      <div className="navegacion">
-        <MenuOpciones />
-        <DropdownPerfil />
-      </div>
-      <div className="contenedor">
+      <BarraNavegacion/>
+      <div className="contenedor-chat">
         <HistorialChat mensajes={mensajes} escribiendo={escribiendo} />
         <FormularioChat
           input={input}

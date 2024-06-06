@@ -2,11 +2,8 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    
     gap: 20px;
     padding: 20px;
-    width:375px;
-    background-color: black;
     margin-left: 35%;
   }
   .tit {

@@ -26,7 +26,6 @@ const trainers = [
     description: 'Entrenadora de pectorales superiores e inferiores.',
     specialties: ['Pecho', 'Espalda'] 
   }
-  // Añadir más entrenadores si es necesario
 ];
 
 function Entrenadores() {

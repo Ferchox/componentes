@@ -1,13 +1,11 @@
 import React from 'react';
 import "./App.css";
-import Registro from './components/registroUsuario/pages/Registro'
-import InicioSesion from './components/inicioSesionUsuario/pages/InicioSesion'
+import EvaluacionUsuario from './components/evaluacionUsuario/pages/EvaluacionUsuario'
 
 function App() {
   return (
     <>
-      <InicioSesion />
-
+        <EvaluacionUsuario/>
     </>
   );
 }

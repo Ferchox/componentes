@@ -1,5 +1,5 @@
 import React from 'react';
-import './DescripcioEvaluacionUsuario.css';
+import './DescripcioEvaluacion.css';
 
 function DescripcioEvaluacionUsuario() {
 

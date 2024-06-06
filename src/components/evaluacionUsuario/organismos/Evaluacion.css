@@ -2,10 +2,8 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    
     gap: 20px;
     padding: 20px;
-    width:375px;
     background-color: #3b3b3bf6;
     margin-left: 35%;
   }
