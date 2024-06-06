@@ -6,7 +6,7 @@ import InicioSesion from './components/inicioSesionUsuario/pages/InicioSesion'
 function App() {
   return (
     <>
-      <Registro />
+      <InicioSesion />
 
     </>
   );
