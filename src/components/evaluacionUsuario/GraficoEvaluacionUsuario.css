@@ -2,8 +2,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid #fafafa10;
+  background: #fafafa10;
+  backdrop-filter: blur(10rem);
+  padding: 1rem;
+  border-radius: 15px;
+  width: 90%;
+  margin: 30px auto;
+  position: relative;
+  z-index: 1;
 }
-
+#root{
+  background-image: url('../../assets/fondo-perfil.png');
+  background-size: cover;
+  background-position: center;
+}
 .title {
   color: orange;
   margin-bottom: 20px;
