@@ -1,3 +1,9 @@
+#root {
+  background-image: url("../../../assets/fondo-perfil.png");
+  background-size: cover;
+  background-position: center;
+}
+
 .contenedor {
   display: flex;
   flex-direction: column;
@@ -5,6 +11,7 @@
   margin: 0 auto;
   padding: 20px;
   max-width: 800px;
+  color: var(--blanco);
 }
 
 .mensaje-hora {
@@ -48,8 +55,8 @@ form {
 .navegacion {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
-  width: 100%; 
+  align-items: center;
+  width: 100%;
 }
 
 @keyframes typing {
