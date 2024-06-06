@@ -41,7 +41,6 @@
     padding: 5px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-weight: bold;
 }
 
 .menu-lista li:hover {

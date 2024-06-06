@@ -1,0 +1,5 @@
+.contenedor-inicio-sesion {
+    background-image: url('../../../assets/fondo-inicio-sesion.png');
+    background-size: cover;
+    background-position: center;
+}

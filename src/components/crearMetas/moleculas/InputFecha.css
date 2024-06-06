@@ -1,0 +1,13 @@
+input[type="date"] {
+    padding: 10px;
+    color: white;
+    font-family: "Inter", sans-serif;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 300px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background: #9F5F91;
+    background-size: 20px 20px;
+  }
