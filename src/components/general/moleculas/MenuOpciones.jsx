@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import "./MenuOpciones.css";
@@ -7,6 +7,23 @@ const MenuOpciones = () => {
   const [estaAbierto, setEstaAbierto] = useState(false);
   const [rutinasAbierto, setRutinasAbierto] = useState(false);
   const [infoMaquinasAbierto, setInfoMaquinasAbierto] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setEstaAbierto(false);
+        setRutinasAbierto(false);
+        setInfoMaquinasAbierto(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setEstaAbierto(!estaAbierto);
@@ -21,7 +38,7 @@ const MenuOpciones = () => {
   };
 
   return (
-    <div className="menu-opciones">
+    <div className="menu-opciones" ref={menuRef}>
       <button onClick={toggleMenu} className="menu-boton-desplegar">
         <FontAwesomeIcon icon={faBars} />
       </button>
