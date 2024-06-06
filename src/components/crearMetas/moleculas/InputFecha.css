@@ -1,20 +1,13 @@
-.contenedor-entrada-fecha {
-  height: auto;
-  width: 80%;
-  margin: 0.5rem 0;
-  border: 2px solid var(--rosa);
-  padding: 0.75rem;
-  border-radius: 15px;
-  background-color: var(--fondo-gris-oscuro);
-  color: var(--blanco);
-  font-family: 'Inter', sans-serif;
-}
-
-.contenedor-entrada-fecha .campo-texto-fecha {
-
+.entrada-fecha {
   padding: 10px;
+  color: white;
+  font-family: "Inter", sans-serif;
+  border-radius: 20px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+  box-sizing: border-box;
   margin-bottom: 10px;
-  width: 100%;
+  background: #9F5F91;
+  background-size: 20px 20px;
 }
