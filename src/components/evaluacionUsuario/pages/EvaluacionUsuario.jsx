@@ -6,7 +6,7 @@ import PiePagina from "../../general/organismos/PiePagina.jsx";
 import BarraNavegacion from "../../general/organismos/BarraNavegacion";
 function EvaluacionUsuario() {
   return (
-    <div className="contenedor">
+    <div className="contenedor-evaualcion-usuario">
       <Cabecera />
       <BarraNavegacion />
       <Evaluacion />

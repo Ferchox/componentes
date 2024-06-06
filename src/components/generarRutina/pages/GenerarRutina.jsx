@@ -7,13 +7,13 @@ import EtiquetaPag from '../moleculas/EtiquetaPag'
 
 const GenerarRutina = () => {
   return (
-    <>
+    <div className='generarRutina-container'>
       <Cabecera />
       <BarraNavegacion />
       <SeleccionParteCuerpo />
       <EtiquetaPag />
       <PiePagina />
-    </>
+    </div>
   )
 }
 
