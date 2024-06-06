@@ -12,7 +12,3 @@
     transition: background-color 0.3s ease;
     box-shadow: 0 4px 8px rgb(0, 0, 0);
 }
-
-.contenedor-etiqueta-pagina:hover {
-    background-color: var(--rosa);
-}
