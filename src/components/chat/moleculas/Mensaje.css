@@ -42,3 +42,6 @@
   padding: 10px;
   flex-grow: 1;
 }
+.mensaje-texto p{
+  color: var(--blanco);
+}
