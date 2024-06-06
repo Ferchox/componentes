@@ -5,7 +5,7 @@ const ImagenPerfil = ({ src }) => {
     return (
         <div className='contenedor-imagen-perfil'>
             {src ? (
-                <img src={src} alt="Perfil aleatorio" className="imagen-perfil" />
+                <img src={src} alt="Perfil" className="imagen-perfil" />
             ) : (
                 <div>Cargando imagen...</div>
             )}

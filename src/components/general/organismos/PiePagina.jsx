@@ -7,9 +7,13 @@ import './PiePagina.css';
 const PiePagina = () => {
     return (
         <footer className="contenedor-pie-pagina">
-            <Copyright />
-            <Email />
-            <RedesSociales />
+            <div className='pie-texto'>
+                <Copyright />
+                <Email />
+            </div>
+            <div className='redes-sociales'>
+                <RedesSociales />
+            </div>
         </footer>
     );
 };
