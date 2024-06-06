@@ -1,11 +1,13 @@
 import React from 'react';
 import "./App.css";
-import EvaluacionUsuario from './components/evaluacionUsuario/pages/EvaluacionUsuario'
+// import InicioSesion from './components/inicioSesionUsuario/pages/InicioSesion'
+import Chat from './components/chat/pages/Chat'
 
 function App() {
   return (
     <>
-        <EvaluacionUsuario/>
+        {/* <InicioSesion/> */}
+        <Chat/>
     </>
   );
 }
