@@ -8,7 +8,7 @@ function FormularioMeta() {
   return (
     <div className="registro-formulario-metas">
       <div>
-        <span>Crear nueva meta</span>
+        <h2>Crear nueva meta</h2>
       </div>
       <h1 className="crear-meta">Título de meta</h1>
       <input type="text" />
