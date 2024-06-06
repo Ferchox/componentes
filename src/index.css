@@ -1,7 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 :root {
+<<<<<<< HEAD
   background-color: #242424;
   color: rgba(255, 255, 255, 0.87);
   font-family: 'Inter';
+=======
+  --blanco: #F5F5F5;
+  --morado-claro: #9F5F91;
+  --morado-oscuro: #7c4c7cf6;
+  --rosa: #eb878e;
+  --amarillo-claro: #F6EA98;
+  --fondo-blanco: #FFFFFF;
+  --fondo-gris-claro: #E0E0E0;
+  --fondo-negro: #000000;
+  --fondo-gris-oscuro: #3b3b3bf6;
+  --fondo-beige-claro: #F5F5DC;
+  --fondo-azul-claro: #ADD8E6;
+  --fondo-verde-menta: #F0FFF0;
+}
+
+body {
+  background-color: var(--fondo-negro);
+  color: var(--blanco);
+  font-family: 'Inter', sans-serif;
+  padding: 0px;
+}
+
+h1 {
+  color: var(--morado-claro);
+}
+
+p {
+  color: var(--morado-oscuro);
+}
+
+button {
+  background-color: var(--rosa);
+  color: var(--blanco);
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  color: var(--amarillo-claro);
+>>>>>>> 6d79b54015d666601f99356e79350925ce05d601
 }

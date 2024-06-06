@@ -1,11 +1,12 @@
 import React from 'react';
 import "./App.css";
-import CrearMeta from "./components/metas/pages/Metas"
+import Chat from "./components/chat/pages/Chat.jsx"
 
 function App() {
   return (
     <>
-      <CrearMeta />
+      <Chat/>
+      
     </>
   );
 }

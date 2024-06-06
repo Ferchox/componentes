@@ -1,47 +1,38 @@
-:root {
-    --naranja-oscuro: #ff4500;
-    --naranja-claro: #ff5100;
-    --morado-oscuro: #9A4747;
-}
-
 .menu-opciones {
     position: relative;
     display: inline-block;
 }
 
 .menu-boton-desplegar {
-    background: linear-gradient(to right,
-            var(--morado-oscuro) 0%,
-            var(--naranja-claro) 50%,
-            var(--morado-oscuro) 100%);
-    color: white;
+    background: var(--morado-oscuro);
+    color: var(--blanco);
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
     width: 60px;
     cursor: pointer;
     font-size: 1.2em;
-    transition: border-color 0.3s;
-    border: 1px solid var(--naranja-claro);
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
 }
 
 .menu-boton-desplegar:hover {
-    border: 1px solid var(--naranja-claro);
+    background-color: var(--rosa);
 }
 
 .menu-lista {
-    width: 510%;
+    width: 540%;
     flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
-    background: linear-gradient(to right, var(--morado-oscuro) 0%, var(--naranja-claro) 50%, var(--morado-oscuro) 100%);
-    color: white;
+    background: var(--fondo-gris-oscuro);
+    color: var(--blanco);
     border-radius: 20px;
     padding: 10px 0;
     list-style: none;
     margin: 2px;
-    border: 1px solid var(--naranja-claro);
+    border: 2px solid #fafafa10;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -54,7 +45,7 @@
 }
 
 .menu-lista li:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--morado-claro);
 }
 
 .sub-item {

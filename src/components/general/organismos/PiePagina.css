@@ -1,11 +1,29 @@
 .contenedor-pie-pagina {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    width: 100%;
-    bottom: 0;
-    clear: both;
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #fafafa10;
+    background: #fafafa10;
+    backdrop-filter: blur(50rem);
+    border-top: 1px solid var(--rosa);
+}
+
+.pie-texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.pie-texto p {
+    margin: 5px 0;
+    color: var(--blanco);
+}
+
+.redes-sociales a {
+    margin-right: 10px;
+    color: var(--blanco);
+}
+
+.redes-sociales a:hover {
+    color: var(--morado-claro);
 }

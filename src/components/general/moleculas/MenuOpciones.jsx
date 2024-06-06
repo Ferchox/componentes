@@ -1,41 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import "./MenuOpciones.css";
 
 const MenuOpciones = () => {
   const [estaAbierto, setEstaAbierto] = useState(false);
   const [rutinasAbierto, setRutinasAbierto] = useState(false);
   const [infoMaquinasAbierto, setInfoMaquinasAbierto] = useState(false);
+  const menuRef = useRef(null);
 
-  const botonDesplegable = () => {
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setEstaAbierto(false);
+        setRutinasAbierto(false);
+        setInfoMaquinasAbierto(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  const toggleMenu = () => {
     setEstaAbierto(!estaAbierto);
   };
 
-  const alternarRutinas = () => {
+  const toggleRutinas = () => {
     setRutinasAbierto(!rutinasAbierto);
   };
 
-  const alternarInfoMaquinas = () => {
+  const toggleInfoMaquinas = () => {
     setInfoMaquinasAbierto(!infoMaquinasAbierto);
   };
 
   return (
-    <div className="menu-opciones">
-      <button onClick={botonDesplegable} className="menu-boton-desplegar">
+    <div className="menu-opciones" ref={menuRef}>
+      <button onClick={toggleMenu} className="menu-boton-desplegar">
         <FontAwesomeIcon icon={faBars} />
       </button>
       {estaAbierto && (
         <ul className="menu-lista">
           <li>Inicio</li>
-          <li onClick={alternarInfoMaquinas}>Información de máquinas general</li>
+          <li onClick={toggleInfoMaquinas}>
+            Información de máquinas general{" "}
+            <FontAwesomeIcon icon={infoMaquinasAbierto ? faAngleUp : faAngleDown} />
+          </li>
           {infoMaquinasAbierto && (
             <>
               <li className="sub-item">Información de máquinas disponibles</li>
               <li className="sub-item">Escanear máquina</li>
             </>
           )}
-          <li onClick={alternarRutinas}>Rutinas</li>
+          <li onClick={toggleRutinas}>
+            Rutinas <FontAwesomeIcon icon={rutinasAbierto ? faAngleUp : faAngleDown} />
+          </li>
           {rutinasAbierto && (
             <>
               <li className="sub-item">Generar mi propia rutina</li>

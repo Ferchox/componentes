@@ -1,7 +1,8 @@
 .contenedor-imagen-perfil {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .imagen-perfil {
     border-radius: 50%;
+    border: 3px solid var(--morado-claro);
 }
