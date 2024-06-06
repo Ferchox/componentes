@@ -1,12 +1,11 @@
 import React from 'react';
 import "./App.css";
-import GenerarRutina from './components/generarRutina/pages/GenerarRutina'
-import Metas from './components/metas/pages/Metas'
+import EvaluacionUsuario from './components/evaluacionUsuario/pages/EvaluacionUsuario'
 
 function App() {
   return (
     <>
-        <Metas/>
+        <EvaluacionUsuario/>
     </>
   );
 }
