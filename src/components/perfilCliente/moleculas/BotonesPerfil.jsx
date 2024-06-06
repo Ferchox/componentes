@@ -5,7 +5,7 @@ const BotonesPerfil = () => {
     return (
         <div>
             <button className='boton'>Ver historial de evaluaciones</button>
-            <button className='boton'>Registrar evaluacion</button>
+            <button className='boton'>Registrar evaluación</button>
         </div>
     )
 }

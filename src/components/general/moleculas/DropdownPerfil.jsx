@@ -7,6 +7,7 @@ import {
   faDoorOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import "./DropdownPerfil.css";
+
 const DropdownPerfil = () => {
   const [isOpen, setIsOpen] = useState(false);
 

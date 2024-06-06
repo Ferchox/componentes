@@ -1,10 +1,10 @@
 import React from 'react';
 import './EtiquetaInformacion.css'
 
-const EtiquetaInformacion = ({ label, value }) => {
+const EtiquetaInformacion = ({ etiqueta, valor }) => {
     return (
         <div className='contenedor-informacion'>
-            <label>{label}: {value}</label>
+            <label>{etiqueta}: {valor}</label>
         </div>
     );
 }
