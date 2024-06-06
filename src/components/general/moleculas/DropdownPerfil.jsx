@@ -5,20 +5,24 @@ import {
   faCheck,
   faChartBar,
   faDoorOpen,
+  faAngleDown,
+  faAngleUp
 } from "@fortawesome/free-solid-svg-icons";
 import "./DropdownPerfil.css";
 
 const DropdownPerfil = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [icon, setIcon] = useState(faAngleDown);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+    setIcon(isOpen ? faAngleDown : faAngleUp);
   };
 
   return (
     <div className="dropdown">
       <button onClick={toggleDropdown} className="dropdown-toggle">
-        Usuario
+        Usuario <FontAwesomeIcon icon={icon} />
       </button>
       {isOpen && (
         <ul className="dropdown-menu">
