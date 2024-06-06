@@ -1,0 +1,43 @@
+.App {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+    gap: 20px;
+    padding: 20px;
+    width:375px;
+    background-color: black;
+    margin-left: 35%;
+  }
+  .tit {
+    margin-top:-40px;
+    margin-left:20%;
+    
+    padding: 20px;
+}
+
+.titulo > h3{
+    background: linear-gradient(to right,
+            var(--morado-oscuro) 0%,
+            var(--naranja-claro) 50%,
+            var(--morado-oscuro) 100%);
+    margin-left: 30px; 
+    border-radius: 10px;
+    width:120px;
+    height:30px;
+    text-align:center;
+}
+
+h5 {
+    text-align:left;
+    color: white;
+    border: 2px solid #00FF85;
+    border-radius: 10px; 
+    display: inline-block; 
+    padding: 5px 10px; 
+    align-items: flex-start;
+    margin-left: -100px;
+    margin-top: 0px;
+    margin-bottom: -10px;
+}
+  
