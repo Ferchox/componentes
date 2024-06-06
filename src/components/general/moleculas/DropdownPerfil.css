@@ -1,18 +1,3 @@
-:root {
-  --blanco: #F5F5F5;
-  --morado-claro: #9F5F91;
-  --morado-oscuro: #572C57;
-  --rosa: #E26972;
-  --amarillo-claro: #F6EA98;
-  --fondo-blanco: #FFFFFF;
-  --fondo-gris-claro: #E0E0E0;
-  --fondo-negro: #000000;
-  --fondo-gris-oscuro: #333333;
-  --fondo-beige-claro: #F5F5DC;
-  --fondo-azul-claro: #ADD8E6;
-  --fondo-verde-menta: #F0FFF0;
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -34,17 +19,19 @@
 }
 
 .dropdown-menu {
+  width: 150%;
+  flex-direction: column;
   position: absolute;
   top: 100%;
-  left: 0;
-  z-index: 1000;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  right: 0;
   background: var(--fondo-gris-oscuro);
+  color: var(--blanco);
   border-radius: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--rosa);
+  padding: 10px 0;
+  list-style: none;
+  margin: 2px;
+  border: 2px solid #fafafa10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown-menu li {
