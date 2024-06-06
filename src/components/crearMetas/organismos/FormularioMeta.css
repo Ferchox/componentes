@@ -1,53 +1,21 @@
-.titulo-text {
-  font-size: 20px;
-  color: var(--blanco);
-}
-
-.container {
-  width: auto;
-  margin: 0 auto 20px;
-  padding: 20px;
+.registro-formulario-metas {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
-}
-
-input[type="text"] {
-  padding: 10px;
-  color: #f5f5f5;
-  border-radius: 20px;
-  font-size: 16px;
-  width: 300px;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  background: #9f5f91;
-}
-
-.button {
-  color: #f5f5f5;
-  background: #572c57;
-  border-radius: 20px;
-  width: 140px;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-}
-
-.button:hover {
-  border-color: #9f5f91;
+  padding: 50px;
+  border: 2px solid #fafafa10;
+  background: #fafafa10;
+  backdrop-filter: blur(4rem);
+  border-radius: 10px;
+  width: 60%;
+  max-width: 400px;
+  margin: auto;
 }
 
 .crear-meta {
-  background-color: var(--morado-oscuro);
-  width: 25%;
-  color: var(--blanco);
-  padding: 15px 30px;
-  border-radius: 25px;
-  text-align: center;
-  display: inline-block;
-  font-family: 'Inter', sans-serif;
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 8px rgb(0, 0, 0);
+  display: flex;
+  align-items: start;
+  padding: 0px;
+  margin-right: 238px;
+  font-size: 14px;
 }
