@@ -1,0 +1,19 @@
+.boton-registro-usuario {
+    background-color: var(--morado-claro);
+    color: var(--blanco);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
+}
+
+.boton-registro-usuario:hover {
+    background-color: var(--rosa);
+}

@@ -1,12 +1,13 @@
 import React from 'react';
 import "./App.css";
-import Chat from "./components/chat/pages/Chat.jsx"
+import Registro from './components/registroUsuario/pages/Registro'
+import InicioSesion from './components/inicioSesionUsuario/pages/InicioSesion'
 
 function App() {
   return (
     <>
-      <Chat/>
-      
+      <Registro />
+
     </>
   );
 }
