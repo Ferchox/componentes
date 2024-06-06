@@ -1,7 +1,7 @@
 import React from 'react';
-import './DescripcionEvaluacionUsuario.css';
+import './DescripcioEvaluacionUsuario.css';
 
-function DescripcionEvaluacionUsuario() {
+function DescripcioEvaluacionUsuario() {
 
   return (
     <div className="App">
@@ -13,4 +13,4 @@ function DescripcionEvaluacionUsuario() {
   );
 }
 
-export default DescripcionEvaluacionUsuario;
+export default DescripcioEvaluacionUsuario;

@@ -2,9 +2,18 @@ import React from "react";
 import "./GraficoEvaluacionUsuario.css";
 
 function GraficoEvaluacionUsuario() {
+  <div className="selector" tabIndex="0" onKeyDown={handleKeyPress}>
+      <h2><span dangerouslySetInnerHTML={{ __html: '&#8592;' }} />
+        {opciones[opcionSeleccionada]}
+        <span dangerouslySetInnerHTML={{ __html: '&#8594;' }} /></h2>
+  </div>
   return (
     <div className="container">
-      <h1 className="title">CUADRO DE EVOLUCIÓN</h1>
+      <div className="selector" tabIndex="0" onKeyDown={handleKeyPress}>
+         <h2><span dangerouslySetInnerHTML={{ __html: '&#8592;' }} />
+          {opciones[opcionSeleccionada]}
+          <span dangerouslySetInnerHTML={{ __html: '&#8594;' }} /></h2>
+      </div>
       <div className="progress-container">
         <div className="day-percentage">
           <div className="day">Lunes</div>
