@@ -1,18 +1,14 @@
 .contenedor-etiqueta-pag {
     background-color: var(--morado-oscuro);
-    width: 20%; 
-    color: var(--blanco);  
-    padding: 15px 30px;  
-    border-radius: 25px;  
+    width: 20%;
+    color: var(--blanco);
+    padding: 15px 30px;
+    border-radius: 25px;
     text-align: center;
     display: inline-block;
-    font-family: 'Inter', sans-serif;  
-    font-size: 1.2em; 
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2em;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgb(0, 0, 0); 
-}
-
-.contenedor-etiqueta-pag:hover {
-    background-color: var(--rosa);  
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
 }

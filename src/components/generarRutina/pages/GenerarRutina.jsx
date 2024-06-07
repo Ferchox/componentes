@@ -4,14 +4,15 @@ import Cabecera from '../../general/organismos/Cabecera'
 import SeleccionParteCuerpo from '../../generarRutina/organismos/SeleccionParteCuerpo'
 import PiePagina from '../../general/organismos/PiePagina'
 import EtiquetaPag from '../moleculas/EtiquetaPag'
+import './GenerarRutina.css'
 
 const GenerarRutina = () => {
   return (
-    <div className='generarRutina-container'>
+    <div className='generar-rutina-container'>
       <Cabecera />
       <BarraNavegacion />
-      <SeleccionParteCuerpo />
       <EtiquetaPag />
+      <SeleccionParteCuerpo />
       <PiePagina />
     </div>
   )
