@@ -1,4 +1,4 @@
-.container {
+.container-grafico {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,9 +13,20 @@
   z-index: 1;
 }
 
-.title {
-  color: #7c4c7cf6;
-  margin-bottom: 20px;
+.container-grafico h1{
+  background-color: var(--morado-claro);
+  color: var(--blanco);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2em;
+  transition: background-color 0.3s;
+  display: block;
+  width: 200px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
+  text-align: center;
 }
 
 .progress-container {

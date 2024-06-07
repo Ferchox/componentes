@@ -1,9 +1,3 @@
-#root {
-  background-image: url("../../../assets/fondo-perfil.png");
-  background-size: cover;
-  background-position: center;
-}
-
 .contenedor {
   display: flex;
   flex-direction: column;
@@ -14,7 +8,7 @@
 }
 
 .contenedor-chat-fondo {
-  background-image: url('../../../assets/fondo-perfil.png');
+  background-image: url("../../../assets/fondo-perfil.png");
   background-size: cover;
   background-position: center;
 }
@@ -73,7 +67,6 @@ form {
 }
 
 @keyframes typing {
-
   0%,
   20% {
     content: ".";
