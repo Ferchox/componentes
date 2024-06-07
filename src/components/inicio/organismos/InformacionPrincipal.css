@@ -33,6 +33,7 @@
 
 .imagen-tarjeta {
     min-width: 70%;
+    max-width: 71%;
     height: auto;
     object-fit: cover;
     border-radius: 10px;
