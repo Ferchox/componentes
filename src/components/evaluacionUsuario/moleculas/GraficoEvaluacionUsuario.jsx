@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from 'react';
 import "./GraficoEvaluacionUsuario.css";
-
 function GraficoEvaluacionUsuario() {
+  const [opcionSeleccionada, setOpcionSeleccionada] = useState(0);
   const opciones = ["Muscular", "Resistencia", "Cardio", "Fuerza"];
 
   const handleKeyPress = (event) => {
