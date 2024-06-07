@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import InformacionPrincipal from '../components/inicio/InformacionPrincipal'
+import Inicio from '../components/inicio/pages/Inicio';
 import InicioSesionUsuario from '../components/inicioSesionUsuario/pages/InicioSesion'
 import RegistroUsuario from '../components/registroUsuario/pages/Registro'
 import Chat from '../components/chat/pages/Chat'
@@ -17,7 +17,7 @@ const Rutas = () => {
         <>
             <Router>
                 <Routes>
-                    <Route path="/" element={<InformacionPrincipal />} />
+                    <Route path="/" element={<Inicio />} />
                     <Route path="/IniciarSesionUsuario" element={<InicioSesionUsuario />} />
                     <Route path="/RegistroUsuario" element={<RegistroUsuario />} />
                     <Route path='/Chat' element={<Chat />} />
