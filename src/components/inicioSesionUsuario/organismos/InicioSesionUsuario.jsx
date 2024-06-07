@@ -29,12 +29,14 @@ const InicioSesionUsuario = ({ onSubmit }) => {
                 valor={contrasena}
                 onChange={(e) => setContrasena(e.target.value)}
             />
-            <BotonInicioSesion onClick={handleSubmit} />
+            <NavLink to='/'>
+                <BotonInicioSesion/>
+            </NavLink>
             ¿Aún no tienes cuenta?,
             <NavLink to='/RegistroUsuario'>
                 haz click aquí
             </NavLink>
-        </form>
+        </form >
     );
 };
 

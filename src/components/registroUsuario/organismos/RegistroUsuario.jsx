@@ -66,7 +66,10 @@ const RegistroUsuario = ({ onSubmit }) => {
                 valor={sexo}
                 onChange={(e) => setSexo(e.target.value)}
             />
-            <BotonRegistroUsuario onClick={handleSubmit} />
+
+            <NavLink to='/'>
+                <BotonRegistroUsuario />
+            </NavLink>
             ¿Ya tienes una cuenta?,
             <NavLink to='/IniciarSesionUsuario'>
                 haz click aquí
