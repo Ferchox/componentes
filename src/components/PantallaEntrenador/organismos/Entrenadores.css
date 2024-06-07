@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .AppEntrenador {
+    text-align: center;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .button-container button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #fafafa10;
+    background: #fafafa10;
+    backdrop-filter: blur(10rem);
+    padding: 1rem;
+    border-radius: 15px;
+    width: 90%;
+    margin: 30px auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .button-container button:hover {
+    border: 2px solid #fafafa10;
+    background: #fafafa10;
+  }
+  
+  .trainer-container {
+    margin-top: 20px;
+  }
+  
+  .trainer-container button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #fafafa10;
+    background: #fafafa10;
+    backdrop-filter: blur(10rem);
+    padding: 1rem;
+    border-radius: 15px;
+    width: 90%;
+    margin: 30px auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .trainer-container button:hover {
+    border: 2px solid #fafafa10;
+    background: #fafafa10;
+  }
+  
+  .trainer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #fafafa10;
+    background: #fafafa10;
+    backdrop-filter: blur(10rem);
+    padding: 1rem;
+    border-radius: 15px;
+    width: 90%;
+    margin: 30px auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #fafafa10;
+    background: #fafafa10;
+    backdrop-filter: blur(10rem);
+    padding: 1rem;
+    border-radius: 15px;
+    width: 90%;
+    margin: 30px auto;
+    position: relative;
+    z-index: 1;
+  }
+  
