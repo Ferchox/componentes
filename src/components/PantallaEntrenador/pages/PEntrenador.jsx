@@ -7,12 +7,12 @@ import './PEntrenador.css'
 
 const PEntrenador = () => {
   return (
-    <>
+    <div className='entrenador-container'>
       <Cabecera />
-      <BarraNavegacion />  
-      <Funciones/>
+      <BarraNavegacion />
+      <Funciones />
       <PiePagina />
-    </>
+    </div>
   )
 }
 

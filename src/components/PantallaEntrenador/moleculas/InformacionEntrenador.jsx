@@ -1,20 +1,20 @@
 import React from 'react';
 
-function InformacionEntrenador({ entrenador, seleccionarEntrenador }) {
+function InfoEntrenador({ entrenador, seleccionarEntrenador }) {
   return (
     <div className="trainer-info">
       <h3>{entrenador.nombre}</h3>
-      <p><strong>Horario:</strong> {entrenador.horario}</p>
-      <p><strong>Descripción:</strong> {entrenador.descripcion}</p>
+      <p>{entrenador.horario}</p>
+      <p>{entrenador.descripcion}</p>
       <h4>Especialidades:</h4>
       <ul>
-        {entrenador.especialidades.map(especialidad => (
-          <li key={especialidad}>{especialidad}</li>
+        {entrenador.especialidades.map((especialidad, index) => (
+          <li key={index}>{especialidad}</li>
         ))}
       </ul>
-      <button onClick={() => seleccionarEntrenador(entrenador)}>Elegir Entrenador</button>
+      <button onClick={() => seleccionarEntrenador(entrenador)}>Seleccionar</button>
     </div>
   );
 }
 
-export default InformacionEntrenador;
+export default InfoEntrenador;

@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
 import BotonesEntrenadores from '../moleculas/BotonesEntrenador';
 import InfoEntrenador from '../moleculas/InformacionEntrenador';
-import './Entrenadores.css'
+import './Entrenadores.css';
 
 const entrenadores = [
-  { 
-    nombre: 'Juan Perez', 
-    horario: 'Lunes a Viernes - 6am a 8am', 
+  {
+    nombre: 'Juan Pérez',
+    horario: 'Lunes a Viernes - 6am a 8am',
     descripcion: 'Especialista en cuádriceps y glúteos.',
-    especialidades: ['Pierna', 'Glúteos'] 
+    especialidades: ['Pierna', 'Glúteos']
   },
-  { 
-    nombre: 'Ana Gómez', 
-    horario: 'Lunes a Viernes - 5pm a 7pm', 
+  {
+    nombre: 'Ana Gómez',
+    horario: 'Lunes a Viernes - 5pm a 7pm',
     descripcion: 'Experta en fortalecimiento de pantorrillas.',
-    especialidades: ['Pantorrillas', 'Pierna'] 
+    especialidades: ['Pantorrillas', 'Pierna']
   },
-  { 
-    nombre: 'Carlos López', 
-    horario: 'Lunes a Viernes - 7am a 9am', 
+  {
+    nombre: 'Carlos López',
+    horario: 'Lunes a Viernes - 7am a 9am',
     descripcion: 'Se enfoca en pectorales y deltoides.',
-    especialidades: ['Pecho', 'Hombro'] 
+    especialidades: ['Pecho', 'Hombro']
   },
-  { 
-    nombre: 'María Fernández', 
-    horario: 'Lunes a Viernes - 6pm a 8pm', 
+  {
+    nombre: 'María Fernández',
+    horario: 'Lunes a Viernes - 6pm a 8pm',
     descripcion: 'Entrenadora de pectorales superiores e inferiores.',
-    especialidades: ['Pecho', 'Espalda'] 
+    especialidades: ['Pecho', 'Espalda']
   }
   // Añadir más entrenadores si es necesario
 ];
@@ -43,7 +43,7 @@ function Entrenadores() {
   };
 
   return (
-    <div className="AppEntrenador">
+    <div className="contenedor-entrenadores">
       <div className="header">
         <h1>Generar mi propia rutina</h1>
       </div>

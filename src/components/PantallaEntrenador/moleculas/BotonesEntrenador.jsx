@@ -1,10 +1,10 @@
 import React from 'react';
 
-function BotonesEntrenador({ entrenadores, mostrarInfoEntrenador }) {
+function BotonesEntrenadores({ entrenadores, mostrarInfoEntrenador }) {
   return (
     <div className="button-container">
-      {entrenadores.map(entrenador => (
-        <button key={entrenador.nombre} onClick={() => mostrarInfoEntrenador(entrenador)}>
+      {entrenadores.map((entrenador, index) => (
+        <button key={index} onClick={() => mostrarInfoEntrenador(entrenador)}>
           {entrenador.nombre}
         </button>
       ))}
@@ -12,4 +12,4 @@ function BotonesEntrenador({ entrenadores, mostrarInfoEntrenador }) {
   );
 }
 
-export default BotonesEntrenador;
+export default BotonesEntrenadores;
