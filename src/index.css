@@ -28,6 +28,7 @@ h1 {
 
 p {
   color: var(--blanco);
+  text-align: justify;
 }
 
 button {
