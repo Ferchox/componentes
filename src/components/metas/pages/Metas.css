@@ -1,18 +1,5 @@
-.contenedor-crear-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fafafa10;
-  backdrop-filter: blur(10rem);
-  padding: 1rem;
-  width: 90%;
-  margin: 30px auto;
-  position: relative;
-  z-index: 1;
-}
-
-#root{
-  background-image: url("../../../assets/fondo-perfil.png");
+.contenedor-metas {
+  background-image: url('../../../assets/fondo-inicio-sesion.png');
   background-size: cover;
   background-position: center;
 }

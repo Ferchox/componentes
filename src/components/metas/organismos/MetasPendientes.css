@@ -1,11 +1,16 @@
-.container {
-  width: auto;
-  margin: 0 auto 20px;
-  padding: 20px;
+.contenedor-meta-pendiente {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
+  border: 2px solid #fafafa10;
+  background: #fafafa10;
+  backdrop-filter: blur(10rem);
+  padding: 1rem;
+  border-radius: 15px;
+  width: 60%;
+  margin: 30px auto;
+  position: relative;
+  z-index: 1;
 }
 
 .header {

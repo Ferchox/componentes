@@ -21,7 +21,7 @@ function MetasPendientes() {
   const porcentajeCompletado = (metasRealizadas / totalMetas) * 100 || 0;
 
   return (
-    <div className="container">
+    <div className="contenedor-meta-pendiente">
       <div className="metas-info">
         <span>Metas actuales</span>
       </div>
