@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavLink } from 'react-router-dom';
 import {
   faUser,
   faCheck,
@@ -41,18 +42,26 @@ const DropdownPerfil = () => {
       </button>
       {isOpen && (
         <ul className="dropdown-menu">
-          <li>
-            <FontAwesomeIcon icon={faUser} /> Ver mi perfil
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faCheck} /> Metas
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faChartBar} /> Ver progreso
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faDoorOpen} /> Cerrar sesión
-          </li>
+          <NavLink to='/PerfilCliente'>
+            <li>
+              <FontAwesomeIcon icon={faUser} /> Ver mi perfil
+            </li>
+          </NavLink>
+          <NavLink to='/Metas'>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Metas
+            </li>
+          </NavLink>
+          <NavLink to='/EvaluacionUsuario'>
+            <li>
+              <FontAwesomeIcon icon={faChartBar} /> Ver progreso
+            </li>
+          </NavLink>
+          <NavLink to='/IniciarSesionUsuario'>
+            <li>
+              <FontAwesomeIcon icon={faDoorOpen} /> Cerrar sesión
+            </li>
+          </NavLink>
         </ul>
       )}
     </div>

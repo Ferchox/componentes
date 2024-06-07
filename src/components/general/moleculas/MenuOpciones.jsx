@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import "./MenuOpciones.css";
+import { NavLink } from 'react-router-dom';
 
 const MenuOpciones = () => {
   const [estaAbierto, setEstaAbierto] = useState(false);
@@ -44,15 +45,21 @@ const MenuOpciones = () => {
       </button>
       {estaAbierto && (
         <ul className="menu-lista">
-          <li>Inicio</li>
+          <NavLink to='/'>
+            <li>Inicio</li>
+          </NavLink>
           <li onClick={toggleInfoMaquinas}>
             Información de máquinas general{" "}
             <FontAwesomeIcon icon={infoMaquinasAbierto ? faAngleUp : faAngleDown} />
           </li>
           {infoMaquinasAbierto && (
             <>
-              <li className="sub-item">Información de máquinas disponibles</li>
-              <li className="sub-item">Escanear máquina</li>
+              <NavLink to='/InfoMaquinas'>
+                <li className="sub-item">Información de máquinas disponibles</li>
+              </NavLink>
+              <NavLink to='/InfoMaquinas'>
+                <li className="sub-item">Escanear máquina</li>
+              </NavLink>
             </>
           )}
           <li onClick={toggleRutinas}>
@@ -60,14 +67,26 @@ const MenuOpciones = () => {
           </li>
           {rutinasAbierto && (
             <>
-              <li className="sub-item">Generar mi propia rutina</li>
-              <li className="sub-item">Generar rutina con IA</li>
-              <li className="sub-item">Rutina con instructor</li>
-              <li className="sub-item">Ver rutina</li>
+              <NavLink to='/GenerarRutina'>
+                <li className="sub-item">Generar mi propia rutina</li>
+              </NavLink>
+              <NavLink to='/GenerarRutina'>
+                <li className="sub-item">Generar rutina con IA</li>
+              </NavLink>
+              <NavLink to='/Entrenadores'>
+                <li className="sub-item">Rutina con instructor</li>
+              </NavLink>
+              <NavLink to='/Entrenadores'>
+                <li className="sub-item">Ver rutina</li>
+              </NavLink>
             </>
           )}
-          <li>Ver evolución</li>
-          <li>Asesoramiento</li>
+          <NavLink to='/EvaluacionUsuario'>
+            <li>Ver evolución</li>
+          </NavLink>
+          <NavLink to='/Chat'>
+            <li>Asesoramiento</li>
+          </NavLink>
         </ul>
       )}
     </div>
