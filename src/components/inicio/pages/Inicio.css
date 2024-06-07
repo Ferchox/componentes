@@ -1,0 +1,5 @@
+.contenedor-inicio {
+    background-image: url('../../../assets/fondo-perfil.png');
+    background-size: cover;
+    background-position: center;
+}
