@@ -2,8 +2,4 @@
   background-image: url('../../../assets/fondo-registro.png');
   background-size: cover;
   background-position: center;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  background-color: #3b3b3bf6;
 }

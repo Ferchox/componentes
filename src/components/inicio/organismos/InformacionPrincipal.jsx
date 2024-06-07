@@ -1,6 +1,6 @@
 import React from "react";
-import bienvenidoaTF from "../../assets/bienvenidoa-tf.jpeg";
-import telefonoGym from "../../assets/telefono-gym.jpeg";
+import bienvenidoaTF from "../../../assets/bienvenidoa-tf.jpeg";
+import telefonoGym from "../../../assets/telefono-gym.jpeg";
 import "./InformacionPrincipal.css";
 
 const data = [
