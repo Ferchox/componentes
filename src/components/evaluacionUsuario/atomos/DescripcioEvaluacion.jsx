@@ -2,12 +2,13 @@ import React from 'react';
 import './DescripcioEvaluacion.css';
 
 function DescripcioEvaluacionUsuario() {
-
   return (
-    <div className="App">
-      <div className="titulo"><h3>Evolución</h3></div>
-      <div className="descripcion-evolucion">
-        <h5>Hola cliente, esta es tu evolución en el gimnasio. No te olvides que puedes seleccionar el musculo al que quieras ver su progreso</h5>
+    <div className="contenedor-evaluacion-usuario-descripcion">
+      <div className="titulo-descripcion-evaluacion-usuario">
+        <h3 className="titulo">Evolución</h3>
+      </div>
+      <div className="descripcion-evaluacion">
+        <p>Hola cliente, esta es tu evolución en el gimnasio. No te olvides que puedes seleccionar el músculo al que quieras ver su progreso.</p>
       </div>
     </div>
   );

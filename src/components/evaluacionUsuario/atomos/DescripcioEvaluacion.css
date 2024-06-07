@@ -1,4 +1,4 @@
-.App {
+.contenedor-evaluacion-usuario-descripcion {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -6,37 +6,33 @@
   padding: 20px;
 }
 
-.descripcion-evolucion {
-  margin-top: -40px;
-  padding: 20px;
+.titulo-descripcion-evaluacion-usuario {
+  display: flex;
+  justify-content: center;
 }
 
-.titulo > h3 {
+.titulo {
   background-color: var(--morado-claro);
   color: var(--blanco);
   padding: 12px 24px;
   border: none;
   border-radius: 25px;
-  cursor: pointer;
   font-size: 1.2em;
   transition: background-color 0.3s;
-  display: block;
-  width: 100%;
-  margin-bottom: 15px;
-  margin-top: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
-  text-align: center;
 }
 
-.descripcion-evolucion h5{
-  color: white;
-  height: auto;
-  width: 80%;
-  margin: 0.5rem 0;
+.descripcion-evaluacion {
+  padding: 20px;
+}
+
+.descripcion-evaluacion p {
+  color: var(--blanco);
   border: 2px solid var(--rosa);
   padding: 0.75rem;
   border-radius: 15px;
   background-color: var(--fondo-gris-oscuro);
-  color: var(--blanco);
   font-family: "Inter", sans-serif;
+  font-size: 1em;
+  margin: 0.5rem 0;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import InformacionPrincipal from '../InformacionPrincipal'
+import InformacionPrincipal from '../organismos/InformacionPrincipal'
 import BarraNavegacion from '../../general/organismos/BarraNavegacion';
 import Cabecera from '../../general/organismos/Cabecera';
 import PiePagina from '../../general/organismos/PiePagina';
