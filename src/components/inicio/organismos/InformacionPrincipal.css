@@ -1,4 +1,4 @@
-.pantalla-principal {
+.pantalla-inicial{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,11 +7,17 @@
     backdrop-filter: blur(10rem);
     padding: 1rem;
     border-radius: 15px;
-    width: 90%;
+    width: 60%;
     margin: 30px auto;
     position: relative;
     z-index: 1;
 }
+/* .pantalla-inicial{
+    flex-direction: row;
+    align-items: flex-start; 
+    padding: 20px;
+    width: 800px;
+} */
 
 .tarjeta {
     width: 90%;
@@ -27,6 +33,7 @@
 
 .contenido-tarjeta {
     width: 100%;
+    max-width: 1600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +46,17 @@
     margin-bottom: 1rem;
 }
 
-.seccion-contacto {
-    margin-top: 2rem;
-    font-weight: bold;
-}
+/* @media only screen and (min-width: 1024px) {
+    .pantalla-inicial{
+        flex-direction: row;
+        align-items: flex-start; 
+        padding: 20px;
+    }
+
+    .tarjeta {
+        width: calc(33.33% - 40px); 
+        margin-right: 20px; 
+        margin-bottom: 0; 
+        width: 50%;
+    }
+} */

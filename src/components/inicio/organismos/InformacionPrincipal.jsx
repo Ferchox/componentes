@@ -18,7 +18,7 @@ const datos = [
 
 const InformacionPrincipal = () => {
   return (
-    <div className="pantalla-principal">
+    <div className="pantalla-inicial">
       {datos.map((item, index) => (
         <div key={index} className="tarjeta">
           <h3>{item.titulo}</h3>
@@ -28,7 +28,6 @@ const InformacionPrincipal = () => {
           </div>
         </div>
       ))}
-      <div className="seccion-contacto">Contactos</div>
     </div>
   );
 };
