@@ -5,30 +5,36 @@ import EtiquetaInformacion from '../moleculas/EtiquetaInformacion';
 import BotonesPerfil from '../moleculas/BotonesPerfil';
 
 const InformacionPerfil = () => {
-    const [perfil, setPerfil] = useState({
-        nombre: "Juan Pérez",
-        edad: 30,
-        sexo: "Masculino"
-    });
-
-    const [imagenAleatoria, setImagenAleatoria] = useState('');
+    const [perfil, setPerfil] = useState(null);
 
     useEffect(() => {
-        fetch('https://picsum.photos/200')
-            .then(respuesta => {
-                setImagenAleatoria(respuesta.url);
+        fetch('https://66633fda62966e20ef0c0e30.mockapi.io/cliente')
+            .then(respuesta => respuesta.json())
+            .then(data => {
+                if (data && data.length > 0) {
+                    const indiceAleatorio = Math.floor(Math.random() * data.length);
+                    setPerfil(data[indiceAleatorio]);
+                }
             })
             .catch(error => {
-                console.error('Error al buscar la imagen', error);
+                console.error('Error al obtener datos del perfil', error);
             });
     }, []);
 
     return (
         <div className='contenedor-informacion-perfil'>
-            <ImagenPerfil src={imagenAleatoria} />
-            <EtiquetaInformacion etiqueta="Nombre cliente" valor={perfil.nombre} />
-            <EtiquetaInformacion etiqueta="Edad" valor={perfil.edad} />
-            <EtiquetaInformacion etiqueta="Sexo" valor={perfil.sexo} />
+            {perfil && (
+                <>
+                    <ImagenPerfil src={perfil.foto} />
+                    <EtiquetaInformacion etiqueta="Nombre cliente" valor={perfil.nombre} />
+                    <EtiquetaInformacion etiqueta="Fecha de nacimiento" valor={perfil.fechaNacimiento} />
+                    <EtiquetaInformacion etiqueta="Dirección" valor={perfil.direccion} />
+                    <EtiquetaInformacion etiqueta="Número de celular" valor={perfil.numeroCelular} />
+                    <EtiquetaInformacion etiqueta="Correo electrónico" valor={perfil.email} />
+                    <EtiquetaInformacion etiqueta="CI" valor={perfil.ci} />
+                    <EtiquetaInformacion etiqueta="Sexo" valor={perfil.sexo} />
+                </>
+            )}
             <BotonesPerfil />
         </div>
     );
