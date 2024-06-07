@@ -2,9 +2,20 @@ import React from "react";
 import "./GraficoEvaluacionUsuario.css";
 
 function GraficoEvaluacionUsuario() {
+  const opciones = ["Muscular", "Resistencia", "Cardio", "Fuerza"];
+
+  const handleKeyPress = (event) => {
+    if (event.key === "ArrowLeft") {
+      setOpcionSeleccionada((prev) => (prev === 0 ? opciones.length - 1 : prev - 1));
+    } else if (event.key === "ArrowRight") {
+      setOpcionSeleccionada((prev) => (prev === opciones.length - 1 ? 0 : prev + 1));
+    }
+  };
   return (
     <div className="contenedor-grafico">
-      <h1 className="titulo">CUADRO DE EVOLUCIÓN</h1>
+      <div className="titulo" tabIndex="0" onKeyDown={handleKeyPress}>
+      <h1> ← {opciones[opcionSeleccionada]} →</h1>
+    </div>
       <div className="contenedor-progreso">
         <div className="dia-porcentaje">
           <div className="porcentaje">90%</div>
