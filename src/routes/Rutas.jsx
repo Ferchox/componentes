@@ -10,6 +10,7 @@ import EvaluacionUsuario from '../components/evaluacionUsuario/pages/EvaluacionU
 import GenerarRutina from '../components/generarRutina/pages/GenerarRutina'
 import Metas from '../components/metas/pages/Metas'
 import PerfilCliente from '../components/perfilCliente/pages/Perfil'
+import InfoMaquinas from '../components/maquinaQR/pages/InfoMaquinas';
 
 const Rutas = () => {
     return (
@@ -26,6 +27,8 @@ const Rutas = () => {
                     <Route path='/GenerarRutina' element={<GenerarRutina />} />
                     <Route path='/Metas' element={<Metas />} />
                     <Route path='/PerfilCliente' element={<PerfilCliente />} />
+                    <Route path='/InfoMaquinas' element={<InfoMaquinas />} />
+
                 </Routes>
             </Router>
         </>
