@@ -15,8 +15,6 @@
 
 .titulo {
   align-self: flex-start;
-  background-color: var(--morado-claro);
-  color: var(--blanco);
   padding: 12px 24px;
   border: none;
   border-radius: 25px;
@@ -25,8 +23,18 @@
   margin-bottom: 15px;
   margin-top: 15px;
   margin-left: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
+  box-shadow: 0 0px 0px rgba(255, 255, 255, 0);
   text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+}
+.titulo > h1{
+  background-color: var(--morado-claro);
+  color:var(--blanco);
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
+  margin-left: 10px;
+  height: 100%;
+  width: 90%;
 }
 
 .contenedor-progreso {
