@@ -28,7 +28,6 @@ const Rutas = () => {
                     <Route path='/Metas' element={<Metas />} />
                     <Route path='/PerfilCliente' element={<PerfilCliente />} />
                     <Route path='/InfoMaquinas' element={<InfoMaquinas />} />
-
                 </Routes>
             </Router>
         </>
