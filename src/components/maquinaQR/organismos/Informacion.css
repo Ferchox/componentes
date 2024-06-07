@@ -1,0 +1,44 @@
+.pantalla-principal {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #3b3b3bf6;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    text-align:left;
+    color: white;
+    border: 2px solid #7c4c7cf6;
+    border-radius: 10px; 
+    display: inline-block; 
+    padding: 5px 10px; 
+    align-items: flex-start;
+}
+
+.sobre-nosotros {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+img {
+    width: auto;
+    height: auto;
+    max-width: 200px; 
+    border-radius: 10px;
+}
+
+p {
+    flex: 1;
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.machine-details > p{
+   color: white;
+} 
