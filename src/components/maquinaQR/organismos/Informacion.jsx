@@ -20,7 +20,7 @@ const Informacion = () => {
       {selectedMachine && (
         <div className="machine-details">
           <h4>Detalles de la máquina</h4>
-          <p>{exercises[selectedMachine]}</p>
+      
           <ul>
             {exerciseDetails[selectedMachine].map((detail, index) => (
               <li key={index}>{detail}</li>
