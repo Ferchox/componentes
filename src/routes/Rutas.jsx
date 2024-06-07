@@ -5,7 +5,7 @@ import InicioSesionUsuario from '../components/inicioSesionUsuario/pages/InicioS
 import RegistroUsuario from '../components/registroUsuario/pages/Registro'
 import Chat from '../components/chat/pages/Chat'
 import CrearMetas from '../components/crearMetas/pages/CrearMeta'
-import Entrenadores from '../components/entrenadores/Entrenadores'
+import Entrenadores from '../components/PantallaEntrenador/pages/PEntrenador'
 import EvaluacionUsuario from '../components/evaluacionUsuario/pages/EvaluacionUsuario'
 import GenerarRutina from '../components/generarRutina/pages/GenerarRutina'
 import Metas from '../components/metas/pages/Metas'
