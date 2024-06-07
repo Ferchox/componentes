@@ -4,6 +4,7 @@ import SelectorSexo from '../moleculas/SelectorSexo';
 import BotonRegistroUsuario from '../moleculas/BotonRegistroUsuario';
 import TituloRegistroUsuario from '../moleculas/TituloRegistroUsuario';
 import './RegistroUsuario.css';
+import { NavLink } from 'react-router-dom';
 
 const RegistroUsuario = ({ onSubmit }) => {
     const [nombre, setNombre] = useState('');
@@ -66,6 +67,10 @@ const RegistroUsuario = ({ onSubmit }) => {
                 onChange={(e) => setSexo(e.target.value)}
             />
             <BotonRegistroUsuario onClick={handleSubmit} />
+            ¿Ya tienes una cuenta?,
+            <NavLink to='/IniciarSesionUsuario'>
+                haz click aquí
+            </NavLink>
         </form>
     );
 };

@@ -3,6 +3,7 @@ import CampoTexto from '../molecula/CampoTexto';
 import BotonInicioSesion from '../molecula/BotonInicioSesion';
 import TituloInicioSesion from '../molecula/TituloInicioSesion';
 import './InicioSesionUsuario.css';
+import { NavLink } from 'react-router-dom';
 
 const InicioSesionUsuario = ({ onSubmit }) => {
     const [correo, setCorreo] = useState('');
@@ -29,6 +30,10 @@ const InicioSesionUsuario = ({ onSubmit }) => {
                 onChange={(e) => setContrasena(e.target.value)}
             />
             <BotonInicioSesion onClick={handleSubmit} />
+            ¿Aún no tienes cuenta?,
+            <NavLink to='/RegistroUsuario'>
+                haz click aquí
+            </NavLink>
         </form>
     );
 };
