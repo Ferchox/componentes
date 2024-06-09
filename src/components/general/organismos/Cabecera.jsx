@@ -9,7 +9,9 @@ const Cabecera = () => {
         <div>
             <header className='contenedor-cabecera'>
                 <div className="logo-gym">
-                    <NavLink to="/"><img src={gymLogo} alt="Gym Logo" className="logo-image" /></NavLink>
+                    <NavLink to="/">
+                        <img src={gymLogo} alt="Gym Logo" className="logo-image" />
+                    </NavLink>
                 </div>
             </header>
         </div>
