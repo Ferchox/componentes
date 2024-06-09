@@ -7,14 +7,14 @@
     backdrop-filter: blur(10rem);
     padding: 20px;
     border-radius: 15px;
-    width: 60%;
+    width: 80%;
     margin: 30px auto;
     position: relative;
     z-index: 1;
 }
 
 .tarjeta {
-    width: 50%;
+    width: 80%;
     margin-bottom: 2rem;
     text-align: center;
     border: 1px solid rgba(0, 0, 0, 0.1);
