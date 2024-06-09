@@ -1,0 +1,8 @@
+.contenedor-etiqueta-titulo {
+    background-color: var(--morado-oscuro);
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 6px;
+    display: inline-block;
+}

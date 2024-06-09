@@ -1,0 +1,26 @@
+.tarjeta {
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    border: 2px solid rgba(128, 128, 128, 0.1);
+    background: rgba(22, 22, 22, 0.315);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 1%;
+}
+
+.contenido-tarjeta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+
+.imagen-tarjeta {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
