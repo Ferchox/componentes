@@ -1,12 +1,13 @@
 .menu-opciones {
     position: relative;
     display: inline-block;
+    z-index: 10;
 }
 
 .menu-boton-desplegar {
     background: var(--morado-oscuro);
     color: var(--blanco);
-    padding: 10px 20px;
+    padding: 5px 15px;
     border: none;
     border-radius: 20px;
     width: 60px;
@@ -14,6 +15,7 @@
     font-size: 1.2em;
     transition: background-color 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
+    height: 40%;
 }
 
 .menu-boton-desplegar:hover {
@@ -31,7 +33,7 @@
     border-radius: 20px;
     padding: 10px 0;
     list-style: none;
-    margin: 2px;
+    margin: 0;
     border: 2px solid #fafafa10;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

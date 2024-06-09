@@ -1,18 +1,20 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  z-index: 10;
 }
 
 .dropdown-toggle {
   background: var(--morado-oscuro);
   color: var(--blanco);
-  padding: 10px 20px;
+  padding: 3px 15px;
   border: none;
   border-radius: 20px;
   cursor: pointer;
   font-size: 1.2em;
   transition: background-color 0.3s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
+  height: 40%;
 }
 
 .dropdown-toggle:hover {
@@ -30,7 +32,7 @@
   border-radius: 20px;
   padding: 10px 0;
   list-style: none;
-  margin: 2px;
+  margin: 0;
   border: 2px solid #fafafa10;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

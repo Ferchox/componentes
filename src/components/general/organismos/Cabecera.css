@@ -7,11 +7,15 @@
     backdrop-filter: blur(50rem);
     border-bottom: 1px solid var(--rosa);
     width: 100%;
-    height: auto;
+    height: 10vh;
     box-sizing: border-box;
     text-align: center;
 }
 
 .logo-gym {
     display: inline-block;
+}
+
+.logo-gym img {
+    height: 13vh;
 }
