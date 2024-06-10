@@ -4,7 +4,7 @@ import CampoTexto from '../molecula/CampoTexto';
 import EtiquetaTitulo from '../../general/moleculas/EtiquetaTitulo';
 import Aviso from '../../general/moleculas/Aviso';
 import axios from 'axios';
-import './InicioSesionUsuario.css'
+import './InicioSesionUsuario.css';
 
 const InicioSesionUsuario = ({ onSubmit }) => {
     const [correo, setCorreo] = useState('');
@@ -24,6 +24,8 @@ const InicioSesionUsuario = ({ onSubmit }) => {
             if (usuario) {
                 setMensaje('Inicio de sesión exitoso');
                 setTipoAviso('exito');
+                sessionStorage.setItem('usuario', JSON.stringify(usuario));
+                sessionStorage.setItem('usuarioId', usuario.id);
                 onSubmit(usuario);
                 setTimeout(() => navigate('/'), 2000);
             } else {
@@ -64,4 +66,3 @@ const InicioSesionUsuario = ({ onSubmit }) => {
 };
 
 export default InicioSesionUsuario;
-
