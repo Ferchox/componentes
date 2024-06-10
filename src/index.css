@@ -38,9 +38,24 @@ p {
 }
 
 button {
-  background-color: var(--rosa);
+  background: var(--morado-oscuro);
   color: var(--blanco);
+  padding: 15px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
+  height: 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: 'Inter', sans-serif;
+}
+
+button:hover {
+  background-color: var(--rosa);
 }
 
 a {

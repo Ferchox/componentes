@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import CampoTexto from '../molecula/CampoTexto';
-import TituloInicioSesion from '../molecula/TituloInicioSesion';
+import EtiquetaTitulo from '../../general/moleculas/EtiquetaTitulo';
 import Aviso from '../../general/moleculas/Aviso';
 import axios from 'axios';
 import './InicioSesionUsuario.css'
@@ -38,26 +38,28 @@ const InicioSesionUsuario = ({ onSubmit }) => {
     };
 
     return (
-        <form className="inicio-sesion-usuario" onSubmit={handleSubmit}>
-            <TituloInicioSesion />
-            <CampoTexto
-                tipo="email"
-                placeholder="Correo electrónico"
-                valor={correo}
-                onChange={(e) => setCorreo(e.target.value)}
-            />
-            <CampoTexto
-                tipo="password"
-                placeholder="Contraseña"
-                valor={contrasena}
-                onChange={(e) => setContrasena(e.target.value)}
-            />
-            <button type="submit">
-                Iniciar Sesión
-            </button>
-            <Aviso mensaje={mensaje} tipo={tipoAviso} />
-            <p>¿Aún no tienes cuenta? <NavLink to='/RegistroUsuario'>Haz click aquí</NavLink></p>
-        </form>
+        <div className='contenedor-inicio-sesion-usuario'>
+            <EtiquetaTitulo titulo='Inicio de Sesion' />
+            <form className="inicio-sesion-usuario" onSubmit={handleSubmit}>
+                <CampoTexto
+                    tipo="email"
+                    placeholder="Correo electrónico"
+                    valor={correo}
+                    onChange={(e) => setCorreo(e.target.value)}
+                />
+                <CampoTexto
+                    tipo="password"
+                    placeholder="Contraseña"
+                    valor={contrasena}
+                    onChange={(e) => setContrasena(e.target.value)}
+                />
+                <button type="submit">
+                    Iniciar Sesión
+                </button>
+                <Aviso mensaje={mensaje} tipo={tipoAviso} />
+                <p>¿Aún no tienes cuenta? <NavLink to='/RegistroUsuario'>Haz click aquí</NavLink></p>
+            </form>
+        </div>
     );
 };
 

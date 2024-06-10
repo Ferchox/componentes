@@ -7,7 +7,6 @@ const Button = ({ type, children, onClick, disabled }) => {
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className="chat-button"
     >
       {children}
     </button>
