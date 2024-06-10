@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import CampoTexto from '../molecula/CampoTexto';
-import BotonInicioSesion from '../molecula/BotonInicioSesion';
 import TituloInicioSesion from '../molecula/TituloInicioSesion';
 import Aviso from '../../general/moleculas/Aviso';
-import './InicioSesionUsuario.css';
 import axios from 'axios';
+import './InicioSesionUsuario.css'
 
 const InicioSesionUsuario = ({ onSubmit }) => {
     const [correo, setCorreo] = useState('');
@@ -63,3 +62,4 @@ const InicioSesionUsuario = ({ onSubmit }) => {
 };
 
 export default InicioSesionUsuario;
+

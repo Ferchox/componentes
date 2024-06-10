@@ -28,10 +28,10 @@ const RegistroUsuario = () => {
         e.preventDefault();
 
         try {
-            const existingUsersResponse = await axios.get('https://66633fda62966e20ef0c0e30.mockapi.io/cliente');
-            const existingUsers = existingUsersResponse.data;
+            const response = await axios.get('https://66633fda62966e20ef0c0e30.mockapi.io/cliente');
+            const usuarios = response.data;
 
-            const userExists = existingUsers.some(user => user.email === email || user.ci === ciPasaporte);
+            const userExists = usuarios.some(user => user.email === email || user.ci === ciPasaporte);
             if (userExists) {
                 setMensaje('Usuario ya existe.');
                 setTipoAviso('error');
