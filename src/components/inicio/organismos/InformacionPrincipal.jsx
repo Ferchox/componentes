@@ -22,8 +22,8 @@ const InformacionPrincipal = () => {
 
   return (
     <div className="pantalla-inicial">
-      {datos.map((item) => (
-        <div key={item.id}>
+      {datos.map(item => (
+        <div key={item.id} className="contenedor-tarjeta">
           <EtiquetaSubTitulo titulo={item.titulo} />
           <Tarjeta imagen={item.imagen} descripcion={item.descripcion} />
         </div>

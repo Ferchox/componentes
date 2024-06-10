@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate, NavLink } from 'react-router-dom';
 import CampoTexto from '../moleculas/CampoTexto';
 import SelectorSexo from '../moleculas/SelectorSexo';
 import BotonRegistroUsuario from '../moleculas/BotonRegistroUsuario';
 import TituloRegistroUsuario from '../moleculas/TituloRegistroUsuario';
+import Aviso from '../../general/moleculas/Aviso';
 import './RegistroUsuario.css';
-import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
-const RegistroUsuario = ({ onSubmit }) => {
+const imgbbApiKey = '5946ec8881e0944cf2ee70ba0b75586b';
+
+const RegistroUsuario = () => {
     const [nombre, setNombre] = useState('');
     const [fechaNacimiento, setFechaNacimiento] = useState('');
     const [direccion, setDireccion] = useState('');
@@ -14,10 +18,59 @@ const RegistroUsuario = ({ onSubmit }) => {
     const [email, setEmail] = useState('');
     const [ciPasaporte, setCiPasaporte] = useState('');
     const [sexo, setSexo] = useState('');
+    const [foto, setFoto] = useState(null);
+    const [contrasena, setContrasena] = useState('');
+    const [mensaje, setMensaje] = useState(null);
+    const [tipoAviso, setTipoAviso] = useState(null);
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        onSubmit({ nombre, fechaNacimiento, direccion, numeroCelular, email, ciPasaporte, sexo });
+
+        try {
+            const existingUsersResponse = await axios.get('https://66633fda62966e20ef0c0e30.mockapi.io/cliente');
+            const existingUsers = existingUsersResponse.data;
+
+            const userExists = existingUsers.some(user => user.email === email || user.ci === ciPasaporte);
+            if (userExists) {
+                setMensaje('Usuario ya existe.');
+                setTipoAviso('error');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('image', foto);
+
+            const uploadResponse = await axios.post(`https://api.imgbb.com/1/upload?key=${imgbbApiKey}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
+            const fotoUrl = uploadResponse.data.data.url;
+
+            const nuevoUsuario = {
+                nombre,
+                fechaNacimiento: new Date(fechaNacimiento).getTime() / 1000,
+                direccion,
+                numeroCelular,
+                email,
+                ci: ciPasaporte,
+                sexo,
+                foto: fotoUrl,
+                contrasena,
+            };
+
+            await axios.post('https://66633fda62966e20ef0c0e30.mockapi.io/cliente', nuevoUsuario);
+
+            setMensaje('Registro exitoso.');
+            setTipoAviso('exito');
+            setTimeout(() => navigate('/IniciarSesionUsuario'), 2000);
+        } catch (error) {
+            console.error('Error registrando usuario:', error);
+            setMensaje('Hubo un error en el registro.');
+            setTipoAviso('error');
+        }
     };
 
     return (
@@ -62,18 +115,26 @@ const RegistroUsuario = ({ onSubmit }) => {
                 valor={ciPasaporte}
                 onChange={(e) => setCiPasaporte(e.target.value)}
             />
+            <CampoTexto
+                tipo="password"
+                placeholder="Contraseña"
+                valor={contrasena}
+                onChange={(e) => setContrasena(e.target.value)}
+            />
             <SelectorSexo
                 valor={sexo}
                 onChange={(e) => setSexo(e.target.value)}
             />
-
-            <NavLink to='/'>
-                <BotonRegistroUsuario />
-            </NavLink>
-            ¿Ya tienes una cuenta?,
-            <NavLink to='/IniciarSesionUsuario'>
-                haz click aquí
-            </NavLink>
+            <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setFoto(e.target.files[0])}
+            />
+            <button type="submit">
+                Registrarse
+            </button>
+            <Aviso mensaje={mensaje} tipo={tipoAviso} />
+            <p>¿Ya tienes una cuenta? <NavLink to='/IniciarSesionUsuario'>Haz click aquí</NavLink></p>
         </form>
     );
 };
