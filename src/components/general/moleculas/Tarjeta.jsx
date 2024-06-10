@@ -7,7 +7,7 @@ const Tarjeta = ({ imagen, descripcion }) => {
         <div className="tarjeta">
             <img src={imagen} alt="Imagen de tarjeta" className="imagen-tarjeta" />
             <div className="contenido-tarjeta">
-                <p>{descripcion}</p>
+                <p className="descripcion-tarjeta">{descripcion}</p>
             </div>
         </div>
     );

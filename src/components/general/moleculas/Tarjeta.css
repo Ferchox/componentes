@@ -1,14 +1,18 @@
 .tarjeta {
-    height: 15%;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
+    /* Cambiado a flex-start para alinear en la parte superior */
     text-align: left;
     border: 2px solid rgba(128, 128, 128, 0.1);
     background: rgba(22, 22, 22, 0.315);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 1%;
+    margin-bottom: 1em;
+    /* Añadido margen inferior para separación entre tarjetas */
+    overflow: hidden;
+    /* Evita el desbordamiento */
 }
 
 .contenido-tarjeta {
@@ -16,6 +20,12 @@
     flex-direction: column;
     align-items: flex-start;
     margin-left: 10px;
+    max-width: calc(100% - 150px - 20px);
+    /* Ajustar el ancho máximo para que quepa dentro de la tarjeta */
+    overflow: hidden;
+    /* Evitar el desbordamiento */
+    white-space: normal;
+    /* Permitir que el texto se envuelva en varias líneas */
 }
 
 .imagen-tarjeta {
