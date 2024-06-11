@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./MetasPendientes.css";
 import TablaMetas from "../moleculas/TablaMetas";
 import BarraProgreso from "../atomos/BarraProgreso";
+import EtiquetaTitulo from "../../general/moleculas/EtiquetaTitulo";
 
 function MetasPendientes() {
   const [metas, setMetas] = useState([
@@ -21,16 +22,14 @@ function MetasPendientes() {
   const porcentajeCompletado = (metasRealizadas / totalMetas) * 100 || 0;
 
   return (
-    <div className="contenedor-meta-pendiente">
-      <div className="metas-info">
-        <span>Metas actuales</span>
+    <div className="contenedor-metas-pendientes">
+      <EtiquetaTitulo titulo="Metas actuales" />
+      <div className="contenedor-meta-pendiente">
+        <TablaMetas metas={metas} handleCheck={handleCheck} />
+        <BarraProgreso porcentaje={porcentajeCompletado} />
+        <button>Aceptar</button>
       </div>
-      <TablaMetas metas={metas} handleCheck={handleCheck} />
-      <BarraProgreso porcentaje={porcentajeCompletado} />
-      <button>Aceptar</button>
-      <div className="nueva-meta">
-        <span>Crear nueva meta</span>
-      </div>
+      <EtiquetaTitulo titulo="Crear una nueva meta" />
       <button>Crear meta</button>
     </div>
   );
