@@ -1,10 +1,16 @@
+.contenedor-evaluacion-usuario-descripcion {
+  width: 90%;
+  margin-bottom: 20px; 
+}
+
 .titulo-descripcion-evaluacion-usuario{
   background-color:orangered;
   border-radius: 5px;
-  width: 200px;
+  width: 90%;
   height: 20px;
   text-align: center;
   margin-top: -50px;
+  margin-bottom: 10px;
 }
 
 .descripcion-evaluacion{
@@ -13,6 +19,6 @@
   margin-top: 5px;
   box-shadow: 0 0 0 2px greenyellow;
   text-align: center;
-  width: 350px;
-  padding: 5px;
+  width: 90%;
+  padding: 10px; 
 }

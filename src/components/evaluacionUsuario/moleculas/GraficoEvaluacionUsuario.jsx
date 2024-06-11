@@ -1,24 +1,32 @@
 import React, { useState } from "react";
 import "./GraficoEvaluacionUsuario.css";
+
 function GraficoEvaluacionUsuario() {
   const [opcionSeleccionada, setOpcionSeleccionada] = useState(0);
   const opciones = ["Muscular", "Resistencia", "Cardio", "Fuerza"];
 
-  const handleKeyPress = (event) => {
-    if (event.key === "ArrowLeft") {
+  const handleArrowClick = (direction) => {
+    if (direction === "left") {
       setOpcionSeleccionada((prev) =>
         prev === 0 ? opciones.length - 1 : prev - 1
       );
-    } else if (event.key === "ArrowRight") {
+    } else if (direction === "right") {
       setOpcionSeleccionada((prev) =>
         prev === opciones.length - 1 ? 0 : prev + 1
       );
     }
   };
+
   return (
     <div className="contenedor-grafico">
-      <div className="titulo" tabIndex="0" onKeyDown={handleKeyPress}>
-        <h1>← {opciones[opcionSeleccionada]} →</h1>
+      <div className="titulo">
+        <span className="arrow-left" onClick={() => handleArrowClick("left")}>
+          ←
+        </span>
+        <h1>{opciones[opcionSeleccionada]}</h1>
+        <span className="arrow-right" onClick={() => handleArrowClick("right")}>
+          →
+        </span>
       </div>
       <div className="contenedor-progreso">
         {[
