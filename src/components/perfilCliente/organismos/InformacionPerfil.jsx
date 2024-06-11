@@ -1,4 +1,3 @@
-// InformacionPerfil.js
 import React, { useState, useEffect } from 'react';
 import './InformacionPerfil.css';
 import ImagenPerfil from '../moleculas/ImagenPerfil';
@@ -6,6 +5,7 @@ import EtiquetaInformacion from '../moleculas/EtiquetaInformacion';
 import BotonesPerfil from '../moleculas/BotonesPerfil';
 import EtiquetaTitulo from '../../general/moleculas/EtiquetaTitulo';
 import axios from 'axios';
+import moment from 'moment';
 
 const InformacionPerfil = () => {
     const [perfil, setPerfil] = useState(null);
@@ -20,17 +20,13 @@ const InformacionPerfil = () => {
             setPerfil(usuario);
             setFormData({
                 ...usuario,
-                fechaNacimiento: new Date(usuario.fechaNacimiento * 1000).toISOString().split('T')[0] // Formato YYYY-MM-DD
+                fechaNacimiento: convertirFecha(usuario.fechaNacimiento)
             });
         }
     }, []);
 
-    const convertirFecha = (timestamp) => {
-        const date = new Date(timestamp * 1000);
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const year = date.getFullYear();
-        return `${day}/${month}/${year}`;
+    const convertirFecha = (fecha) => {
+        return moment(fecha).format('DD/MM/YYYY');
     };
 
     const handleEdit = () => {
@@ -58,14 +54,8 @@ const InformacionPerfil = () => {
             }
 
             await axios.put(`https://66633fda62966e20ef0c0e30.mockapi.io/cliente/${perfil.id}`, formData);
-            setPerfil({
-                ...formData,
-                fechaNacimiento: new Date(formData.fechaNacimiento).getTime() / 1000 // Convertir a timestamp
-            });
-            sessionStorage.setItem('usuario', JSON.stringify({
-                ...formData,
-                fechaNacimiento: new Date(formData.fechaNacimiento).getTime() / 1000
-            }));
+            setPerfil(formData);
+            sessionStorage.setItem('usuario', JSON.stringify(formData));
             setEditMode(false);
             setMensaje(null); // Limpiar el mensaje en caso de éxito
         } catch (error) {
