@@ -9,7 +9,7 @@ const Input = ({ value, onChange, placeholder, disabled }) => {
       onChange={onChange}
       placeholder={placeholder}
       disabled={disabled}
-      className="chat-input"
+      className="entrada-chat"
     />
   );
 };

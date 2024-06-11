@@ -8,7 +8,15 @@ const MenuOpciones = () => {
   const [estaAbierto, setEstaAbierto] = useState(false);
   const [rutinasAbierto, setRutinasAbierto] = useState(false);
   const [infoMaquinasAbierto, setInfoMaquinasAbierto] = useState(false);
+  const [usuario, setUsuario] = useState(null);
   const menuRef = useRef(null);
+
+  useEffect(() => {
+    const usuarioGuardado = sessionStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      setUsuario(JSON.parse(usuarioGuardado));
+    }
+  }, []);
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -37,6 +45,10 @@ const MenuOpciones = () => {
   const toggleInfoMaquinas = () => {
     setInfoMaquinasAbierto(!infoMaquinasAbierto);
   };
+
+  if (!usuario) {
+    return null;
+  }
 
   return (
     <div className="menu-opciones" ref={menuRef}>
