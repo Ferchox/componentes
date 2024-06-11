@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-import CampoTexto from '../molecula/CampoTexto';
 import EtiquetaTitulo from '../../general/moleculas/EtiquetaTitulo';
 import Aviso from '../../general/moleculas/Aviso';
 import axios from 'axios';
@@ -43,17 +42,19 @@ const InicioSesionUsuario = ({ onSubmit }) => {
         <div className='contenedor-inicio-sesion-usuario'>
             <EtiquetaTitulo titulo='Inicio de Sesion' />
             <form className="inicio-sesion-usuario" onSubmit={handleSubmit}>
-                <CampoTexto
-                    tipo="email"
+                <input
+                    type="email"
                     placeholder="Correo electrónico"
-                    valor={correo}
+                    value={correo}
                     onChange={(e) => setCorreo(e.target.value)}
+                    required
                 />
-                <CampoTexto
-                    tipo="password"
+                <input
+                    type="password"
                     placeholder="Contraseña"
-                    valor={contrasena}
+                    value={contrasena}
                     onChange={(e) => setContrasena(e.target.value)}
+                    required
                 />
                 <button type="submit">
                     Iniciar Sesión

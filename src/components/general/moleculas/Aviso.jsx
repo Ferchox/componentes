@@ -1,4 +1,3 @@
-// Aviso.js
 import React from 'react';
 import './Aviso.css';
 
