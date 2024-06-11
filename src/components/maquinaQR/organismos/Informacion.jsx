@@ -9,7 +9,7 @@ const Informacion = () => {
 
   const handleScan = (data) => {
     if (data && data.text) {
-      const machineId = data.text; // data.text contiene el texto del QR escaneado
+      const machineId = data.text;
       setSelectedMachine(machineId);
       setScanning(false);
     }
