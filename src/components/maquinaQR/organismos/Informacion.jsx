@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import QrScanner from 'react-qr-scanner';
-import maquinas from "../data/maquinas.json"; // Importar el JSON de datos
+import maquinas from "../../../data/maquinas.json";
 import "./Informacion.css";
 
 const Informacion = () => {
