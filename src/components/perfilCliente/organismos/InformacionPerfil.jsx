@@ -133,11 +133,12 @@ const InformacionPerfil = () => {
                             onChange={handleChange}
                             placeholder="Sexo"
                         >
-                            <option value="" disabled selected hidden>Selecciona una opción</option>
+                            <option value="" disabled hidden>Selecciona una opción</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
                             <option value="Otro">Otro</option>
                         </select>
+
 
                         <input
                             type="file"
