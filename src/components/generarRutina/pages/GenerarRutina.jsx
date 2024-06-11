@@ -3,7 +3,6 @@ import BarraNavegacion from '../../general/organismos/BarraNavegacion'
 import Cabecera from '../../general/organismos/Cabecera'
 import SeleccionParteCuerpo from '../../generarRutina/organismos/SeleccionParteCuerpo'
 import PiePagina from '../../general/organismos/PiePagina'
-import EtiquetaPag from '../moleculas/EtiquetaPag'
 import './GenerarRutina.css'
 
 const GenerarRutina = () => {
@@ -11,7 +10,6 @@ const GenerarRutina = () => {
     <div className='generar-rutina-container'>
       <Cabecera />
       <BarraNavegacion />
-      <EtiquetaPag />
       <SeleccionParteCuerpo />
       <PiePagina />
     </div>

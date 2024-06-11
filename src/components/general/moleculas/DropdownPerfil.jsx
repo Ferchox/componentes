@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {
   faUser,
   faCheck,
@@ -14,7 +14,9 @@ import "./DropdownPerfil.css";
 const DropdownPerfil = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [icon, setIcon] = useState(faAngleDown);
+  const [usuario, setUsuario] = useState(null);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -30,17 +32,37 @@ const DropdownPerfil = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const usuarioGuardado = sessionStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      setUsuario(JSON.parse(usuarioGuardado));
+    }
+  }, []);
+
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-    setIcon(isOpen ? faAngleDown : faAngleUp);
+    if (!usuario) {
+      navigate('/IniciarSesionUsuario');
+    } else {
+      setIsOpen(!isOpen);
+      setIcon(isOpen ? faAngleDown : faAngleUp);
+    }
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('usuario');
+    sessionStorage.removeItem('usuarioId');
+    setUsuario(null);
+    setIsOpen(false);
+    navigate('/IniciarSesionUsuario');
   };
 
   return (
     <div className="dropdown" ref={dropdownRef}>
       <button onClick={toggleDropdown} className="dropdown-toggle">
-        Usuario <FontAwesomeIcon icon={icon} />
+        {usuario ? usuario.nombre : "Iniciar sesión"}
+        {usuario && <FontAwesomeIcon icon={icon} />}
       </button>
-      {isOpen && (
+      {isOpen && usuario && (
         <ul className="dropdown-menu">
           <NavLink to='/PerfilCliente'>
             <li>
@@ -57,11 +79,9 @@ const DropdownPerfil = () => {
               <FontAwesomeIcon icon={faChartBar} /> Ver progreso
             </li>
           </NavLink>
-          <NavLink to='/IniciarSesionUsuario'>
-            <li>
-              <FontAwesomeIcon icon={faDoorOpen} /> Cerrar sesión
-            </li>
-          </NavLink>
+          <li onClick={handleLogout}>
+            <FontAwesomeIcon icon={faDoorOpen} /> Cerrar sesión
+          </li>
         </ul>
       )}
     </div>

@@ -1,3 +1,7 @@
+.contenedor-registrar-usuario {
+    padding: 8px;
+}
+
 .registro-usuario {
     display: flex;
     flex-direction: column;

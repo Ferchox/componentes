@@ -1,28 +1,29 @@
-import React from "react";
-import bienvenidoaTF from "../../../assets/bienvenidoa-tf.jpeg";
-import telefonoGym from "../../../assets/telefono-gym.jpeg";
+import React, { useEffect, useState } from "react";
 import Tarjeta from "../../general/moleculas/Tarjeta";
 import EtiquetaSubTitulo from "../../general/moleculas/EtiquetaSubTitulo";
 import "./InformacionPrincipal.css";
 
-const datos = [
-  {
-    titulo: 'Sobre nosotros',
-    imagen: bienvenidoaTF,
-    descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita hic fugiat a voluptates nobis sequi velit, numquam sunt incidunt, minima sed modi veniam necessitatibus voluptas earum repellendus atque neque consectetur."
-  },
-  {
-    titulo: '¿Qué te ofrece esta web?',
-    imagen: telefonoGym,
-    descripcion: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente animi rem, dolore rerum saepe non aspernatur porro possimus magnam beatae explicabo nam, eveniet minus perspiciatis hic enim? Veniam, porro cupiditate!"
-  }
-];
-
 const InformacionPrincipal = () => {
+  const [datos, setDatos] = useState([]);
+
+  useEffect(() => {
+    const fetchDatos = async () => {
+      try {
+        const response = await fetch("https://66633fda62966e20ef0c0e30.mockapi.io/informacionInicial");
+        const data = await response.json();
+        setDatos(data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+
+    fetchDatos();
+  }, []);
+
   return (
     <div className="pantalla-inicial">
-      {datos.map((item, index) => (
-        <div key={index}>
+      {datos.map(item => (
+        <div key={item.id} className="contenedor-tarjeta">
           <EtiquetaSubTitulo titulo={item.titulo} />
           <Tarjeta imagen={item.imagen} descripcion={item.descripcion} />
         </div>

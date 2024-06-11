@@ -1,0 +1,35 @@
+{
+    "cinta_de_correr": {
+        "nombre": "Cinta de Correr",
+        "detalles": [
+            "Velocidad máxima: 20 km/h",
+            "Inclinación ajustable: 0-15%",
+            "Programas de entrenamiento: 12",
+            "Peso máximo del usuario: 150 kg"
+        ],
+        "descripcion": "Para usar la cinta de correr, primero asegúrate de tener las zapatillas adecuadas. Enciende la máquina, selecciona un programa de entrenamiento o ajusta la velocidad y la inclinación manualmente. Comienza a caminar despacio para acostumbrarte a la cinta y luego aumenta gradualmente la velocidad.",
+        "imagen": "https://i.ibb.co/D7GbyS7/maquina-De-Correr.jpg"
+    },
+    "bicicleta_estatica": {
+        "nombre": "Bicicleta Estática",
+        "detalles": [
+            "Resistencia ajustable: 8 niveles",
+            "Pantalla LCD: Muestra tiempo, velocidad, distancia, calorías",
+            "Peso máximo del usuario: 120 kg",
+            "Asiento ajustable"
+        ],
+        "descripcion": "Para usar la bicicleta estática, ajusta el asiento a una altura cómoda. Enciende la pantalla y selecciona un programa de entrenamiento o ajusta la resistencia manualmente. Comienza a pedalear a un ritmo cómodo y ajusta la resistencia según sea necesario.",
+        "imagen": "https://i.ibb.co/D7GbyS7/maquina-De-Correr.jpg"
+    },
+    "eliptica": {
+        "nombre": "Máquina Elíptica",
+        "detalles": [
+            "Resistencia magnética: 16 niveles",
+            "Programas de entrenamiento: 10",
+            "Peso máximo del usuario: 130 kg",
+            "Sensores de pulso en el manillar"
+        ],
+        "descripcion": "Para usar la máquina elíptica, ajusta la resistencia a un nivel cómodo. Sujeta los manillares y comienza a mover los pedales en un movimiento elíptico. Mantén una postura erguida y ajusta la resistencia y la velocidad según tu nivel de comodidad.",
+        "imagen": "https://i.ibb.co/D7GbyS7/maquina-De-Correr.jpg"
+    }
+}

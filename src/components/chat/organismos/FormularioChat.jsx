@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "../atomos/Input";
-import Button from "../atomos/Button";
+import Boton from "../atomos/Button";
 import "./FormularioChat.css"
 
 const FormularioChat = ({ input, setInput, manejarGeneracion, escribiendo, config }) => {
@@ -14,7 +14,7 @@ const FormularioChat = ({ input, setInput, manejarGeneracion, escribiendo, confi
         aria-label="Campo para escribir mensaje"
         disabled={escribiendo}
       />
-      <Button type="submit">Enviar</Button>
+      <Boton type="submit">Enviar</Boton>
     </form>
   );
 };
