@@ -1,3 +1,4 @@
+// RegistroUsuario.js
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import CampoTexto from '../moleculas/CampoTexto';
@@ -84,7 +85,7 @@ const RegistroUsuario = () => {
 
     return (
         <div className='contenedor-registrar-usuario'>
-            <EtiquetaTitulo titulo='Registar Usuario' />
+            <EtiquetaTitulo titulo='Registrar Usuario' />
             <form className="registro-usuario" onSubmit={handleSubmit}>
                 <CampoTexto
                     tipo="text"
