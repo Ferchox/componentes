@@ -66,6 +66,7 @@ const RegistroUsuario = () => {
                     sexo,
                     foto: fotoUrl,
                     contrasena,
+                    rol: 'cliente',
                 };
 
                 await axios.post('https://66633fda62966e20ef0c0e30.mockapi.io/cliente', nuevoUsuario);
