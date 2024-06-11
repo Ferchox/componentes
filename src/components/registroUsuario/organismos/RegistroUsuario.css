@@ -6,20 +6,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px;
+    padding: 10px;
     border: 2px solid #fafafa10;
     background: #fafafa10;
     backdrop-filter: blur(4rem);
     border-radius: 10px;
-    width: 60%;
-    max-width: 400px;
     margin: auto;
 }
 
 .contenedor-fecha-nacimiento {
     display: flex;
     align-items: start;
-    padding: 0px;
-    margin-right: 238px;
+    padding: 0;
+    margin-right: auto;
     font-size: 14px;
+    width: 80%;
+}
+
+.registro-usuario input[type="text"],
+.registro-usuario input[type="date"],
+.registro-usuario input[type="tel"],
+.registro-usuario input[type="email"],
+.registro-usuario input[type="password"],
+.registro-usuario input[type="file"],
+.registro-usuario select {
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.registro-usuario input[type="file"] {
+    padding: 3px;
 }

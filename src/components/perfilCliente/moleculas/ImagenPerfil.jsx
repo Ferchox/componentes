@@ -1,5 +1,5 @@
 import React from 'react';
-import './ImagenPerfil.css'
+import './ImagenPerfil.css';
 
 const ImagenPerfil = ({ src }) => {
     return (
