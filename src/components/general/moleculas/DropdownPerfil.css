@@ -15,7 +15,7 @@
   transition: background-color 0.3s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
   height: 2rem;
-  width: 9rem;
+  width: auto;
   text-align: center;
   display: flex;
   align-items: center;

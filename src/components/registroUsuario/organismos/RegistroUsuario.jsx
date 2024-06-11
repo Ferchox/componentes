@@ -26,6 +26,12 @@ const RegistroUsuario = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (!nombre || !fechaNacimiento || !direccion || !numeroCelular || !email || !ciPasaporte || !sexo || !foto || !contrasena) {
+            setMensaje('Todos los campos son obligatorios.');
+            setTipoAviso('error');
+            return;
+        }
+
         try {
             const response = await axios.get('https://66633fda62966e20ef0c0e30.mockapi.io/cliente');
             const usuarios = response.data;
@@ -46,25 +52,29 @@ const RegistroUsuario = () => {
                 },
             });
 
-            const fotoUrl = uploadResponse.data.data.url;
+            if (uploadResponse.data && uploadResponse.data.data && uploadResponse.data.data.url) {
+                const fotoUrl = uploadResponse.data.data.url;
 
-            const nuevoUsuario = {
-                nombre,
-                fechaNacimiento: new Date(fechaNacimiento).getTime() / 1000,
-                direccion,
-                numeroCelular,
-                email,
-                ci: ciPasaporte,
-                sexo,
-                foto: fotoUrl,
-                contrasena,
-            };
+                const nuevoUsuario = {
+                    nombre,
+                    fechaNacimiento: new Date(fechaNacimiento).getTime() / 1000,
+                    direccion,
+                    numeroCelular,
+                    email,
+                    ci: ciPasaporte,
+                    sexo,
+                    foto: fotoUrl,
+                    contrasena,
+                };
 
-            await axios.post('https://66633fda62966e20ef0c0e30.mockapi.io/cliente', nuevoUsuario);
+                await axios.post('https://66633fda62966e20ef0c0e30.mockapi.io/cliente', nuevoUsuario);
 
-            setMensaje('Registro exitoso.');
-            setTipoAviso('exito');
-            setTimeout(() => navigate('/IniciarSesionUsuario'), 2000);
+                setMensaje('Registro exitoso.');
+                setTipoAviso('exito');
+                setTimeout(() => navigate('/IniciarSesionUsuario'), 2000);
+            } else {
+                throw new Error('Error en la carga de la imagen.');
+            }
         } catch (error) {
             console.error('Error registrando usuario:', error);
             setMensaje('Hubo un error en el registro.');
