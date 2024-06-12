@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import QrScanner from 'react-qr-scanner';
-import maquinas from "../../../data/maquinas.json";
 import "./Informacion.css";
 
 const Informacion = () => {
   const [selectedMachine, setSelectedMachine] = useState(null);
   const [scanning, setScanning] = useState(false);
+  const [machines, setMachines] = useState([]);
+
+  useEffect(() => {
+    // Fetch the data from the API when the component mounts
+    fetch('https://6668e270f53957909ff9675e.mockapi.io/maquinas')
+      .then(response => response.json())
+      .then(data => setMachines(data))
+      .catch(error => console.error('Error fetching machines:', error));
+  }, []);
 
   const handleScan = (data) => {
     if (data && data.text) {
@@ -24,21 +32,25 @@ const Informacion = () => {
     width: 320,
   };
 
+  const machineDetails = machines.find(machine => machine.identificador === selectedMachine);
+
   return (
     <div className="pantalla-principal">
       <h3>Información de la Máquina</h3>
 
-      {selectedMachine && maquinas[selectedMachine] && (
+      {machineDetails ? (
         <div className="machine-details">
-          <h4>{maquinas[selectedMachine].nombre}</h4>
-          <img src={maquinas[selectedMachine].imagen} alt={maquinas[selectedMachine].nombre} />
-          <p>{maquinas[selectedMachine].descripcion}</p>
+          <h4>{machineDetails.nombre}</h4>
+          <img src={machineDetails.imagen} alt={machineDetails.nombre} />
+          <p>{machineDetails.descripcion}</p>
           <ul>
-            {maquinas[selectedMachine].detalles.map((detail, index) => (
+            {machineDetails.detalles.split(', ').map((detail, index) => (
               <li key={index}>{detail}</li>
             ))}
           </ul>
         </div>
+      ) : (
+        selectedMachine && <p>Máquina no encontrada.</p>
       )}
 
       <button className="Guardar" onClick={() => setScanning(true)}>Escanear máquina</button>
