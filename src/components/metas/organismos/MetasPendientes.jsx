@@ -13,7 +13,7 @@ function MetasPendientes() {
   useEffect(() => {
     const fetchMetas = async () => {
       try {
-        const response = await axios.get("https://6668e3ebf53957909ff96a92.mockapi.io/Metas");
+        const response = await axios.get("https://6668e270f53957909ff9675e.mockapi.io/metas");
         const userMetas = response.data.filter(meta => meta.idUsuario === usuarioId);
         setMetas(userMetas);
       } catch (error) {
@@ -26,7 +26,7 @@ function MetasPendientes() {
 
   const handleCheck = async (id, realizado) => {
     try {
-      await axios.put(`https://6668e3ebf53957909ff96a92.mockapi.io/Metas/${id}`, { realizado });
+      await axios.put(`https://6668e270f53957909ff9675e.mockapi.io/metas/${id}`, { realizado });
       setMetas(metas.map(meta => (meta.id === id ? { ...meta, realizado } : meta)));
     } catch (error) {
       console.error("Error updating meta:", error);
@@ -35,7 +35,7 @@ function MetasPendientes() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://6668e3ebf53957909ff96a92.mockapi.io/Metas/${id}`);
+      await axios.delete(`https://6668e270f53957909ff9675e.mockapi.io/metas/${id}`);
       setMetas(metas.filter(meta => meta.id !== id));
     } catch (error) {
       console.error("Error deleting meta:", error);
@@ -44,7 +44,7 @@ function MetasPendientes() {
 
   const handleEdit = async (id, newMeta, newFechaLimite) => {
     try {
-      await axios.put(`https://6668e3ebf53957909ff96a92.mockapi.io/Metas/${id}`, {
+      await axios.put(`https://6668e270f53957909ff9675e.mockapi.io/metas/${id}`, {
         meta: newMeta,
         fechaLimite: new Date(newFechaLimite).getTime()
       });
@@ -56,7 +56,7 @@ function MetasPendientes() {
 
   const handleCreate = async (meta, fechaLimite) => {
     try {
-      const response = await axios.post("https://6668e3ebf53957909ff96a92.mockapi.io/Metas", {
+      const response = await axios.post("https://6668e270f53957909ff9675e.mockapi.io/metas", {
         idUsuario: usuarioId,
         meta,
         fechaInicio: Date.now(),

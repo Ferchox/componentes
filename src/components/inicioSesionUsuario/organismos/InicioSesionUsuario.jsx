@@ -15,7 +15,7 @@ const InicioSesionUsuario = ({ onSubmit }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get('https://66633fda62966e20ef0c0e30.mockapi.io/cliente');
+            const response = await axios.get('https://6668e270f53957909ff9675e.mockapi.io/cliente');
             const usuarios = response.data;
 
             const usuario = usuarios.find(user => user.email === correo && user.contrasena === contrasena);
