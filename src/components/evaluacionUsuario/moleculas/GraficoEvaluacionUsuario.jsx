@@ -1,9 +1,36 @@
-import React, { useState } from "react";
-import "./GraficoEvaluacionUsuario.css";
+import * as React from 'react';
+import { useState } from 'react';
+import { BarPlot } from '@mui/x-charts/BarChart';
+import { ChartContainer } from '@mui/x-charts/ChartContainer';
+import { ChartsXAxis } from '@mui/x-charts/ChartsXAxis';
+import { ChartsYAxis } from '@mui/x-charts/ChartsYAxis';
+import "./GraficoEvaluacionUsuario.css"; 
 
-function GraficoEvaluacionUsuario() {
+const opciones = [
+  {
+    nombre: "Antebrazo",
+    data: [
+      { mes: "Enero", valor: 20.1 },
+      { mes: "Febrero", valor: 20.5 },
+      { mes: "Marzo", valor: 20.8 },
+      { mes: "Abril", valor: 20.1 },
+    ],
+    unidad: "cm", 
+  },
+  {
+    nombre: "Muñeca",
+    data: [
+      { mes: "Enero", valor: 5.1 },
+      { mes: "Febrero", valor: 4.5 },
+      { mes: "Marzo", valor: 7.8 },
+      { mes: "Abril", valor: 6.1 },
+    ],
+    unidad: "cm",
+  },
+];
+
+export default function GraficoEvaluacionUsuario() {
   const [opcionSeleccionada, setOpcionSeleccionada] = useState(0);
-  const opciones = ["Muscular", "Resistencia", "Cardio", "Fuerza"];
 
   const handleArrowClick = (direction) => {
     if (direction === "left") {
@@ -17,34 +44,54 @@ function GraficoEvaluacionUsuario() {
     }
   };
 
+  const dataSeleccionada = opciones[opcionSeleccionada].data;
+  const unidadSeleccionada = opciones[opcionSeleccionada].unidad;
+
+  const series = [
+    {
+      type: 'bar',
+      stack: '',
+      yAxisKey: 'valor', 
+      data: dataSeleccionada.map((item) => item.valor),
+    },
+  ];
+
   return (
     <div className="contenedor-grafico">
       <div className="titulo">
         <span className="arrow-left" onClick={() => handleArrowClick("left")}>
           ←
         </span>
-        <h1>{opciones[opcionSeleccionada]}</h1>
+        <h1>{opciones[opcionSeleccionada].nombre}</h1>
         <span className="arrow-right" onClick={() => handleArrowClick("right")}>
           →
         </span>
       </div>
       <div className="contenedor-progreso">
-        {[
-          { porcentaje: "90%", dia: "Lunes", value: 0.9 },
-          { porcentaje: "80%", dia: "Martes", value: 0.8 },
-          { porcentaje: "70%", dia: "Miércoles", value: 0.7 },
-          { porcentaje: "60%", dia: "Jueves", value: 0.6 },
-          { porcentaje: "50%", dia: "Viernes", value: 0.5 },
-        ].map((item, index) => (
-          <div key={index} className="dia-porcentaje">
-            <div className="porcentaje">{item.porcentaje}</div>
-            <div className="barra" style={{ "--porcentaje": item.value }}></div>
-            <div className="dia">{item.dia}</div>
-          </div>
-        ))}
+        <ChartContainer
+          series={series}
+          width={400}
+          height={400}
+          xAxis={[
+            {
+              id: 'meses',
+              data: dataSeleccionada.map((item) => item.mes),
+              scaleType: 'band',
+              valueFormatter: (value) => value.toString(),
+            },
+          ]}
+          yAxis={[
+            {
+              id: 'valor',
+              scaleType: 'linear',
+            },
+          ]}
+        >
+          <BarPlot />
+          <ChartsXAxis label="Meses" position="bottom" axisId="meses" />
+          <ChartsYAxis label={`Resultados (${unidadSeleccionada})`} position="left" axisId="valor" /> 
+        </ChartContainer>
       </div>
     </div>
   );
 }
-
-export default GraficoEvaluacionUsuario;

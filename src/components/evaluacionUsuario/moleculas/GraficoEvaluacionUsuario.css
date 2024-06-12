@@ -23,6 +23,7 @@
   align-items: center;
   width: 90%;
   justify-content: space-around;
+  box-sizing: border-box;
 }
 
 .arrow-left,
@@ -45,36 +46,6 @@
   border-radius: 10px;
   padding: 5px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  max-width: 430px;
-  width: 90%;
-}
-
-.dia-porcentaje {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
-  margin: 0 5px;
-}
-
-.dia {
-  font-weight: bold;
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-.porcentaje {
-  color: black;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.barra {
-  width: 50px;
-  height: calc(var(--porcentaje) * 140px);
-  background-color: rgb(0, 110, 255);
-  border-radius: 3px 3px 0 0;
-  transition: height 0.3s ease;
+  max-width: 400px;
+  scale: 0.8;
 }
