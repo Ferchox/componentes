@@ -67,6 +67,7 @@ form {
   width: 90%;
   margin: 30px auto;
   position: relative;
+  max-height: 450px;
   z-index: 1;
 }
 
