@@ -17,6 +17,7 @@ function CrearMeta({ onCreate }) {
     return (
         <div className="crear-meta-container">
             <form onSubmit={handleSubmit} className="crear-meta-form">
+                <h4>Meta a cumplir</h4>
                 <input
                     type="text"
                     placeholder="Meta"
@@ -24,6 +25,7 @@ function CrearMeta({ onCreate }) {
                     onChange={(e) => setMeta(e.target.value)}
                     required
                 />
+                <h4>Fecha límite para la tarea</h4>
                 <input
                     type="date"
                     value={fechaLimite}

@@ -42,16 +42,18 @@ const InicioSesionUsuario = ({ onSubmit }) => {
         <div className='contenedor-inicio-sesion-usuario'>
             <EtiquetaTitulo titulo='Inicio de Sesion' />
             <form className="inicio-sesion-usuario" onSubmit={handleSubmit}>
+                <h4>Correo electrónico</h4>
                 <input
                     type="email"
-                    placeholder="Correo electrónico"
+                    placeholder="Introduce tu correo electrónico"
                     value={correo}
                     onChange={(e) => setCorreo(e.target.value)}
                     required
                 />
+                <h4>Cotraseña</h4>
                 <input
                     type="password"
-                    placeholder="Contraseña"
+                    placeholder="Introduce tu contraseña"
                     value={contrasena}
                     onChange={(e) => setContrasena(e.target.value)}
                     required

@@ -3,27 +3,27 @@ import "./TablaMetas.css";
 import Checkbox from "../atomos/Checkbox";
 
 function TablaMetas({ metas, handleCheck, handleDelete, handleEdit }) {
-  const [editMode, setEditMode] = useState(null);
-  const [editedMeta, setEditedMeta] = useState("");
-  const [editedFechaLimite, setEditedFechaLimite] = useState("");
+  const [modoEdicion, setModoEdicion] = useState(null);
+  const [metaEditada, setMetaEditada] = useState("");
+  const [fechaLimiteEditada, setFechaLimiteEditada] = useState("");
 
-  const startEdit = (meta) => {
-    setEditMode(meta.id);
-    setEditedMeta(meta.meta);
-    setEditedFechaLimite(new Date(meta.fechaLimite).toISOString().substring(0, 10));
+  const iniciarEdicion = (meta) => {
+    setModoEdicion(meta.id);
+    setMetaEditada(meta.meta);
+    setFechaLimiteEditada(new Date(meta.fechaLimite).toISOString().substring(0, 10));
   };
 
-  const saveEdit = (id) => {
-    handleEdit(id, editedMeta, editedFechaLimite);
-    setEditMode(null);
+  const guardarEdicion = (id) => {
+    handleEdit(id, metaEditada, fechaLimiteEditada);
+    setModoEdicion(null);
   };
 
   return (
     <div className="contenedor-tabla-metas">
-      <div className="tabla-container">
-        <div className="header">Metas</div>
+      <div className="tabla-contenedor">
+        <div className="cabecera">Metas</div>
         {metas.length > 0 ? (
-          <table className="table">
+          <table className="tabla">
             <thead>
               <tr>
                 <th>Objetivo</th>
@@ -35,24 +35,24 @@ function TablaMetas({ metas, handleCheck, handleDelete, handleEdit }) {
             <tbody>
               {metas.map((meta) => (
                 <tr key={meta.id}>
-                  {editMode === meta.id ? (
+                  {modoEdicion === meta.id ? (
                     <>
                       <td>
                         <input
                           type="text"
-                          value={editedMeta}
-                          onChange={(e) => setEditedMeta(e.target.value)}
+                          value={metaEditada}
+                          onChange={(e) => setMetaEditada(e.target.value)}
                         />
                       </td>
                       <td>
                         <input
                           type="date"
-                          value={editedFechaLimite}
-                          onChange={(e) => setEditedFechaLimite(e.target.value)}
+                          value={fechaLimiteEditada}
+                          onChange={(e) => setFechaLimiteEditada(e.target.value)}
                         />
                       </td>
                       <td>
-                        <button onClick={() => saveEdit(meta.id)}>Guardar</button>
+                        <button onClick={() => guardarEdicion(meta.id)}>Guardar</button>
                       </td>
                     </>
                   ) : (
@@ -69,7 +69,7 @@ function TablaMetas({ metas, handleCheck, handleDelete, handleEdit }) {
                   )}
                   <td>
                     <button onClick={() => handleDelete(meta.id)}>Eliminar</button>
-                    <button onClick={() => startEdit(meta)}>Editar</button>
+                    <button onClick={() => iniciarEdicion(meta)}>Editar</button>
                   </td>
                 </tr>
               ))}
@@ -81,7 +81,7 @@ function TablaMetas({ metas, handleCheck, handleDelete, handleEdit }) {
           </div>
         )}
       </div>
-    </div >
+    </div>
   );
 }
 

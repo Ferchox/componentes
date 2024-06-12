@@ -33,6 +33,14 @@ h1 {
   color: var(--blanco);
 }
 
+h4 {
+  margin: 0;
+  margin-top: 20px;
+  display: flex;
+  align-items: start;
+  margin-right: auto;
+}
+
 p {
   color: var(--blanco);
   text-align: justify;
@@ -53,6 +61,7 @@ button {
   align-items: center;
   justify-content: center;
   font-family: 'Inter', sans-serif;
+  font-size: 12px;
 }
 
 button:hover {
@@ -91,6 +100,7 @@ select {
   box-sizing: border-box;
   margin: 5px 0;
   border-radius: 5px;
+  font-size: 12px;
 }
 
 input[type="text"]::placeholder,
@@ -130,6 +140,8 @@ select:focus {
   border-color: var(--morado-claro);
   box-shadow: 0 0 8px 4px rgba(159, 95, 145, 0.5);
 }
+
+
 
 @media (min-width: 1024px) {
 
