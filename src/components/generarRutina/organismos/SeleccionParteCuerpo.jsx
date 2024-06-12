@@ -6,7 +6,7 @@ import ContenedorEjercicio from '../moleculas/ContenedorEjercicio';
 import ContenedorInfoEjercicio from '../moleculas/ContenedorInfoEjercicio';
 import EtiquetaTitulo from '../../general/moleculas/EtiquetaTitulo';
 
-const exercises = {
+const ejercicios = {
   pierna: ['Sentadillas', 'Prensa', 'Extensiones de Pierna'],
   brazo: ['Curl de Bíceps', 'Tríceps en Polea', 'Curl de Martillo', 'Fondos'],
   pecho: ['Press de Banca', 'Aperturas', 'Fondos en Paralelas', 'Press Inclinado'],
@@ -19,7 +19,7 @@ const exercises = {
   yoga: ['Saludo al Sol', 'Postura del Guerrero', 'Postura del Árbol', 'Postura del Niño']
 };
 
-const exerciseDetails = {
+const detallesEjercicio = {
   'Sentadillas': 'Ejercicio para trabajar los músculos de las piernas, especialmente los cuádriceps y glúteos.',
   'Prensa': 'Ejercicio en máquina para trabajar los músculos de las piernas, principalmente cuádriceps y glúteos.',
   'Extensiones de Pierna': 'Ejercicio en máquina para trabajar los cuádriceps de forma aislada.',
@@ -62,49 +62,49 @@ const exerciseDetails = {
 };
 
 const SeleccionParteCuerpo = () => {
-  const [selectedGroup, setSelectedGroup] = useState(null);
-  const [selectedExercise, setSelectedExercise] = useState(null);
+  const [grupoSeleccionado, setGrupoSeleccionado] = useState(null);
+  const [ejercicioSeleccionado, setEjercicioSeleccionado] = useState(null);
 
-  const handleGroupSelection = (group) => {
-    setSelectedGroup(group);
-    setSelectedExercise(null);
+  const manejarSeleccionGrupo = (grupo) => {
+    setGrupoSeleccionado(grupo);
+    setEjercicioSeleccionado(null);
   };
 
-  const handleExerciseSelection = (exercise) => {
-    setSelectedExercise(exercise);
+  const manejarSeleccionEjercicio = (ejercicio) => {
+    setEjercicioSeleccionado(ejercicio);
   };
 
   return (
-    <div className='contenedor-generar-rutina'>
+    <div className='contenedor-rutina'>
       <EtiquetaTitulo titulo='Generar mi propia rutina' />
-      <h4 className="sub"> ¿Que vas a trabajar el dia de hoy?</h4>
-      <div className="App">
-        <div className="buttons">
+      <h4 className="subtitulo"> ¿Qué vas a trabajar el día de hoy?</h4>
+      <div className="aplicacion">
+        <div className="contenedor-botones">
           <ContenedorBotones>
-            {Object.keys(exercises).map((group) => (
-              <Boton key={group} onClick={() => handleGroupSelection(group)}>
-                {group.charAt(0).toUpperCase() + group.slice(1)}
+            {Object.keys(ejercicios).map((grupo) => (
+              <Boton key={grupo} onClick={() => manejarSeleccionGrupo(grupo)}>
+                {grupo.charAt(0).toUpperCase() + grupo.slice(1)}
               </Boton>
             ))}
           </ContenedorBotones>
         </div>
-        <div className="content">
+        <div className="contenido">
           <ContenedorEjercicio>
-            {selectedGroup &&
-              exercises[selectedGroup].map((exercise) => (
+            {grupoSeleccionado &&
+              ejercicios[grupoSeleccionado].map((ejercicio) => (
                 <Boton
-                  key={exercise}
-                  onClick={() => handleExerciseSelection(exercise)}
+                  key={ejercicio}
+                  onClick={() => manejarSeleccionEjercicio(ejercicio)}
                 >
-                  {exercise}
+                  {ejercicio}
                 </Boton>
               ))}
           </ContenedorEjercicio>
           <ContenedorInfoEjercicio>
-            {selectedExercise && (
+            {ejercicioSeleccionado && (
               <>
-                <h3>{selectedExercise}</h3>
-                <p>{exerciseDetails[selectedExercise]}</p>
+                <h3>{ejercicioSeleccionado}</h3>
+                <p>{detallesEjercicio[ejercicioSeleccionado]}</p>
               </>
             )}
           </ContenedorInfoEjercicio>
@@ -115,4 +115,3 @@ const SeleccionParteCuerpo = () => {
 };
 
 export default SeleccionParteCuerpo;
-
