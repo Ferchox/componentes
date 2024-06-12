@@ -1,29 +1,29 @@
-import * as React from 'react';
-import { useState } from 'react';
-import { BarPlot } from '@mui/x-charts/BarChart';
-import { ChartContainer } from '@mui/x-charts/ChartContainer';
-import { ChartsXAxis } from '@mui/x-charts/ChartsXAxis';
-import { ChartsYAxis } from '@mui/x-charts/ChartsYAxis';
-import "./GraficoEvaluacionUsuario.css"; 
+import * as React from "react";
+import { useState } from "react";
+import { BarPlot } from "@mui/x-charts/BarChart";
+import { ChartContainer } from "@mui/x-charts/ChartContainer";
+import { ChartsXAxis } from "@mui/x-charts/ChartsXAxis";
+import { ChartsYAxis } from "@mui/x-charts/ChartsYAxis";
+import "./GraficoEvaluacionUsuario.css";
 
 const opciones = [
   {
     nombre: "Antebrazo",
     data: [
-      { mes: "Enero", valor: 20.1 },
-      { mes: "Febrero", valor: 20.5 },
-      { mes: "Marzo", valor: 20.8 },
-      { mes: "Abril", valor: 20.1 },
+      { fecha: "11/01/24", valor: 20.1 },
+      { fecha: "12/02/24", valor: 20.5 },
+      { fecha: "13/03/24", valor: 20.8 },
+      { fecha: "14/04/24", valor: 20.1 },
     ],
-    unidad: "cm", 
+    unidad: "cm",
   },
   {
     nombre: "Muñeca",
     data: [
-      { mes: "Enero", valor: 5.1 },
-      { mes: "Febrero", valor: 4.5 },
-      { mes: "Marzo", valor: 7.8 },
-      { mes: "Abril", valor: 6.1 },
+      { fecha: "11/01/24", valor: 5.1 },
+      { fecha: "12/02/24", valor: 4.5 },
+      { fecha: "13/03/24", valor: 7.8 },
+      { fecha: "14/04/24", valor: 6.1 },
     ],
     unidad: "cm",
   },
@@ -49,9 +49,9 @@ export default function GraficoEvaluacionUsuario() {
 
   const series = [
     {
-      type: 'bar',
-      stack: '',
-      yAxisKey: 'valor', 
+      type: "bar",
+      stack: "",
+      yAxisKey: "valor",
       data: dataSeleccionada.map((item) => item.valor),
     },
   ];
@@ -74,22 +74,29 @@ export default function GraficoEvaluacionUsuario() {
           height={400}
           xAxis={[
             {
-              id: 'meses',
-              data: dataSeleccionada.map((item) => item.mes),
-              scaleType: 'band',
+              id: "fechas",
+              data: dataSeleccionada.map((item) => {
+                const [dia, mes, año] = item.fecha.split("/");
+                return `${mes}/${año}`;
+              }),
+              scaleType: "band",
               valueFormatter: (value) => value.toString(),
             },
           ]}
           yAxis={[
             {
-              id: 'valor',
-              scaleType: 'linear',
+              id: "valor",
+              scaleType: "linear",
             },
           ]}
         >
           <BarPlot />
-          <ChartsXAxis label="Meses" position="bottom" axisId="meses" />
-          <ChartsYAxis label={`Resultados (${unidadSeleccionada})`} position="left" axisId="valor" /> 
+          <ChartsXAxis label="Fechas" position="bottom" axisId="fechas" />
+          <ChartsYAxis
+            label={`Resultados (${unidadSeleccionada})`}
+            position="left"
+            axisId="valor"
+          />
         </ChartContainer>
       </div>
     </div>
