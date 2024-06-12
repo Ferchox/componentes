@@ -26,7 +26,7 @@ const InformacionPerfil = () => {
     }, []);
 
     const convertirFecha = (fecha) => {
-        return moment(fecha).format('DD/MM/YYYY');
+        return moment(fecha).format('YYYY-MM-DD');
     };
 
     const handleEdit = () => {
@@ -127,8 +127,6 @@ const InformacionPerfil = () => {
                             <option value="Femenino">Femenino</option>
                             <option value="Otro">Otro</option>
                         </select>
-
-
                         <input
                             type="file"
                             accept="image/*"

@@ -58,7 +58,7 @@ const RegistroUsuario = () => {
 
                 const nuevoUsuario = {
                     nombre,
-                    fechaNacimiento: new Date(fechaNacimiento).getTime() / 1000,
+                    fechaNacimiento: fechaNacimiento,
                     direccion,
                     numeroCelular,
                     email,

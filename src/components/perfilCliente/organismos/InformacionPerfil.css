@@ -14,13 +14,3 @@
     border-radius: 10px;
     padding: 20px;
 }
-
-.tarjeta-informacion-perfil input[type="text"],
-.tarjeta-informacion-perfil input[type="date"],
-.tarjeta-informacion-perfil input[type="tel"],
-.tarjeta-informacion-perfil input[type="email"],
-.tarjeta-informacion-perfil input[type="password"],
-.tarjeta-informacion-perfil input[type="file"],
-.tarjeta-informacion-perfil select {
-    margin: 5px 0;
-}
