@@ -1,11 +1,14 @@
 .contenedor-informacion {
-    height: auto;
-    width: 80%;
-    margin: 0.5rem 0;
+    background-color: transparent;
     border: 2px solid var(--rosa);
-    padding: 0.75rem;
     border-radius: 10px;
-    background-color: var(--fondo-gris-oscuro);
+    padding: 8px 12px;
     color: var(--blanco);
     font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px 0;
 }

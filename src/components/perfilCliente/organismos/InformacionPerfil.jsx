@@ -43,7 +43,6 @@ const InformacionPerfil = () => {
 
     const handleSave = async () => {
         try {
-            // Verificar si el correo electrónico ya está en uso
             const response = await axios.get('https://66633fda62966e20ef0c0e30.mockapi.io/cliente');
             const usuarios = response.data;
 
@@ -57,7 +56,7 @@ const InformacionPerfil = () => {
             setPerfil(formData);
             sessionStorage.setItem('usuario', JSON.stringify(formData));
             setEditMode(false);
-            setMensaje(null); // Limpiar el mensaje en caso de éxito
+            setMensaje(null);
         } catch (error) {
             console.error('Error updating profile:', error);
         }

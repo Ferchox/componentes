@@ -12,7 +12,7 @@
     background: #fafafa10;
     backdrop-filter: blur(10rem);
     border-radius: 10px;
-    padding: 1%;
+    padding: 20px;
 }
 
 .tarjeta-informacion-perfil input[type="text"],
@@ -23,13 +23,4 @@
 .tarjeta-informacion-perfil input[type="file"],
 .tarjeta-informacion-perfil select {
     margin: 5px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 80%;
-    box-sizing: border-box;
-}
-
-.tarjeta-informacion-perfil input[type="file"] {
-    padding: 3px;
 }

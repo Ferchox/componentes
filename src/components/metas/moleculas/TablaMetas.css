@@ -4,10 +4,10 @@
   padding-bottom: 30px;
   margin-top: 10px;
   box-shadow: 0 4px 8px rgb(0, 0, 0);
+  margin-bottom: 10px;
 }
 
 .table {
-  width: 100%;
   border-collapse: collapse;
 }
 
@@ -26,8 +26,22 @@ th {
 
 .no-metas {
   background-color: #d9d9d9;
-  border-radius: 10px;
   padding: 20px;
   text-align: center;
   color: black;
+}
+
+
+.contenedor-tabla-metas {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  border: 2px solid #fafafa10;
+  background: #fafafa10;
+  backdrop-filter: blur(50rem);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 1%;
 }
