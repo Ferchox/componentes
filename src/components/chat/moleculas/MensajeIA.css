@@ -1,7 +1,6 @@
-
 .mensaje-contenedor-model {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 15px;
-    color: var(--blanco);
-  }
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  color: var(--blanco);
+}

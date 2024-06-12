@@ -1,23 +1,28 @@
-.tabla-container {
+.tabla-contenedor {
   background-color: #9f5f91;
   border-radius: 20px;
   padding-bottom: 30px;
   margin-top: 10px;
   box-shadow: 0 4px 8px rgb(0, 0, 0);
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 800px;
 }
 
-.table {
-  width: 100%;
+.tabla {
   border-collapse: collapse;
+  width: 100%;
 }
 
 th,
 td {
+  width: 25%;
   color: black;
-  padding: 10px;
+  padding: 5px;
   text-align: left;
   background-color: #d9d9d9;
   border-bottom: 1px solid #ddd;
+  word-break: break-word;
 }
 
 th {
@@ -26,8 +31,33 @@ th {
 
 .no-metas {
   background-color: #d9d9d9;
-  border-radius: 10px;
   padding: 20px;
   text-align: center;
   color: black;
+}
+
+.contenedor-tabla-metas {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  border: 2px solid #fafafa10;
+  background: #fafafa10;
+  backdrop-filter: blur(50rem);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 1%;
+}
+
+.cabecera {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+}
+
+button {
+  font-size: 0.7em;
 }

@@ -3,22 +3,19 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  border-radius: 15px;
-  width: 90%;
-  margin: 30px auto;
+  border-radius: 10px;
+  width: 100%;
   position: relative;
   z-index: 1;
 }
 
 .titulo {
   display: flex;
-  padding: 12px 24px;
+  padding: 12px;
   border: none;
-  border-radius: 25px;
+  border-radius: 10px;
   font-size: 1.1em;
   border: 2px solid #ff5a5a;
-  margin-bottom: 15px;
-  margin-top: 15px;
   text-align: center;
   align-items: center;
   width: 90%;
@@ -32,7 +29,7 @@
   font-size: 20px;
 }
 
-.titulo > h1 {
+.titulo>h1 {
   color: var(--blanco);
   transition: background-color 0.3s;
   height: 100%;

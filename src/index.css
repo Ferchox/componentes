@@ -33,6 +33,14 @@ h1 {
   color: var(--blanco);
 }
 
+h4 {
+  margin: 0;
+  margin-top: 20px;
+  display: flex;
+  align-items: start;
+  margin-right: auto;
+}
+
 p {
   color: var(--blanco);
   text-align: justify;
@@ -53,6 +61,7 @@ button {
   align-items: center;
   justify-content: center;
   font-family: 'Inter', sans-serif;
+  font-size: 12px;
 }
 
 button:hover {
@@ -63,6 +72,76 @@ a {
   color: var(--blanco);
   text-decoration: none;
 }
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="number"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="file"],
+textarea,
+select {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  color: var(--blanco);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 5px 0;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="date"]::placeholder,
+input[type="number"]::placeholder,
+input[type="url"]::placeholder,
+input[type="search"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="time"]::placeholder,
+input[type="datetime-local"]::placeholder,
+input[type="month"]::placeholder,
+input[type="week"]::placeholder,
+input[type="file"]::placeholder,
+textarea::placeholder,
+select::placeholder {
+  color: var(--blanco);
+  opacity: 0.6;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="time"]:focus,
+input[type="datetime-local"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="file"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--morado-claro);
+  box-shadow: 0 0 8px 4px rgba(159, 95, 145, 0.5);
+}
+
+
 
 @media (min-width: 1024px) {
 

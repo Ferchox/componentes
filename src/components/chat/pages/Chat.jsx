@@ -6,8 +6,6 @@ import FormularioChat from "../organismos/FormularioChat";
 import HistorialChat from "../organismos/HistorialChat";
 import Cabecera from "../../general/organismos/Cabecera";
 import PiePagina from "../../general/organismos/PiePagina";
-import DropdownPerfil from "../../general/moleculas/DropdownPerfil";
-import MenuOpciones from "../../general/moleculas/MenuOpciones";
 import BarraNavegacion from "../../general/organismos/BarraNavegacion";
 
 function Chat() {
