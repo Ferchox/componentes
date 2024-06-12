@@ -77,6 +77,7 @@ const SeleccionParteCuerpo = () => {
   return (
     <div className='contenedor-generar-rutina'>
       <EtiquetaTitulo titulo='Generar mi propia rutina' />
+      <h4 className="sub"> ¿Que vas a trabajar el dia de hoy?</h4>
       <div className="App">
         <div className="buttons">
           <ContenedorBotones>
