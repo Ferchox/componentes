@@ -5,30 +5,30 @@ import './Entrenadores.css';
 
 const entrenadores = [
   {
-    nombre: 'Juan Pérez',
+    nombre: 'Juan',
     horario: 'Lunes a Viernes - 6am a 8am',
     descripcion: 'Especialista en cuádriceps y glúteos.',
     especialidades: ['Pierna', 'Glúteos']
   },
   {
-    nombre: 'Ana Gómez',
+    nombre: 'Ana',
     horario: 'Lunes a Viernes - 5pm a 7pm',
     descripcion: 'Experta en fortalecimiento de pantorrillas.',
     especialidades: ['Pantorrillas', 'Pierna']
   },
   {
-    nombre: 'Carlos López',
+    nombre: 'Carlos',
     horario: 'Lunes a Viernes - 7am a 9am',
     descripcion: 'Se enfoca en pectorales y deltoides.',
     especialidades: ['Pecho', 'Hombro']
   },
   {
-    nombre: 'María Fernández',
+    nombre: 'María',
     horario: 'Lunes a Viernes - 6pm a 8pm',
     descripcion: 'Entrenadora de pectorales superiores e inferiores.',
     especialidades: ['Pecho', 'Espalda']
   }
-  // Añadir más entrenadores si es necesario
+  
 ];
 
 function Entrenadores() {
