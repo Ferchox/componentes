@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Tarjeta from "../../general/moleculas/Tarjeta";
 import EtiquetaSubTitulo from "../../general/moleculas/EtiquetaSubTitulo";
+import Cargando from "../../general/moleculas/Cargando";
 import "./InformacionPrincipal.css";
 
 const InformacionPrincipal = () => {
   const [datos, setDatos] = useState([]);
+  const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
     const fetchDatos = async () => {
@@ -13,12 +15,18 @@ const InformacionPrincipal = () => {
         const data = await response.json();
         setDatos(data);
       } catch (error) {
-        console.error("Error fetching data: ", error);
+        console.error("Error al obtener los datos: ", error);
+      } finally {
+        setCargando(false);
       }
     };
 
     fetchDatos();
   }, []);
+
+  if (cargando) {
+    return <Cargando />;
+  }
 
   return (
     <div className="pantalla-inicial">
