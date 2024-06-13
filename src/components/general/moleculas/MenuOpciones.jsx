@@ -66,10 +66,10 @@ const MenuOpciones = () => {
           </li>
           {infoMaquinasAbierto && (
             <>
-              <NavLink to='/InfoMaquinasQR'>
-                <li className="sub-item">Información de máquinas disponibles</li>
-              </NavLink>
               <NavLink to='/InfoMaquinas'>
+                <li className="sub-item">Información de máquinas</li>
+              </NavLink>
+              <NavLink to='/InfoMaquinasQR'>
                 <li className="sub-item">Escanear máquina</li>
               </NavLink>
             </>
