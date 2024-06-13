@@ -35,7 +35,7 @@
   background: var(--fondo-gris-oscuro);
   color: var(--blanco);
   border-radius: 10px;
-  padding: 10px 0;
+  padding: 0;
   list-style: none;
   margin: 0;
   border: 2px solid #fafafa10;
