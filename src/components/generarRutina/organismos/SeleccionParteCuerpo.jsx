@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SeleccionParteCuerpo.css";
 import Boton from "../atomos/Boton";
 import ContenedorBotones from "../moleculas/ContenedorBotones";
@@ -14,6 +15,7 @@ const SeleccionParteCuerpo = () => {
   const [grupoSeleccionado, setGrupoSeleccionado] = useState(null);
   const [ejercicioSeleccionado, setEjercicioSeleccionado] = useState(null);
   const [ejerciciosSeleccionados, setEjerciciosSeleccionados] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://6668e270f53957909ff9675e.mockapi.io/rutinas")
@@ -88,6 +90,35 @@ const SeleccionParteCuerpo = () => {
     doc.save(`${title}.pdf`);
   };
 
+  const guardarRutina = () => {
+    if (ejerciciosSeleccionados.length === 0) {
+      alert("Debe agregar al menos un ejercicio antes de guardar la rutina.");
+      return;
+    }
+
+    const idCliente = sessionStorage.getItem('usuarioId');
+    const nombreRutina = `Rutina de ${new Date().toLocaleDateString()}`;
+    const fechaCreacion = Date.now();
+    const rutina = {
+      idCliente,
+      nombreRutina,
+      fechaCreacion,
+      ejercicios: ejerciciosSeleccionados,
+    };
+
+    fetch("https://6668e270f53957909ff9675e.mockapi.io/rutinasCliente", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(rutina),
+    })
+      .then((response) => response.json())
+      .then(() => {
+        navigate("/VerRutinas");
+      });
+  };
+
   const manejarSeleccionGrupo = (grupo) => {
     setGrupoSeleccionado(grupo);
     setEjercicioSeleccionado(null);
@@ -149,6 +180,7 @@ const SeleccionParteCuerpo = () => {
           </div>
           <div className="botones-accion">
             <Boton onClick={añadirEjercicio}>Añadir Ejercicio</Boton>
+            <Boton onClick={guardarRutina}>Guardar Rutina</Boton>
             <Boton onClick={generarPDF}>Generar PDF</Boton>
           </div>
         </div>
