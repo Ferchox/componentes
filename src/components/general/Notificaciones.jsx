@@ -1,4 +1,3 @@
-// src/components/general/Notificaciones.jsx
 import React, { useState, useEffect } from "react";
 import "./Notificaciones.css";
 
@@ -29,9 +28,8 @@ const Notificaciones = () => {
         <Notification
           key={index}
           title={notification.title}
-          body={notification.body}
+          body={notification.descripcion}
           image={notification.image}
-          className={notification.className}
         />
       ))}
     </div>

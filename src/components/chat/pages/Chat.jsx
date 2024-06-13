@@ -15,19 +15,14 @@ function Chat() {
   const [error, setError] = useState("");
   const [chat, setChat] = useState(null);
   const [escribiendo, setEscribiendo] = useState(false);
-  const [imagenAleatoria, setImagenAleatoria] = useState("");
+  const [perfil, setPerfil] = useState(null);
 
   useEffect(() => {
-    const obtenerImagenAleatoria = async () => {
-      try {
-        const respuesta = await fetch("https://picsum.photos/200");
-        setImagenAleatoria(respuesta.url);
-      } catch (error) {
-        console.error("Error al obtener imagen aleatoria", error);
-      }
-    };
-
-    obtenerImagenAleatoria();
+    const usuarioGuardado = sessionStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      const usuario = JSON.parse(usuarioGuardado);
+      setPerfil(usuario);
+    }
   }, []);
 
   useEffect(() => {
@@ -70,7 +65,7 @@ function Chat() {
       año,
       hora,
       minutos,
-      imagen: imagenAleatoria,
+      imagen: perfil ? perfil.foto : "",
     };
 
     setMensajes((prevMensajes) => {

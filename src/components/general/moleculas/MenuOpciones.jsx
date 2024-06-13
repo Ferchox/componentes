@@ -93,6 +93,9 @@ const MenuOpciones = () => {
               </NavLink>
             </>
           )}
+          <NavLink to='/RegistroEvaluacion'>
+            <li>Registrar evolución</li>
+          </NavLink>
           <NavLink to='/EvaluacionUsuario'>
             <li>Ver evolución</li>
           </NavLink>
