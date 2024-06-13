@@ -68,6 +68,8 @@
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    background-color: rgb(73, 73, 73);
+    color: var(--blanco);
 }
 
 .rutinas-tabla th {
