@@ -43,7 +43,7 @@ const InformacionPerfil = () => {
 
     const handleSave = async () => {
         try {
-            const response = await axios.get('https://66633fda62966e20ef0c0e30.mockapi.io/cliente');
+            const response = await axios.get('https://6668e270f53957909ff9675e.mockapi.io/cliente');
             const usuarios = response.data;
 
             const emailEnUso = usuarios.some(user => user.email === formData.email && user.id !== perfil.id);
@@ -52,7 +52,7 @@ const InformacionPerfil = () => {
                 return;
             }
 
-            await axios.put(`https://66633fda62966e20ef0c0e30.mockapi.io/cliente/${perfil.id}`, formData);
+            await axios.put(`https://6668e270f53957909ff9675e.mockapi.io/cliente/${perfil.id}`, formData);
             setPerfil(formData);
             sessionStorage.setItem('usuario', JSON.stringify(formData));
             setEditMode(false);

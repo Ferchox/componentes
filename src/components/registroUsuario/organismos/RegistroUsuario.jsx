@@ -34,7 +34,7 @@ const RegistroUsuario = () => {
         }
 
         try {
-            const response = await axios.get('https://66633fda62966e20ef0c0e30.mockapi.io/cliente');
+            const response = await axios.get('https://6668e270f53957909ff9675e.mockapi.io/cliente');
             const usuarios = response.data;
 
             const userExists = usuarios.some(user => user.email === email || user.ci === ciPasaporte);
@@ -69,7 +69,7 @@ const RegistroUsuario = () => {
                     rol: 'cliente',
                 };
 
-                await axios.post('https://66633fda62966e20ef0c0e30.mockapi.io/cliente', nuevoUsuario);
+                await axios.post('https://6668e270f53957909ff9675e.mockapi.io/cliente', nuevoUsuario);
 
                 setMensaje('Registro exitoso.');
                 setTipoAviso('exito');

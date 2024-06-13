@@ -173,7 +173,7 @@ function Chat() {
       <Cabecera />
       <BarraNavegacion />
       <div className="contenedor-chat">
-        <HistorialChat mensajes={mensajes} escribiendo={escribiendo} />
+        <HistorialChat mensajes={mensajes} escribiendo={escribiendo} className="historial-chat" />
         <FormularioChat
           input={input}
           setInput={setInput}
