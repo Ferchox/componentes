@@ -8,6 +8,7 @@ import CrearMetas from '../components/crearMetas/pages/CrearMeta'
 import Entrenadores from '../components/PantallaEntrenador/pages/PEntrenador'
 import EvaluacionUsuario from '../components/evaluacionUsuario/pages/EvaluacionUsuario'
 import GenerarRutina from '../components/generarRutina/pages/GenerarRutina'
+import GenerarRutinaIA from '../components/generarRutinaIA/pages/GenerarRutinaIA'
 import Metas from '../components/metas/pages/Metas'
 import PerfilCliente from '../components/perfilCliente/pages/Perfil'
 import InfoMaquinasQR from '../components/maquinaQR/pages/InfoMaquinas';
@@ -27,6 +28,7 @@ const Rutas = () => {
                     <Route path='/Entrenadores' element={<Entrenadores />} />
                     <Route path='/EvaluacionUsuario' element={<EvaluacionUsuario />} />
                     <Route path='/GenerarRutina' element={<GenerarRutina />} />
+                    <Route path='/GenerarRutinaIA' element={<GenerarRutinaIA/>}/>
                     <Route path='/Metas' element={<Metas />} />
                     <Route path='/PerfilCliente' element={<PerfilCliente />} />
                     <Route path='/InfoMaquinasQR' element={<InfoMaquinasQR />} />
