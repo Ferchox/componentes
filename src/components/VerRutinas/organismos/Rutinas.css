@@ -1,0 +1,76 @@
+.contenedor-rutinas {
+    padding: 8px;
+}
+
+.rutinas-aplicacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #fafafa10;
+    background: #fafafa10;
+    backdrop-filter: blur(10rem);
+    padding: 1rem;
+    border-radius: 15px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.rutinas-subtitulo {
+    width: 90%;
+    background-color: var(--morado-oscuro);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.rutinas-contenedor-botones {
+    margin: 5px 0;
+}
+
+.rutinas-boton {
+    margin: 5px;
+}
+
+.rutinas-contenedor-botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.rutinas-contenedor-ejercicio,
+.rutinas-contenedor-info-ejercicio {
+    margin-top: 20px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.rutinas-contenido {
+    margin-top: 5px;
+}
+
+.rutinas-botones-accion {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.rutinas-tabla {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.rutinas-tabla th,
+.rutinas-tabla td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.rutinas-tabla th {
+    background-color: #333;
+    color: white;
+}

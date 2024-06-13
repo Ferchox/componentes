@@ -13,6 +13,7 @@ import PerfilCliente from '../components/perfilCliente/pages/Perfil'
 import InfoMaquinasQR from '../components/maquinaQR/pages/InfoMaquinas';
 import InfoMaquinas from '../components/infoMaquinas/pages/InformacionMaquinas';
 import RegistroEvaluacion from '../components/ingresarEvaluacion/RegistroEvaluacion';
+import VerRutinas from '../components/VerRutinas/pages/VerRutinas';
 
 const Rutas = () => {
     return (
@@ -32,6 +33,7 @@ const Rutas = () => {
                     <Route path='/InfoMaquinasQR' element={<InfoMaquinasQR />} />
                     <Route path='/RegistroEvaluacion' element={<RegistroEvaluacion />} />
                     <Route path='/InfoMaquinas' element={<InfoMaquinas />} />
+                    <Route path='/VerRutinas' element={<VerRutinas />} />
                 </Routes>
             </Router>
         </>
