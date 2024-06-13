@@ -10,7 +10,8 @@ import EvaluacionUsuario from '../components/evaluacionUsuario/pages/EvaluacionU
 import GenerarRutina from '../components/generarRutina/pages/GenerarRutina'
 import Metas from '../components/metas/pages/Metas'
 import PerfilCliente from '../components/perfilCliente/pages/Perfil'
-import InfoMaquinas from '../components/maquinaQR/pages/InfoMaquinas';
+import InfoMaquinasQR from '../components/maquinaQR/pages/InfoMaquinas';
+import InfoMaquinas from '../components/infoMaquinas/pages/InformacionMaquinas';
 import RegistroEvaluacion from '../components/ingresarEvaluacion/RegistroEvaluacion';
 
 const Rutas = () => {
@@ -28,8 +29,9 @@ const Rutas = () => {
                     <Route path='/GenerarRutina' element={<GenerarRutina />} />
                     <Route path='/Metas' element={<Metas />} />
                     <Route path='/PerfilCliente' element={<PerfilCliente />} />
-                    <Route path='/InfoMaquinas' element={<InfoMaquinas />} />
+                    <Route path='/InfoMaquinasQR' element={<InfoMaquinasQR />} />
                     <Route path='/RegistroEvaluacion' element={<RegistroEvaluacion />} />
+                    <Route path='/InfoMaquinas' element={<InfoMaquinas />} />
                 </Routes>
             </Router>
         </>
