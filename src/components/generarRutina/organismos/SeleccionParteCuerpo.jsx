@@ -55,41 +55,6 @@ const SeleccionParteCuerpo = () => {
     );
   };
 
-  const generarPDF = () => {
-    const doc = new jsPDF();
-    const today = new Date();
-    const formattedDate =
-      today.getDate() +
-      "/" +
-      (today.getMonth() + 1) +
-      "/" +
-      today.getFullYear();
-
-    const title = "Mi Rutina de Entrenamiento";
-    const header = `${title} ${formattedDate}`;
-
-    doc.setFontSize(20);
-    doc.text(header, 10, 10);
-
-    let y = 20;
-    doc.setFontSize(12);
-    doc.text("Ejercicios:", 10, y);
-    y += 10;
-
-    autoTable(doc, {
-      head: [["#", "Grupo", "Ejercicio", "Descripción"]],
-      body: ejerciciosSeleccionados.map((item, index) => [
-        index + 1,
-        item.grupo.charAt(0).toUpperCase() + item.grupo.slice(1),
-        item.ejercicio,
-        item.descripcion,
-      ]),
-      startY: y,
-    });
-
-    doc.save(`${title}.pdf`);
-  };
-
   const guardarRutina = () => {
     if (ejerciciosSeleccionados.length === 0) {
       alert("Debe agregar al menos un ejercicio antes de guardar la rutina.");
@@ -181,7 +146,6 @@ const SeleccionParteCuerpo = () => {
           <div className="botones-accion">
             <Boton onClick={añadirEjercicio}>Añadir Ejercicio</Boton>
             <Boton onClick={guardarRutina}>Guardar Rutina</Boton>
-            <Boton onClick={generarPDF}>Generar PDF</Boton>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import "./Rutinas.css";
@@ -12,7 +12,6 @@ const Rutinas = () => {
     const [grupoSeleccionado, setGrupoSeleccionado] = useState(null);
     const [ejercicioSeleccionado, setEjercicioSeleccionado] = useState(null);
     const [ejerciciosSeleccionados, setEjerciciosSeleccionados] = useState([]);
-    const navigate = useNavigate();
 
     useEffect(() => {
         const idCliente = sessionStorage.getItem('usuarioId');
@@ -248,6 +247,11 @@ const Rutinas = () => {
                         ) : (
                             <p>No tienes rutinas guardadas.</p>
                         )}
+                        <div className="rutinas-botones-accion">
+                            <NavLink to='/GenerarRutina'>
+                                <button className="rutinas-boton">Crear rutina</button>
+                            </NavLink>
+                        </div>
                     </div>
                 </>
             )}
