@@ -128,10 +128,27 @@ const SeleccionParteCuerpo = () => {
     }
   };
 
+  const eliminarEjercicio = (index) => {
+    setEjerciciosSeleccionados(
+      ejerciciosSeleccionados.filter((_, i) => i !== index)
+    );
+  };
+
   const generarPDF = () => {
     const doc = new jsPDF();
+    const today = new Date();
+    const formattedDate =
+      today.getDate() +
+      "/" +
+      (today.getMonth() + 1) +
+      "/" +
+      today.getFullYear();
+
     const title = "Mi Rutina de Entrenamiento";
-    const header = `## ${title}`;
+    const header = `${title} ${formattedDate}`;
+
+    doc.setFontSize(20);
+    doc.text(header, 10, 10);
 
     doc.setFontSize(20);
     doc.text(header, 10, 10);
@@ -145,7 +162,7 @@ const SeleccionParteCuerpo = () => {
       head: [["#", "Grupo", "Ejercicio", "Descripción"]],
       body: ejerciciosSeleccionados.map((item, index) => [
         index + 1,
-        item.grupo.toUpperCase(),
+        item.grupo.charAt(0).toUpperCase() + item.grupo.slice(1),
         item.ejercicio,
         item.descripcion,
       ]),
@@ -198,6 +215,22 @@ const SeleccionParteCuerpo = () => {
               </>
             )}
           </ContenedorInfoEjercicio>
+          <div className="lista-ejercicios">
+            {ejerciciosSeleccionados.length > 0 && (
+              <h4>Ejercicios Seleccionados:</h4>
+            )}
+            <ul>
+              {ejerciciosSeleccionados.map((item, index) => (
+                <li key={index}>
+                  {item.ejercicio} -{" "}
+                  {item.grupo.charAt(0).toUpperCase() + item.grupo.slice(1)}
+                  <button onClick={() => eliminarEjercicio(index)}>
+                    Eliminar
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="botones-accion">
             <Boton onClick={añadirEjercicio}>Añadir Ejercicio</Boton>
             <Boton onClick={generarPDF}>Generar PDF</Boton>
