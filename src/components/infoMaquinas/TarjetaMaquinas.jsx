@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Tarjeta from "../general/Tarjeta";
 import EtiquetaSubTitulo from "../general/EtiquetaSubTitulo";
 import "./TarjetaMaquinas.css";
+import EtiquetaTitulo from "../general/EtiquetaTitulo";
 
 const TarjetaEjercicios = () => {
   const [datos, setDatos] = useState([]);
@@ -22,6 +23,7 @@ const TarjetaEjercicios = () => {
 
   return (
     <div className="pantalla-inicial">
+      <EtiquetaTitulo titulo="Informacion de máquinas" />
       {datos.map(item => (
         <div key={item.id} className="contenedor-tarjeta">
           <EtiquetaSubTitulo titulo={item.nombre} />

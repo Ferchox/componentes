@@ -28,7 +28,9 @@
   margin: 5px 0;
 }
 
-button {
+.contenedor-rutina button {
+  height: auto;
+  width: 30%;
   margin: 5px;
 }
 

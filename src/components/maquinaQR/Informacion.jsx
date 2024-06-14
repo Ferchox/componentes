@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import QrScanner from 'react-qr-scanner';
 import "./Informacion.css";
+import EtiquetaTitulo from "../general/EtiquetaTitulo";
 
 const Informacion = () => {
   const [selectedMachine, setSelectedMachine] = useState(null);
@@ -8,7 +9,6 @@ const Informacion = () => {
   const [machines, setMachines] = useState([]);
 
   useEffect(() => {
-    // Fetch the data from the API when the component mounts
     fetch('https://6668e270f53957909ff9675e.mockapi.io/maquinas')
       .then(response => response.json())
       .then(data => setMachines(data))
@@ -35,37 +35,40 @@ const Informacion = () => {
   const machineDetails = machines.find(machine => machine.identificador === selectedMachine);
 
   return (
-    <div className="pantalla-principal">
-      <h3>Información de la Máquina</h3>
+    <div className="contenedor-escaner-qr">
+      <EtiquetaTitulo titulo="Escanear QR de máquina" />
+      <div className="pantalla-principal">
+        <h3>Información de la Máquina</h3>
 
-      {machineDetails ? (
-        <div className="machine-details">
-          <h4>{machineDetails.nombre}</h4>
-          <img src={machineDetails.imagen} alt={machineDetails.nombre} />
-          <p>{machineDetails.descripcion}</p>
-          <ul>
-            {machineDetails.detalles.split(', ').map((detail, index) => (
-              <li key={index}>{detail}</li>
-            ))}
-          </ul>
-        </div>
-      ) : (
-        selectedMachine && <p>Máquina no encontrada.</p>
-      )}
+        {machineDetails ? (
+          <div className="machine-details">
+            <h4>{machineDetails.nombre}</h4>
+            <img src={machineDetails.imagen} alt={machineDetails.nombre} />
+            <p>{machineDetails.descripcion}</p>
+            <ul>
+              {machineDetails.detalles.split(', ').map((detail, index) => (
+                <li key={index}>{detail}</li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          selectedMachine && <p>Máquina no encontrada.</p>
+        )}
 
-      <button className="Guardar" onClick={() => setScanning(true)}>Escanear máquina</button>
+        <button className="Guardar" onClick={() => setScanning(true)}>Escanear máquina</button>
 
-      {scanning && (
-        <div className="qr-scanner">
-          <QrScanner
-            delay={300}
-            style={previewStyle}
-            onError={handleError}
-            onScan={handleScan}
-          />
-          <button onClick={() => setScanning(false)}>Cancelar</button>
-        </div>
-      )}
+        {scanning && (
+          <div className="qr-scanner">
+            <QrScanner
+              delay={300}
+              style={previewStyle}
+              onError={handleError}
+              onScan={handleScan}
+            />
+            <button onClick={() => setScanning(false)}>Cancelar</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
