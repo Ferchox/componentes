@@ -82,7 +82,7 @@ const MenuOpciones = () => {
               <NavLink to='/GenerarRutina'>
                 <li className="sub-item">Generar mi propia rutina</li>
               </NavLink>
-              <NavLink to='/GenerarRutina'>
+              <NavLink to='/GenerarRutinaIa'>
                 <li className="sub-item">Generar rutina con IA</li>
               </NavLink>
               <NavLink to='/Entrenadores'>
