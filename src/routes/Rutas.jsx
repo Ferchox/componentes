@@ -18,6 +18,8 @@ import AdministrarEntrenador from '../pages/Admin';
 import RutaPrivada from './RutaPrivada';
 import RutaAdmin from './RutaAdmin';
 import AdministrarUsuario from '../pages/AdministrarUsuario';
+import SolicitarRestablecimiento from '../pages/SolicitarRestablecimiento';
+import RestablecerContrasena from '../pages/RestablecerContrasena';
 
 const Rutas = () => {
     return (
@@ -26,6 +28,8 @@ const Rutas = () => {
                 <Route path="/" element={<Inicio />} />
                 <Route path="/IniciarSesionUsuario" element={<InicioSesionUsuario />} />
                 <Route path="/RegistroUsuario" element={<RegistroUsuario />} />
+                <Route path="/solicitar-restablecimiento" element={<SolicitarRestablecimiento />} />
+                <Route path="/restablecer/:token" element={<RestablecerContrasena />} />
 
                 <Route path='/Chat' element={<RutaPrivada><Chat /></RutaPrivada>} />
                 <Route path='/Entrenadores' element={<RutaPrivada><Entrenadores /></RutaPrivada>} />
