@@ -1,8 +1,8 @@
 import React from 'react';
 import './Evaluacion.css';
-import DescripcionEvaluacionUsuario from '../atomos/DescripcioEvaluacion';
-import GraficoEvaluacionUsuario from '../moleculas/GraficoEvaluacionUsuario';
-import EtiquetaTitulo from '../../general/moleculas/EtiquetaTitulo';
+import DescripcionEvaluacionUsuario from './DescripcioEvaluacion';
+import GraficoEvaluacionUsuario from './GraficoEvaluacionUsuario';
+import EtiquetaTitulo from '../general/moleculas/EtiquetaTitulo';
 
 function Evaluacion() {
 

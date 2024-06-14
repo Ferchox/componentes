@@ -4,9 +4,8 @@ import Inicio from '../components/inicio/pages/Inicio';
 import InicioSesionUsuario from '../components/inicioSesionUsuario/pages/InicioSesion'
 import RegistroUsuario from '../components/registroUsuario/pages/Registro'
 import Chat from '../pages/Chat';
-import CrearMetas from '../components/crearMetas/pages/CrearMeta'
 import Entrenadores from '../components/PantallaEntrenador/pages/PEntrenador'
-import EvaluacionUsuario from '../components/evaluacionUsuario/pages/EvaluacionUsuario'
+import EvaluacionUsuario from '../pages/EvaluacionUsuario'
 import GenerarRutina from '../components/generarRutina/pages/GenerarRutina'
 import GenerarRutinaIA from '../components/generarRutinaIA/pages/GenerarRutinaIA'
 import Metas from '../components/metas/pages/Metas'
@@ -25,7 +24,6 @@ const Rutas = () => {
                     <Route path="/IniciarSesionUsuario" element={<InicioSesionUsuario />} />
                     <Route path="/RegistroUsuario" element={<RegistroUsuario />} />
                     <Route path='/Chat' element={<Chat />} />
-                    <Route path='/CrearMetas' element={<CrearMetas />} />
                     <Route path='/Entrenadores' element={<Entrenadores />} />
                     <Route path='/EvaluacionUsuario' element={<EvaluacionUsuario />} />
                     <Route path='/GenerarRutina' element={<GenerarRutina />} />
