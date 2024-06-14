@@ -1,8 +1,8 @@
 import React from "react";
-import Informacion from "../organismos/Informacion.jsx";
-import Cabecera from "../../general/Cabecera.jsx";
-import PiePagina from "../../general/PiePagina.jsx";
-import BarraNavegacion from "../../general/BarraNavegacion.jsx";
+import Informacion from "../components/maquinaQR/Informacion";
+import BarraNavegacion from '../components/general/BarraNavegacion'
+import Cabecera from '../components/general/Cabecera'
+import PiePagina from '../components/general/PiePagina'
 import './InfoMaquinas.css'
 
 const InfoMaquinas = () => {
