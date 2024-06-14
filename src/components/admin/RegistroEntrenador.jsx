@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./RegistroEntrenador.css";
-import EtiquetaTitulo from "../../general/moleculas/EtiquetaTitulo";
-import FormularioEntrenador from "../moleculas/FormularioEntrenador.jsx";
+import EtiquetaTitulo from "../general/EtiquetaTitulo.jsx";
+import FormularioEntrenador from "./FormularioEntrenador.jsx";
 
 function RegistroEntrenador() {
   const [mensajeModal, setMensajeModal] = useState("");

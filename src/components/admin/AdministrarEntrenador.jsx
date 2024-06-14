@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./AdministrarEntrenador.css";
-import EtiquetaTitulo from "../../general/moleculas/EtiquetaTitulo";
-import Dropdown from "../moleculas/Dropdown.jsx";
-import Boton from "../moleculas/Boton.jsx";
-import Modal from "../moleculas/Modal.jsx";
-import FormularioEntrenador from "../moleculas/FormularioEntrenador";
+import EtiquetaTitulo from "../general/EtiquetaTitulo.jsx";
+import Dropdown from "./Dropdown.jsx";
+import Boton from "./Boton.jsx";
+import Modal from "./Modal.jsx";
+import FormularioEntrenador from "./FormularioEntrenador.jsx";
 
 function AdministrarEntrenador() {
   const [entrenadores, setEntrenadores] = useState([
