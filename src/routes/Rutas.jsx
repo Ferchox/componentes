@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Inicio from '../components/inicio/pages/Inicio';
-import InicioSesionUsuario from '../components/inicioSesionUsuario/pages/InicioSesion'
+import Inicio from '../pages/Inicio';
+import InicioSesionUsuario from '../pages/InicioSesion'
 import RegistroUsuario from '../components/registroUsuario/pages/Registro'
 import Chat from '../pages/Chat';
 import Entrenadores from '../components/PantallaEntrenador/pages/PEntrenador'

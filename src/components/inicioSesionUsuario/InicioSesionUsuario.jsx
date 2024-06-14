@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-import EtiquetaTitulo from '../../general/EtiquetaTitulo';
-import Aviso from '../../general/Aviso';
+import EtiquetaTitulo from '../general/EtiquetaTitulo';
+import Aviso from '../general/Aviso';
 import axios from 'axios';
 import './InicioSesionUsuario.css';
 
