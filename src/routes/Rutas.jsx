@@ -11,7 +11,7 @@ import GenerarRutinaIA from '../pages/GenerarRutinaIA'
 import Metas from '../components/metas/pages/Metas'
 import PerfilCliente from '../components/perfilCliente/pages/Perfil'
 import InfoMaquinasQR from '../components/maquinaQR/pages/InfoMaquinas';
-import InfoMaquinas from '../components/infoMaquinas/pages/InformacionMaquinas';
+import InfoMaquinas from '../pages/InformacionMaquinas';
 import RegistroEvaluacion from '../components/ingresarEvaluacion/RegistroEvaluacion';
 import VerRutinas from '../components/VerRutinas/pages/VerRutinas';
 
