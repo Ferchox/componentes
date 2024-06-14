@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import "./RegistroEvaluacionUsuario.css";
-import Aviso from "../general/moleculas/Aviso";
+import Aviso from "../general/Aviso";
 
 const RegistroEvaluacionUsuario = () => {
   const [pecho1, setPecho1] = useState('');
@@ -17,6 +18,7 @@ const RegistroEvaluacionUsuario = () => {
   const [tipoAviso, setTipoAviso] = useState(null);
   const [mensaje, setMensaje] = useState(null);
   const usuarioId = sessionStorage.getItem('usuarioId');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,6 +52,12 @@ const RegistroEvaluacionUsuario = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!pecho1 || !grasa1 || !abdomen1 || !pierna1 || !peso1 || !altura || !objetivo || !grasaVisceral1 || !imc1) {
+      setMensaje('Por favor, complete todos los campos.');
+      setTipoAviso('error');
+      return;
+    }
+
     const nuevaFecha = Math.floor(Date.now() / 1000);
     const nuevaEvaluacion = {
       fecha: nuevaFecha,
@@ -78,10 +86,11 @@ const RegistroEvaluacionUsuario = () => {
           imc: { ...datosUsuario.imc, [`imc${Object.keys(datosUsuario.imc).length + 1}`]: nuevaEvaluacion.imc }
         };
 
-        const response = await axios.put(`https://6668e270f53957909ff9675e.mockapi.io/evolucion/${datosUsuario.id}`, updatedDatosUsuario);
+        await axios.put(`https://6668e270f53957909ff9675e.mockapi.io/evolucion/${datosUsuario.id}`, updatedDatosUsuario);
         setMensaje('Evaluación actualizada con éxito');
         setTipoAviso('exito');
         resetForm();
+        navigate('/EvaluacionUsuario');
       } else {
         const nuevaEvaluacionCompleta = {
           idCliente: parseInt(usuarioId),
@@ -97,10 +106,11 @@ const RegistroEvaluacionUsuario = () => {
           imc: { imc1: nuevaEvaluacion.imc }
         };
 
-        const response = await axios.post('https://6668e270f53957909ff9675e.mockapi.io/evolucion', nuevaEvaluacionCompleta);
+        await axios.post('https://6668e270f53957909ff9675e.mockapi.io/evolucion', nuevaEvaluacionCompleta);
         setMensaje('Evaluación registrada con éxito');
         setTipoAviso('exito');
         resetForm();
+        navigate('/EvaluacionUsuario');
       }
     } catch (error) {
       setMensaje('Error al registrar la evaluación');
@@ -111,15 +121,24 @@ const RegistroEvaluacionUsuario = () => {
   return (
     <div className="contenedor-registrar-evaluacion">
       <form className="registro-evaluacion" onSubmit={handleSubmit}>
-        <input type="text" value={pecho1} onChange={(e) => setPecho1(e.target.value)} placeholder="Pecho (cm)" />
-        <input type="text" value={grasa1} onChange={(e) => setGrasa1(e.target.value)} placeholder="Grasa Porcentaje (%)" />
-        <input type="text" value={abdomen1} onChange={(e) => setAbdomen1(e.target.value)} placeholder="Abdomen (cm)" />
-        <input type="text" value={pierna1} onChange={(e) => setPierna1(e.target.value)} placeholder="Pierna (cm)" />
-        <input type="text" value={peso1} onChange={(e) => setPeso1(e.target.value)} placeholder="Peso (kg)" />
-        <input type="text" value={altura} onChange={(e) => setAltura(e.target.value)} placeholder="Altura (m)" />
-        <input type="text" value={objetivo} onChange={(e) => setObjetivo(e.target.value)} placeholder="Objetivo" />
-        <input type="text" value={grasaVisceral1} onChange={(e) => setGrasaVisceral1(e.target.value)} placeholder="Grasa Visceral (%)" />
-        <input type="text" value={imc1} onChange={(e) => setImc1(e.target.value)} placeholder="IMC (kg/m²)" />
+        <h4>Objetivo</h4>
+        <input type="text" value={objetivo} onChange={(e) => setObjetivo(e.target.value)} placeholder="Ingresa tu objetivo" />
+        <h4>Pecho (cm)</h4>
+        <input type="text" value={pecho1} onChange={(e) => setPecho1(e.target.value)} placeholder="Ingresa las medidas de pecho en (cm)" />
+        <h4>Porcentaje de grasa (%)</h4>
+        <input type="text" value={grasa1} onChange={(e) => setGrasa1(e.target.value)} placeholder="Ingresa el porcentaje de grasa en (%)" />
+        <h4>Abdomen (cm)</h4>
+        <input type="text" value={abdomen1} onChange={(e) => setAbdomen1(e.target.value)} placeholder="Ingresa las medidas de abdomen en (cm)" />
+        <h4>Pierna (cm)</h4>
+        <input type="text" value={pierna1} onChange={(e) => setPierna1(e.target.value)} placeholder="Ingresa las medidas de pierna en (cm)" />
+        <h4>Peso (kg)</h4>
+        <input type="text" value={peso1} onChange={(e) => setPeso1(e.target.value)} placeholder="Ingresa las medidas de peso en (kg)" />
+        <h4>Altura (m)</h4>
+        <input type="text" value={altura} onChange={(e) => setAltura(e.target.value)} placeholder="Ingresa las medidas de altura en (m)" />
+        <h4>Porcentaje de grasa visceral (%)</h4>
+        <input type="text" value={grasaVisceral1} onChange={(e) => setGrasaVisceral1(e.target.value)} placeholder="Ingresa el porcentaje de grasa visceral en (%)" />
+        <h4>IMC (kg/m²)</h4>
+        <input type="text" value={imc1} onChange={(e) => setImc1(e.target.value)} placeholder="Ingresa tu IMC en(kg/m²)" />
         <button type="submit">Registrar Evaluación</button>
         <Aviso mensaje={mensaje} tipo={tipoAviso} />
       </form>

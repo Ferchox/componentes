@@ -1,0 +1,101 @@
+.contenedor-entrenadores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid rgba(250, 250, 250, 0.1);
+  background: rgba(250, 250, 250, 0.1);
+  backdrop-filter: blur(10rem);
+  border-radius: 15px;
+  width: 90%;
+  margin: 30px auto;
+  position: relative;
+  z-index: 1;
+  padding: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.header h1 {
+  width: 100%;
+  margin: 20px;
+}
+
+.button-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.button-container3 button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--morado-oscuro);
+  background: var(--morado-oscuro);
+}
+
+.button-container3 button:disabled {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--morado-oscuro);
+  background: var(--morado-oscuro);
+  backdrop-filter: blur(10rem);
+  border-radius: 15px;
+  margin: 20px;
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  width: 150px;
+  height: 30px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.button-container2 button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(250, 250, 250, 0.1);
+  background: rgba(250, 250, 250, 0.1);
+  backdrop-filter: blur(10rem);
+  border-radius: 15px;
+  margin: 5px;
+  position: relative;
+  z-index: 1;
+  padding: 18px;
+  width: 150px;
+  box-sizing: border-box;
+}
+
+
+.button-container2 button:hover {
+  border-color: rgba(250, 250, 250, 0.2);
+  background: rgba(250, 250, 250, 0.2);
+}
+
+.trainer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid rgba(250, 250, 250, 0.1);
+  background: rgba(250, 250, 250, 0.1);
+  backdrop-filter: blur(10rem);
+  padding: 1rem;
+  border-radius: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}

@@ -1,46 +1,48 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Inicio from '../components/inicio/pages/Inicio';
-import InicioSesionUsuario from '../components/inicioSesionUsuario/pages/InicioSesion'
-import RegistroUsuario from '../components/registroUsuario/pages/Registro'
-import Chat from '../components/chat/pages/Chat'
-import CrearMetas from '../components/crearMetas/pages/CrearMeta'
-import Entrenadores from '../components/PantallaEntrenador/pages/PEntrenador'
-import EvaluacionUsuario from '../components/evaluacionUsuario/pages/EvaluacionUsuario'
-import GenerarRutina from '../components/generarRutina/pages/GenerarRutina'
-import GenerarRutinaIA from '../components/generarRutinaIA/pages/GenerarRutinaIA'
-import Metas from '../components/metas/pages/Metas'
-import PerfilCliente from '../components/perfilCliente/pages/Perfil'
-import InfoMaquinasQR from '../components/maquinaQR/pages/InfoMaquinas';
-import InfoMaquinas from '../components/infoMaquinas/pages/InformacionMaquinas';
-import RegistroEvaluacion from '../components/ingresarEvaluacion/RegistroEvaluacion';
-import VerRutinas from '../components/VerRutinas/pages/VerRutinas';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Inicio from '../pages/Inicio';
+import InicioSesionUsuario from '../pages/InicioSesion';
+import RegistroUsuario from '../pages/Registro';
+import Chat from '../pages/Chat';
+import Entrenadores from '../pages/PEntrenador';
+import EvaluacionUsuario from '../pages/EvaluacionUsuario';
+import GenerarRutina from '../pages/GenerarRutina';
+import GenerarRutinaIA from '../pages/GenerarRutinaIA';
+import Metas from '../pages/Metas';
+import PerfilCliente from '../pages/Perfil';
+import InfoMaquinasQR from '../pages/InfoMaquinas';
+import InfoMaquinas from '../pages/InformacionMaquinas';
+import RegistroEvaluacion from '../pages/RegistroEvaluacion';
+import VerRutinas from '../pages/VerRutinas';
+import AdministrarEntrenador from '../pages/Admin';
+import RutaPrivada from './RutaPrivada';
+import RutaAdmin from './RutaAdmin';
+import AdministrarUsuario from '../pages/AdministrarUsuario';
 
 const Rutas = () => {
     return (
-        <>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<Inicio />} />
-                    <Route path="/IniciarSesionUsuario" element={<InicioSesionUsuario />} />
-                    <Route path="/RegistroUsuario" element={<RegistroUsuario />} />
-                    <Route path='/Chat' element={<Chat />} />
-                    <Route path='/CrearMetas' element={<CrearMetas />} />
-                    <Route path='/Entrenadores' element={<Entrenadores />} />
-                    <Route path='/EvaluacionUsuario' element={<EvaluacionUsuario />} />
-                    <Route path='/GenerarRutina' element={<GenerarRutina />} />
-                    <Route path='/GenerarRutinaIA' element={<GenerarRutinaIA/>}/>
-                    <Route path='/Metas' element={<Metas />} />
-                    <Route path='/PerfilCliente' element={<PerfilCliente />} />
-                    <Route path='/InfoMaquinasQR' element={<InfoMaquinasQR />} />
-                    <Route path='/RegistroEvaluacion' element={<RegistroEvaluacion />} />
-                    <Route path='/InfoMaquinas' element={<InfoMaquinas />} />
-                    <Route path='/VerRutinas' element={<VerRutinas />} />
+        <Router>
+            <Routes>
+                <Route path="/" element={<Inicio />} />
+                <Route path="/IniciarSesionUsuario" element={<InicioSesionUsuario />} />
+                <Route path="/RegistroUsuario" element={<RegistroUsuario />} />
 
-                </Routes>
-            </Router>
-        </>
-    )
-}
+                <Route path='/Chat' element={<RutaPrivada><Chat /></RutaPrivada>} />
+                <Route path='/Entrenadores' element={<RutaPrivada><Entrenadores /></RutaPrivada>} />
+                <Route path='/EvaluacionUsuario' element={<RutaPrivada><EvaluacionUsuario /></RutaPrivada>} />
+                <Route path='/GenerarRutina' element={<RutaPrivada><GenerarRutina /></RutaPrivada>} />
+                <Route path='/GenerarRutinaIA' element={<RutaPrivada><GenerarRutinaIA /></RutaPrivada>} />
+                <Route path='/Metas' element={<RutaPrivada><Metas /></RutaPrivada>} />
+                <Route path='/PerfilCliente' element={<RutaPrivada><PerfilCliente /></RutaPrivada>} />
+                <Route path='/InfoMaquinasQR' element={<RutaPrivada><InfoMaquinasQR /></RutaPrivada>} />
+                <Route path='/RegistroEvaluacion' element={<RutaPrivada><RegistroEvaluacion /></RutaPrivada>} />
+                <Route path='/InfoMaquinas' element={<RutaPrivada><InfoMaquinas /></RutaPrivada>} />
+                <Route path='/VerRutinas' element={<RutaPrivada><VerRutinas /></RutaPrivada>} />
+                <Route path='/AdministrarEntrenador' element={<RutaAdmin><AdministrarEntrenador /></RutaAdmin>} />
+                <Route path='/AdministrarUsuario' element={<RutaAdmin><AdministrarUsuario /></RutaAdmin>} />
+            </Routes>
+        </Router>
+    );
+};
 
-export default Rutas
+export default Rutas;

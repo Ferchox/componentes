@@ -1,0 +1,12 @@
+.contenedor-etiqueta-sub-titulo {
+    background-color: var(--morado-oscuro);
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
+}

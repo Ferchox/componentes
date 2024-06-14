@@ -1,9 +1,0 @@
-.pagina-registro-evaluacion {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-image: url("../../assets/fondo-registro.png");
-  background-size: auto;
-  background-position: center;
-  background-repeat: repeat;
-}
