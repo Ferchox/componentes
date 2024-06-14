@@ -130,7 +130,7 @@ function Chat() {
 
     const instruccion = `
       ${config.instruccionBase}
-      Usuario: ${perfil ? perfil.nombre : 'Usuario'}
+      Usuario: mi nombre es => ${perfil ? perfil.nombre : 'Usuario'}
       ${ultimaEvaluacionTexto}
       Usuario: ${input}
       Historial de la conversación:
