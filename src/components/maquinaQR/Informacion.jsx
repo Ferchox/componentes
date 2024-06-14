@@ -7,6 +7,9 @@ const Informacion = () => {
   const [selectedMachine, setSelectedMachine] = useState(null);
   const [scanning, setScanning] = useState(false);
   const [machines, setMachines] = useState([]);
+  const [constraints, setConstraints] = useState({
+    video: { facingMode: { exact: "environment" } } // Intentar usar la cámara trasera inicialmente
+  });
 
   useEffect(() => {
     fetch('https://6668e270f53957909ff9675e.mockapi.io/maquinas')
@@ -25,6 +28,10 @@ const Informacion = () => {
 
   const handleError = (err) => {
     console.error(err);
+    if (err.name === "OverconstrainedError" && err.constraint === "facingMode") {
+      // Si falla el acceso a la cámara trasera, intentar usar la cámara frontal
+      setConstraints({ video: { facingMode: "user" } });
+    }
   };
 
   const previewStyle = {
@@ -64,6 +71,7 @@ const Informacion = () => {
               style={previewStyle}
               onError={handleError}
               onScan={handleScan}
+              constraints={constraints}
             />
             <button onClick={() => setScanning(false)}>Cancelar</button>
           </div>

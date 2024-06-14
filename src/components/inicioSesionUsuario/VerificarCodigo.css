@@ -1,0 +1,17 @@
+.contenedor-verificar-codigo {
+    padding: 8px;
+}
+
+.verificar-codigo {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid #fafafa10;
+    background: #fafafa10;
+    backdrop-filter: blur(10rem);
+    border-radius: 10px;
+}
