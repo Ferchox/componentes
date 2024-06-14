@@ -3,6 +3,7 @@ import Tarjeta from "../general/Tarjeta";
 import EtiquetaSubTitulo from "../general/EtiquetaSubTitulo";
 import Cargando from "../general/Cargando"
 import "./InformacionPrincipal.css";
+import EtiquetaTitulo from "../general/EtiquetaTitulo";
 
 const InformacionPrincipal = () => {
   const [datos, setDatos] = useState([]);
@@ -30,6 +31,7 @@ const InformacionPrincipal = () => {
 
   return (
     <div className="pantalla-inicial">
+      <EtiquetaTitulo titulo="Inicio" />
       {datos.map(item => (
         <div key={item.id} className="contenedor-tarjeta">
           <EtiquetaSubTitulo titulo={item.titulo} />

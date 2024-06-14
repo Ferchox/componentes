@@ -102,6 +102,16 @@ const MenuOpciones = () => {
           <NavLink to='/Chat'>
             <li>Asesoramiento</li>
           </NavLink>
+          {usuario.rol === 'administrador' && (
+            <>
+              <NavLink to='/AdministrarEntrenador'>
+                <li>Administrar entrenadores</li>
+              </NavLink>
+              <NavLink to='/AdministrarUsuario'>
+                <li>Administrar usuarios</li>
+              </NavLink>
+            </>
+          )}
         </ul>
       )}
     </div>

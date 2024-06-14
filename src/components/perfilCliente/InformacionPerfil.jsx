@@ -4,6 +4,8 @@ import ImagenPerfil from './ImagenPerfil';
 import EtiquetaInformacion from './EtiquetaInformacion';
 import BotonesPerfil from './BotonesPerfil';
 import EtiquetaTitulo from '../general/EtiquetaTitulo';
+import FormularioEdicionPerfil from './FormularioEdicionPerfil';
+import MostrarInformacionPerfil from './MostrarInformacionPerfil';
 import axios from 'axios';
 import moment from 'moment';
 
@@ -58,8 +60,14 @@ const InformacionPerfil = () => {
             setEditMode(false);
             setMensaje(null);
         } catch (error) {
-            console.error('Error updating profile:', error);
+            console.error('Error actualizando el perfil:', error);
         }
+    };
+
+    const handleCancel = () => {
+        setEditMode(false);
+        setFormData(perfil);
+        setMensaje(null);
     };
 
     if (!perfil) {
@@ -72,87 +80,15 @@ const InformacionPerfil = () => {
             <div className='tarjeta-informacion-perfil'>
                 <ImagenPerfil src={perfil.foto} />
                 {editMode ? (
-                    <>
-                        {mensaje && <p className="mensaje-error">{mensaje}</p>}
-                        <h4>Foto de perfil</h4>
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => setFormData({ ...formData, foto: e.target.files[0] })}
-                        />
-                        <h4>Nombre</h4>
-                        <input
-                            type="text"
-                            name="nombre"
-                            placeholder="Ingresa tu nombre"
-                            value={formData.nombre}
-                            onChange={handleChange}
-                        />
-                        <h4>Fecha de nacimiento</h4>
-                        <input
-                            type="date"
-                            name="fechaNacimiento"
-                            placeholder="Ingresa tu fecha de nacimiento"
-                            value={formData.fechaNacimiento}
-                            onChange={handleChange}
-                        />
-                        <h4>Dirección</h4>
-                        <input
-                            type="text"
-                            name="direccion"
-                            placeholder="Ingresa tu dirección"
-                            value={formData.direccion}
-                            onChange={handleChange}
-                        />
-                        <h4>Número de celular</h4>
-                        <input
-                            type="tel"
-                            name="numeroCelular"
-                            placeholder="Ingresa tu número de celular"
-                            value={formData.numeroCelular}
-                            onChange={handleChange}
-                        />
-                        <h4>Email</h4>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Ingresa tu correo electrónico"
-                            value={formData.email}
-                            onChange={handleChange}
-                        />
-                        <h4>CI</h4>
-                        <input
-                            type="text"
-                            name="ci"
-                            placeholder="Ingresa tu CI"
-                            value={formData.ci}
-                            onChange={handleChange}
-                        />
-                        <h4>Género</h4>
-                        <select
-                            name="sexo"
-                            value={formData.sexo}
-                            onChange={handleChange}
-                            placeholder="Ingresa tu género"
-                        >
-                            <option value="" disabled hidden>Selecciona una opción</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                            <option value="Otro">Otro</option>
-                        </select>
-                        <button onClick={handleSave}>Guardar</button>
-                    </>
+                    <FormularioEdicionPerfil
+                        formData={formData}
+                        mensaje={mensaje}
+                        handleChange={handleChange}
+                        handleSave={handleSave}
+                        handleCancel={handleCancel}
+                    />
                 ) : (
-                    <>
-                        <EtiquetaInformacion etiqueta="Nombre cliente" valor={perfil.nombre} />
-                        <EtiquetaInformacion etiqueta="Fecha de nacimiento" valor={convertirFecha(perfil.fechaNacimiento)} />
-                        <EtiquetaInformacion etiqueta="Dirección" valor={perfil.direccion} />
-                        <EtiquetaInformacion etiqueta="Número de celular" valor={perfil.numeroCelular} />
-                        <EtiquetaInformacion etiqueta="Correo electrónico" valor={perfil.email} />
-                        <EtiquetaInformacion etiqueta="CI" valor={perfil.ci} />
-                        <EtiquetaInformacion etiqueta="Sexo" valor={perfil.sexo} />
-                        <button onClick={handleEdit}>Editar</button>
-                    </>
+                    <MostrarInformacionPerfil perfil={perfil} convertirFecha={convertirFecha} handleEdit={handleEdit} />
                 )}
                 <BotonesPerfil />
             </div>
