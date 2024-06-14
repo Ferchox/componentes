@@ -1,6 +1,6 @@
 import React from "react";
-import DropdownPerfil from "../moleculas/DropdownPerfil";
-import MenuOpciones from "../moleculas/MenuOpciones";
+import DropdownPerfil from "./DropdownPerfil";
+import MenuOpciones from "./MenuOpciones";
 import "./BarraNavegacion.css";
 
 const BarraNavegacion = () => {

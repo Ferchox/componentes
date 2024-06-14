@@ -1,8 +1,8 @@
 import React from 'react'
 import ChatApi from '../components/chat/ChatApi'
-import BarraNavegacion from '../components/general/organismos/BarraNavegacion'
-import Cabecera from '../components/general/organismos/Cabecera'
-import PiePagina from '../components/general/organismos/PiePagina'
+import BarraNavegacion from '../components/general/BarraNavegacion'
+import Cabecera from '../components/general/Cabecera'
+import PiePagina from '../components/general/PiePagina'
 import './Chat.css'
 
 const Chat = () => {

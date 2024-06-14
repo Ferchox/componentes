@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Tarjeta from "../../general/moleculas/Tarjeta";
-import EtiquetaSubTitulo from "../../general/moleculas/EtiquetaSubTitulo";
-import Cargando from "../../general/moleculas/Cargando";
+import Tarjeta from "../../general/Tarjeta";
+import EtiquetaSubTitulo from "../../general/EtiquetaSubTitulo";
+import Cargando from "../../general/Cargando";
 import "./InformacionPrincipal.css";
 
 const InformacionPrincipal = () => {

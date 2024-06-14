@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import CampoTexto from '../moleculas/CampoTexto';
 import SelectorSexo from '../moleculas/SelectorSexo';
-import Aviso from '../../general/moleculas/Aviso';
+import Aviso from '../../general/Aviso';
 import './RegistroUsuario.css';
 import axios from 'axios';
-import EtiquetaTitulo from '../../general/moleculas/EtiquetaTitulo';
+import EtiquetaTitulo from '../../general/EtiquetaTitulo';
 
 const imgbbApiKey = '5946ec8881e0944cf2ee70ba0b75586b';
 

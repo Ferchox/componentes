@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./MetasPendientes.css";
 import TablaMetas from "../moleculas/TablaMetas";
 import BarraProgreso from "../atomos/BarraProgreso";
-import EtiquetaTitulo from "../../general/moleculas/EtiquetaTitulo";
+import EtiquetaTitulo from "../../general/EtiquetaTitulo";
 import CrearMeta from "../moleculas/CrearMetas";
 import axios from "axios";
 

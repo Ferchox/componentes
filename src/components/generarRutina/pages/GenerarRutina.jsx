@@ -1,8 +1,8 @@
 import React from 'react'
-import BarraNavegacion from '../../general/organismos/BarraNavegacion'
-import Cabecera from '../../general/organismos/Cabecera'
+import BarraNavegacion from '../../general/BarraNavegacion'
+import Cabecera from '../../general/Cabecera'
 import SeleccionParteCuerpo from '../../generarRutina/organismos/SeleccionParteCuerpo'
-import PiePagina from '../../general/organismos/PiePagina'
+import PiePagina from '../../general/PiePagina'
 import './GenerarRutina.css'
 
 const GenerarRutina = () => {

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./SeleccionParteCuerpoIA.css";
 import Boton from "../atomos/BotonIA";
 import ContenedorBotones from "../moleculas/ContenedorBotonesIA";
-import EtiquetaTitulo from "../../general/moleculas/EtiquetaTitulo";
+import EtiquetaTitulo from "../../general/EtiquetaTitulo";
 import config from "../../../data/Configuracion.json";
 import { enviarMensaje, iniciarChat } from "../../../GestorApi";
 
@@ -189,11 +189,10 @@ const SeleccionParteCuerpoIA = () => {
               <Boton
                 key={grupo.id}
                 onClick={() => manejarSeleccionGrupo(grupo.nombre)}
-                className={`boton-grupo ${
-                  gruposSeleccionados.includes(grupo.nombre)
+                className={`boton-grupo ${gruposSeleccionados.includes(grupo.nombre)
                     ? "boton-grupo-seleccionado"
                     : ""
-                }`}
+                  }`}
               >
                 {grupo.nombre.charAt(0).toUpperCase() + grupo.nombre.slice(1)}
               </Boton>

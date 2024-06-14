@@ -1,7 +1,7 @@
 import React from 'react';
-import Copyright from '../moleculas/Copyright';
-import Email from '../moleculas/Email';
-import RedesSociales from '../moleculas/RedesSociales';
+import Copyright from './Copyright';
+import Email from './Email';
+import RedesSociales from './RedesSociales';
 import './PiePagina.css';
 
 const PiePagina = () => {

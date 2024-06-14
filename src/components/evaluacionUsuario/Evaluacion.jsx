@@ -2,7 +2,7 @@ import React from 'react';
 import './Evaluacion.css';
 import DescripcionEvaluacionUsuario from './DescripcioEvaluacion';
 import GraficoEvaluacionUsuario from './GraficoEvaluacionUsuario';
-import EtiquetaTitulo from '../general/moleculas/EtiquetaTitulo';
+import EtiquetaTitulo from '../general/EtiquetaTitulo';
 
 function Evaluacion() {
 

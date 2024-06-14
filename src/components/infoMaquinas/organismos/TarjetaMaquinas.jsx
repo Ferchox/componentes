@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Tarjeta from "../../general/moleculas/Tarjeta";
-import EtiquetaSubTitulo from "../../general/moleculas/EtiquetaSubTitulo";
+import Tarjeta from "../../general/Tarjeta";
+import EtiquetaSubTitulo from "../../general/EtiquetaSubTitulo";
 import "./TarjetaMaquinas.css";
 
 const TarjetaEjercicios = () => {

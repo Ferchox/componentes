@@ -1,8 +1,8 @@
 import React from 'react';
 import InicioSesionUsuario from '../organismos/InicioSesionUsuario.jsx';
-import BarraNavegacion from '../../general/organismos/BarraNavegacion';
-import Cabecera from '../../general/organismos/Cabecera';
-import PiePagina from '../../general/organismos/PiePagina';
+import BarraNavegacion from '../../general/BarraNavegacion.jsx';
+import Cabecera from '../../general/Cabecera.jsx';
+import PiePagina from '../../general/PiePagina.jsx';
 import './InicioSesion.css';
 
 const InicioSesion = () => {

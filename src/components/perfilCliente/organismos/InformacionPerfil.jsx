@@ -3,7 +3,7 @@ import './InformacionPerfil.css';
 import ImagenPerfil from '../moleculas/ImagenPerfil';
 import EtiquetaInformacion from '../moleculas/EtiquetaInformacion';
 import BotonesPerfil from '../moleculas/BotonesPerfil';
-import EtiquetaTitulo from '../../general/moleculas/EtiquetaTitulo';
+import EtiquetaTitulo from '../../general/EtiquetaTitulo';
 import axios from 'axios';
 import moment from 'moment';
 

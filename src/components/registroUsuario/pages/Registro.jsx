@@ -1,8 +1,8 @@
 import React from 'react';
 import RegistroUsuario from '../organismos/RegistroUsuario';
-import BarraNavegacion from '../../general/organismos/BarraNavegacion';
-import Cabecera from '../../general/organismos/Cabecera';
-import PiePagina from '../../general/organismos/PiePagina';
+import BarraNavegacion from '../../general/BarraNavegacion';
+import Cabecera from '../../general/Cabecera';
+import PiePagina from '../../general/PiePagina';
 import './Registro.css';
 
 const Registro = () => {

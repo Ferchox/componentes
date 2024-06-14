@@ -5,7 +5,7 @@ import Boton from "../atomos/Boton";
 import ContenedorBotones from "../moleculas/ContenedorBotones";
 import ContenedorEjercicio from "../moleculas/ContenedorEjercicio";
 import ContenedorInfoEjercicio from "../moleculas/ContenedorInfoEjercicio";
-import EtiquetaTitulo from "../../general/moleculas/EtiquetaTitulo";
+import EtiquetaTitulo from "../../general/EtiquetaTitulo";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import gymLogo from '../../../assets/gym-logo-sin-fondo.png';
+import gymLogo from '../../assets/gym-logo-sin-fondo.png';
 import './Cabecera.css';
 
 import { NavLink } from 'react-router-dom';
