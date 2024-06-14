@@ -1,0 +1,9 @@
+.perfil-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url("../assets/fondo-perfil.png");
+  background-size: auto;
+  background-position: center;
+  background-repeat: repeat;
+}

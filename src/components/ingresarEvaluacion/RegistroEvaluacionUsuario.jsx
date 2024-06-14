@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "./RegistroEvaluacionUsuario.css";
-import Aviso from "../general/moleculas/Aviso";
+import Aviso from "../general/Aviso";
 
 const RegistroEvaluacionUsuario = () => {
   const [pecho1, setPecho1] = useState('');
