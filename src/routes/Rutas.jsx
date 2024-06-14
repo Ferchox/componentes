@@ -4,7 +4,7 @@ import Inicio from '../pages/Inicio';
 import InicioSesionUsuario from '../pages/InicioSesion'
 import RegistroUsuario from '../components/registroUsuario/pages/Registro'
 import Chat from '../pages/Chat';
-import Entrenadores from '../components/PantallaEntrenador/pages/PEntrenador'
+import Entrenadores from '../pages/PEntrenador'
 import EvaluacionUsuario from '../pages/EvaluacionUsuario'
 import GenerarRutina from '../pages/GenerarRutina';
 import GenerarRutinaIA from '../pages/GenerarRutinaIA'

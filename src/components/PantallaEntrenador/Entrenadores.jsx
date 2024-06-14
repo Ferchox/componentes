@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import BotonesEntrenadores from '../moleculas/BotonesEntrenador';
-import InfoEntrenador from '../moleculas/InformacionEntrenador';
+import BotonesEntrenadores from './BotonesEntrenador';
+import InfoEntrenador from './InformacionEntrenador';
 import './Entrenadores.css';
 
 const entrenadores = [
