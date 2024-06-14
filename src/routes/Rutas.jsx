@@ -12,7 +12,7 @@ import Metas from '../pages/Metas'
 import PerfilCliente from '../pages/Perfil'
 import InfoMaquinasQR from '../pages/InfoMaquinas';
 import InfoMaquinas from '../pages/InformacionMaquinas';
-import RegistroEvaluacion from '../components/ingresarEvaluacion/RegistroEvaluacion';
+import RegistroEvaluacion from '../pages/RegistroEvaluacion';
 import VerRutinas from '../pages/VerRutinas';
 import Admin from '../pages/Admin';
 
