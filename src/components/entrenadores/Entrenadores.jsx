@@ -1,42 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Entrenadores.css';
 
-const trainers = [
-  { 
-    name: 'Juan Perez', 
-    schedule: 'Lunes a Viernes - 6am a 8am', 
-    description: 'Especialista en cuádriceps y glúteos.',
-    specialties: ['Pierna', 'Glúteos'] 
-  },
-  { 
-    name: 'Ana Gómez', 
-    schedule: 'Lunes a Viernes - 5pm a 7pm', 
-    description: 'Experta en fortalecimiento de pantorrillas.',
-    specialties: ['Pantorrillas', 'Pierna'] 
-  },
-  { 
-    name: 'Carlos López', 
-    schedule: 'Lunes a Viernes - 7am a 9am', 
-    description: 'Se enfoca en pectorales y deltoides.',
-    specialties: ['Pecho', 'Hombro'] 
-  },
-  { 
-    name: 'María Fernández', 
-    schedule: 'Lunes a Viernes - 6pm a 8pm', 
-    description: 'Entrenadora de pectorales superiores e inferiores.',
-    specialties: ['Pecho', 'Espalda'] 
-  }
-];
-
 function Entrenadores() {
+  const [trainers, setTrainers] = useState([]);
   const [selectedTrainer, setSelectedTrainer] = useState(null);
+
+  useEffect(() => {
+    fetch('https://6668e270f53957909ff9675e.mockapi.io/entrenadores')
+      .then(response => response.json())
+      .then(data => setTrainers(data))
+      .catch(error => console.error('Error fetching trainers:', error));
+  }, []);
 
   const showTrainerInfo = (trainer) => {
     setSelectedTrainer(trainer);
   };
 
   const selectTrainer = (trainer) => {
-    alert(`Has seleccionado a ${trainer.name}`);
+    alert(`Has seleccionado a ${trainer.nombre}`);
   };
 
   return (
@@ -47,21 +28,25 @@ function Entrenadores() {
       <h2>Selecciona un entrenador</h2>
       <div className="button-container">
         {trainers.map(trainer => (
-          <button key={trainer.name} onClick={() => showTrainerInfo(trainer)}>
-            {trainer.name}
+          <button key={trainer.id} onClick={() => showTrainerInfo(trainer)}>
+            {trainer.nombre}
           </button>
         ))}
       </div>
       {selectedTrainer && (
         <div className="trainer-info">
-          <h3>{selectedTrainer.name}</h3>
-          <p><strong>Horario:</strong> {selectedTrainer.schedule}</p>
-          <p><strong>Descripción:</strong> {selectedTrainer.description}</p>
+          <h3>{selectedTrainer.nombre}</h3>
+          <p><strong>Horario:</strong> {selectedTrainer.horario}</p>
+          <p><strong>Descripción:</strong> {selectedTrainer.descripcion}</p>
           <h4>Especialidades:</h4>
           <ul>
-            {selectedTrainer.specialties.map(specialty => (
-              <li key={specialty}>{specialty}</li>
-            ))}
+            {Object.keys(selectedTrainer.especialidad).length > 0 ? (
+              Object.entries(selectedTrainer.especialidad).map(([key, value]) => (
+                <li key={key}>{`${key}: ${value}`}</li>
+              ))
+            ) : (
+              <li>No hay especialidades especificadas</li>
+            )}
           </ul>
           <button onClick={() => selectTrainer(selectedTrainer)}>Elegir Entrenador</button>
         </div>

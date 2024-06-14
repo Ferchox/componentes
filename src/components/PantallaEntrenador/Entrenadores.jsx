@@ -1,38 +1,25 @@
-import React, { useState } from 'react';
-import BotonesEntrenadores from './BotonesEntrenador';
-import InfoEntrenador from './InformacionEntrenador';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import BotonesEntrenadores from './BotonesEntrenadores';
+import InfoEntrenador from './InfoEntrenador';
 import './Entrenadores.css';
 
-const entrenadores = [
-  {
-    nombre: 'Juan',
-    horario: 'Lunes a Viernes - 6am a 8am',
-    descripcion: 'Especialista en cuádriceps y glúteos.',
-    especialidades: ['Pierna', 'Glúteos']
-  },
-  {
-    nombre: 'Ana',
-    horario: 'Lunes a Viernes - 5pm a 7pm',
-    descripcion: 'Experta en fortalecimiento de pantorrillas.',
-    especialidades: ['Pantorrillas', 'Pierna']
-  },
-  {
-    nombre: 'Carlos',
-    horario: 'Lunes a Viernes - 7am a 9am',
-    descripcion: 'Se enfoca en pectorales y deltoides.',
-    especialidades: ['Pecho', 'Hombro']
-  },
-  {
-    nombre: 'María',
-    horario: 'Lunes a Viernes - 6pm a 8pm',
-    descripcion: 'Entrenadora de pectorales superiores e inferiores.',
-    especialidades: ['Pecho', 'Espalda']
-  }
-  
-];
-
 function Entrenadores() {
+  const [entrenadores, setEntrenadores] = useState([]);
   const [entrenadorSeleccionado, setEntrenadorSeleccionado] = useState(null);
+
+  useEffect(() => {
+    const fetchEntrenadores = async () => {
+      try {
+        const response = await axios.get('https://6668e270f53957909ff9675e.mockapi.io/entrenadores');
+        setEntrenadores(response.data);
+      } catch (error) {
+        console.error('Error fetching the trainers:', error);
+      }
+    };
+
+    fetchEntrenadores();
+  }, []);
 
   const mostrarInfoEntrenador = (entrenador) => {
     setEntrenadorSeleccionado(entrenador);
