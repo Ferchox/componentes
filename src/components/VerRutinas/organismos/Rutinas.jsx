@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ListaRutinas from './ListaRutinas';
 import EditarRutina from './EditarRutina';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 import './Rutinas.css';
 
 const Rutinas = () => {
