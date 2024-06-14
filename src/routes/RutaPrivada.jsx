@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 
-const RutaPrivada = ({ hijo }) => {
+const RutaPrivada = ({ children }) => {
     const usuario = sessionStorage.getItem('usuario');
-    return usuario ? hijo : <Navigate to="/IniciarSesionUsuario" />;
+    return usuario ? children : <Navigate to="/IniciarSesionUsuario" />;
 };
 
 export default RutaPrivada;
