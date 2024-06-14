@@ -1,0 +1,22 @@
+.contenedor-administrar {
+  padding: 8px;
+}
+
+.acciones-entrenador {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.contenedor-administrar-entrenador {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  border: 2px solid #fafafa10;
+  background: #fafafa10;
+  backdrop-filter: blur(50rem);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 1%;
+}
