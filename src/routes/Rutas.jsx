@@ -14,8 +14,10 @@ import InfoMaquinasQR from '../pages/InfoMaquinas';
 import InfoMaquinas from '../pages/InformacionMaquinas';
 import RegistroEvaluacion from '../pages/RegistroEvaluacion';
 import VerRutinas from '../pages/VerRutinas';
-import Admin from '../pages/Admin';
+import AdministrarEntrenador from '../pages/Admin';
 import RutaPrivada from './RutaPrivada';
+import RutaAdmin from './RutaAdmin';
+import AdministrarUsuario from '../pages/AdministrarUsuario';
 
 const Rutas = () => {
     return (
@@ -36,7 +38,8 @@ const Rutas = () => {
                 <Route path='/RegistroEvaluacion' element={<RutaPrivada><RegistroEvaluacion /></RutaPrivada>} />
                 <Route path='/InfoMaquinas' element={<RutaPrivada><InfoMaquinas /></RutaPrivada>} />
                 <Route path='/VerRutinas' element={<RutaPrivada><VerRutinas /></RutaPrivada>} />
-                <Route path='/Admin' element={<RutaPrivada><Admin /></RutaPrivada>} />
+                <Route path='/AdministrarEntrenador' element={<RutaAdmin><AdministrarEntrenador /></RutaAdmin>} />
+                <Route path='/AdministrarUsuario' element={<RutaAdmin><AdministrarUsuario /></RutaAdmin>} />
             </Routes>
         </Router>
     );

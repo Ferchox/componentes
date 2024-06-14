@@ -9,7 +9,6 @@
     border-radius: 10px;
     padding: 1%;
     margin-bottom: 1em;
-    overflow: hidden;
 }
 
 .contenido-tarjeta {
@@ -18,13 +17,12 @@
     align-items: flex-start;
     margin-left: 10px;
     max-width: calc(100% - 150px - 20px);
-    overflow: hidden;
     white-space: normal;
+    overflow: visible;
 }
 
 .imagen-tarjeta {
     width: 150px;
-    height: 150px;
     object-fit: cover;
     border-radius: 10px;
 }

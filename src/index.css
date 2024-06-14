@@ -47,6 +47,7 @@ p {
 }
 
 button {
+  margin: auto;
   background: var(--morado-oscuro);
   color: var(--blanco);
   padding: 15px 15px;
@@ -62,6 +63,7 @@ button {
   justify-content: center;
   font-family: 'Inter', sans-serif;
   font-size: 12px;
+  margin-top: 10px;
 }
 
 button:hover {

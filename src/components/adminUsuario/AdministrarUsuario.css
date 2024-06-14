@@ -2,21 +2,39 @@
   padding: 8px;
 }
 
-.acciones-usuario {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
 .contenedor-administrar-usuario {
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: left;
   border: 2px solid #fafafa10;
   background: #fafafa10;
-  backdrop-filter: blur(50rem);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  padding: 1%;
+  backdrop-filter: blur(10rem);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.acciones-usuario {
+  width: 100%;
+}
+
+.form-usuario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.boton-eliminar,
+.boton-guardar {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.form-usuario img.foto-perfil {
+  margin: auto;
+  max-width: 100%;
+  max-height: 100hv;
+  margin-bottom: 10px;
 }

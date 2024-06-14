@@ -1,5 +1,5 @@
 import React from "react";
-import "./Admin.css";
+import "./AdministrarUsuario.css";
 import AdministrarUsuario from "../components/adminUsuario/AdministrarUsuario.jsx";
 import Cabecera from "../components/general/Cabecera.jsx";
 import PiePagina from "../components/general/PiePagina.jsx";
