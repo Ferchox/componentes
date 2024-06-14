@@ -29,7 +29,7 @@ const Rutas = () => {
                     <Route path='/Entrenadores' element={<Entrenadores />} />
                     <Route path='/EvaluacionUsuario' element={<EvaluacionUsuario />} />
                     <Route path='/GenerarRutina' element={<GenerarRutina />} />
-                    <Route path='/GenerarRutinaIA' element={<GenerarRutinaIA/>}/>
+                    <Route path='/GenerarRutinaIa' element={<GenerarRutinaIA />} />
                     <Route path='/Metas' element={<Metas />} />
                     <Route path='/PerfilCliente' element={<PerfilCliente />} />
                     <Route path='/InfoMaquinasQR' element={<InfoMaquinasQR />} />
