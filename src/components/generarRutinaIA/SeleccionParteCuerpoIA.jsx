@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SeleccionParteCuerpoIA.css";
-import Boton from "../atomos/BotonIA";
-import ContenedorBotones from "../moleculas/ContenedorBotonesIA";
-import EtiquetaTitulo from "../../general/EtiquetaTitulo";
-import config from "../../../data/Configuracion.json";
-import { enviarMensaje, iniciarChat } from "../../../GestorApi";
+import Boton from "./BotonIA";
+import ContenedorBotones from "./ContenedorBotonesIA";
+import EtiquetaTitulo from "../general/EtiquetaTitulo";
+import config from "../../data/Configuracion.json";
+import { enviarMensaje, iniciarChat } from "../../GestorApi";
 
 const SeleccionParteCuerpoIA = () => {
   const [gruposSeleccionados, setGruposSeleccionados] = useState([]);
@@ -190,8 +190,8 @@ const SeleccionParteCuerpoIA = () => {
                 key={grupo.id}
                 onClick={() => manejarSeleccionGrupo(grupo.nombre)}
                 className={`boton-grupo ${gruposSeleccionados.includes(grupo.nombre)
-                    ? "boton-grupo-seleccionado"
-                    : ""
+                  ? "boton-grupo-seleccionado"
+                  : ""
                   }`}
               >
                 {grupo.nombre.charAt(0).toUpperCase() + grupo.nombre.slice(1)}
