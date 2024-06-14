@@ -1,6 +1,6 @@
 import React from "react";
-import MensajeUsuario from "./MensajeUsuario";
-import MensajeIA from "./MensajeIA";
+import MensajeUsuario from "./MensajeUsuario.jsx";
+import MensajeIA from "./MensajeIA.jsx";
 import "./HistorialChat.css"
 
 const HistorialChat = ({ mensajes, escribiendo }) => {
@@ -9,7 +9,7 @@ const HistorialChat = ({ mensajes, escribiendo }) => {
       {mensajes.map((msg, index) => (
         <div key={index} className={`mensaje-contenedor ${msg.role}`}>
           {msg.role === "model" ? (
-            
+
             <MensajeIA mensaje={msg} />
           ) : (
             <MensajeUsuario mensaje={msg} />
