@@ -3,6 +3,7 @@ import BarraNavegacion from '../components/general/BarraNavegacion.jsx';
 import Cabecera from '../components/general/Cabecera.jsx';
 import PiePagina from '../components/general/PiePagina.jsx';
 import VerificarCodigo from '../components/inicioSesionUsuario/VerificarCodigo.jsx';
+import './VerificarCodigoRestablecer.css'
 
 const VerificarCodigoRestablecer = () => {
     return (
