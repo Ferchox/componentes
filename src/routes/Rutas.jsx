@@ -18,6 +18,8 @@ import AdministrarEntrenador from '../pages/Admin';
 import RutaPrivada from './RutaPrivada';
 import RutaAdmin from './RutaAdmin';
 import AdministrarUsuario from '../pages/AdministrarUsuario';
+import RestablecerContrasena from '../components/inicioSesionUsuario/RestablecerContrasena';
+import VerificarCodigo from '../components/inicioSesionUsuario/VerificarCodigo';
 
 import AdminPanel from '../components/general/AdminPanel';
 
@@ -28,6 +30,8 @@ const Rutas = () => {
                 <Route path="/" element={<Inicio />} />
                 <Route path="/IniciarSesionUsuario" element={<InicioSesionUsuario />} />
                 <Route path="/RegistroUsuario" element={<RegistroUsuario />} />
+                <Route path='/RestablecerContrasena' element={<RestablecerContrasena />} />
+                <Route path='/VerificarCodigo' element={<VerificarCodigo />} />
 
                 <Route path='/Chat' element={<RutaPrivada><Chat /></RutaPrivada>} />
                 <Route path='/Entrenadores' element={<RutaPrivada><Entrenadores /></RutaPrivada>} />

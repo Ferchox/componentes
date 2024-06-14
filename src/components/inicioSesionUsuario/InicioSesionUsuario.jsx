@@ -50,7 +50,7 @@ const InicioSesionUsuario = ({ onSubmit }) => {
                     onChange={(e) => setCorreo(e.target.value)}
                     required
                 />
-                <h4>Cotraseña</h4>
+                <h4>Contraseña</h4>
                 <input
                     type="password"
                     placeholder="Introduce tu contraseña"
@@ -63,6 +63,7 @@ const InicioSesionUsuario = ({ onSubmit }) => {
                 </button>
                 <Aviso mensaje={mensaje} tipo={tipoAviso} />
                 <p>¿Aún no tienes cuenta? <NavLink to='/RegistroUsuario'>Haz click aquí</NavLink></p>
+                <p>¿Olvidaste tu contraseña? <NavLink to='/RestablecerContrasena'>Restablecer Contraseña</NavLink></p>
             </form>
         </div>
     );
