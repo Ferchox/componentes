@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SeleccionParteCuerpo.css";
-import Boton from "../atomos/Boton";
-import ContenedorBotones from "../moleculas/ContenedorBotones";
-import ContenedorEjercicio from "../moleculas/ContenedorEjercicio";
-import ContenedorInfoEjercicio from "../moleculas/ContenedorInfoEjercicio";
-import EtiquetaTitulo from "../../general/EtiquetaTitulo";
+import Boton from "./Boton";
+import ContenedorBotones from "./ContenedorBotones";
+import ContenedorEjercicio from "./ContenedorEjercicio";
+import ContenedorInfoEjercicio from "./ContenedorInfoEjercicio";
+import EtiquetaTitulo from "../general/EtiquetaTitulo";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
