@@ -3,9 +3,11 @@ import "./SelectorMultiple.css";
 
 const SelectorMultiple = ({ options, selectedValues, onChange }) => {
   const handleSelect = (option) => {
-    const newSelectedValues = selectedValues.includes(option)
+    const newSelectedValues = Array.isArray(selectedValues) && selectedValues.includes(option)
       ? selectedValues.filter((value) => value !== option)
-      : [...selectedValues, option];
+      : Array.isArray(selectedValues)
+        ? [...selectedValues, option]
+        : [option];
     onChange(newSelectedValues);
   };
 
@@ -15,7 +17,7 @@ const SelectorMultiple = ({ options, selectedValues, onChange }) => {
         <label key={option} className="selector-multiple-label">
           <input
             type="checkbox"
-            checked={selectedValues.includes(option)}
+            checked={Array.isArray(selectedValues) && selectedValues.includes(option)}
             onChange={() => handleSelect(option)}
           />
           {option}

@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SeleccionParteCuerpo.css";
-import Boton from "./Boton";
 import ContenedorBotones from "./ContenedorBotones";
 import ContenedorEjercicio from "./ContenedorEjercicio";
 import ContenedorInfoEjercicio from "./ContenedorInfoEjercicio";
 import EtiquetaTitulo from "../general/EtiquetaTitulo";
-import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
+import EtiquetaSubTitulo from "../general/EtiquetaSubTitulo";
 
 const SeleccionParteCuerpo = () => {
   const [grupos, setGrupos] = useState([]);
@@ -96,14 +94,14 @@ const SeleccionParteCuerpo = () => {
   return (
     <div className="contenedor-rutina">
       <EtiquetaTitulo titulo="Generar mi propia rutina" />
-      <h4 className="subtitulo"> ¿Qué vas a trabajar el día de hoy?</h4>
+      <EtiquetaSubTitulo titulo="¿Qué vas a trabajar el día de hoy?" />
       <div className="aplicacion">
         <div className="contenedor-botones">
           <ContenedorBotones>
             {grupos.map((grupo) => (
-              <Boton key={grupo.id} onClick={() => manejarSeleccionGrupo(grupo.nombre)}>
+              <button key={grupo.id} onClick={() => manejarSeleccionGrupo(grupo.nombre)}>
                 {grupo.nombre.charAt(0).toUpperCase() + grupo.nombre.slice(1)}
-              </Boton>
+              </button>
             ))}
           </ContenedorBotones>
         </div>
@@ -111,12 +109,12 @@ const SeleccionParteCuerpo = () => {
           <ContenedorEjercicio>
             {grupoSeleccionado &&
               getEjerciciosByGrupo(grupoSeleccionado).map((ejercicio) => (
-                <Boton
+                <button
                   key={ejercicio.id}
                   onClick={() => manejarSeleccionEjercicio(ejercicio)}
                 >
                   {ejercicio.nombre}
-                </Boton>
+                </button>
               ))}
           </ContenedorEjercicio>
           <ContenedorInfoEjercicio>
@@ -144,8 +142,8 @@ const SeleccionParteCuerpo = () => {
             </ul>
           </div>
           <div className="botones-accion">
-            <Boton onClick={añadirEjercicio}>Añadir Ejercicio</Boton>
-            <Boton onClick={guardarRutina}>Guardar Rutina</Boton>
+            <button onClick={añadirEjercicio}>Añadir Ejercicio</button>
+            <button onClick={guardarRutina}>Guardar Rutina</button>
           </div>
         </div>
       </div>

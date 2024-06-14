@@ -1,7 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SelectorEjercicio from './SelectorEjercicio';
+import './EditarRutina.css'
 
-const EditarRutina = ({ rutinaEditando, grupos, ejercicios, setEjercicioSeleccionado, grupoSeleccionado, ejercicioSeleccionado, getEjerciciosByGrupo, añadirEjercicio, ejerciciosSeleccionados, eliminarEjercicio, guardarRutina, cancelarEdicion }) => {
+const EditarRutina = ({
+    rutinaEditando,
+    grupos,
+    ejercicios,
+    setEjercicioSeleccionado,
+    grupoSeleccionado,
+    setGrupoSeleccionado,
+    ejercicioSeleccionado,
+    getEjerciciosByGrupo,
+    añadirEjercicio,
+    ejerciciosSeleccionados,
+    eliminarEjercicio,
+    guardarRutina,
+    cancelarEdicion
+}) => {
     return (
         <div className="contenedor-editar-rutina">
             <h2>Editar mi rutina</h2>
@@ -34,7 +49,7 @@ const EditarRutina = ({ rutinaEditando, grupos, ejercicios, setEjercicioSeleccio
                         <ul>
                             {ejerciciosSeleccionados.map((item, index) => (
                                 <li key={index}>
-                                    {item.ejercicio} - {item.grupo.charAt(0).toUpperCase() + item.grupo.slice(1)}
+                                    {item.ejercicio} - {item.grupo ? (item.grupo.charAt(0).toUpperCase() + item.grupo.slice(1)) : ''}
                                     <button onClick={() => eliminarEjercicio(index)}>Eliminar</button>
                                 </li>
                             ))}

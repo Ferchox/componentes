@@ -162,6 +162,7 @@ const Rutinas = () => {
                     ejercicios={ejercicios}
                     setEjercicioSeleccionado={setEjercicioSeleccionado}
                     grupoSeleccionado={grupoSeleccionado}
+                    setGrupoSeleccionado={setGrupoSeleccionado}
                     ejercicioSeleccionado={ejercicioSeleccionado}
                     getEjerciciosByGrupo={getEjerciciosByGrupo}
                     añadirEjercicio={añadirEjercicio}

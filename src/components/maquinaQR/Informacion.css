@@ -1,3 +1,7 @@
+.contenedor-escaner-qr {
+    padding: 8px;
+}
+
 .pantalla-principal {
     display: flex;
     flex-direction: column;
@@ -8,7 +12,7 @@
     padding: 1rem;
     border-radius: 15px;
     width: 80%;
-    margin: 30px auto;
+    margin: 0px auto;
     position: relative;
     z-index: 1;
 }
