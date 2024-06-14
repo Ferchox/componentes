@@ -23,6 +23,10 @@ body {
   min-height: 100vh;
 }
 
+option {
+  background-color: var(--fondo-gris-oscuro);
+}
+
 body {
   background-color: var(--fondo-negro);
   color: var(--blanco);
