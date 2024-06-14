@@ -15,6 +15,7 @@ import InfoMaquinasQR from '../components/maquinaQR/pages/InfoMaquinas';
 import InfoMaquinas from '../components/infoMaquinas/pages/InformacionMaquinas';
 import RegistroEvaluacion from '../components/ingresarEvaluacion/RegistroEvaluacion';
 import VerRutinas from '../components/VerRutinas/pages/VerRutinas';
+import Admin from '../components/admin/pages/Admin';
 
 const Rutas = () => {
     return (
@@ -36,6 +37,7 @@ const Rutas = () => {
                     <Route path='/RegistroEvaluacion' element={<RegistroEvaluacion />} />
                     <Route path='/InfoMaquinas' element={<InfoMaquinas />} />
                     <Route path='/VerRutinas' element={<VerRutinas />} />
+                    <Route path='/Admin' element={<Admin />} />
 
                 </Routes>
             </Router>
