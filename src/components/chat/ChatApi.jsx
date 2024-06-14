@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { iniciarChat, enviarMensaje } from "../../GestorApi";
+import axios from 'axios';
 import "./ChatApi.css";
 import config from "../../data/Configuracion.json";
-import FormularioChat from './FormularioChat'
-import HistorialChat from './HistorialChat'
+import FormularioChat from './FormularioChat';
+import HistorialChat from './HistorialChat';
 
 function Chat() {
   const [mensajes, setMensajes] = useState(config.mensajesIniciales);
@@ -13,6 +14,7 @@ function Chat() {
   const [chat, setChat] = useState(null);
   const [escribiendo, setEscribiendo] = useState(false);
   const [perfil, setPerfil] = useState(null);
+  const [ultimaEvaluacion, setUltimaEvaluacion] = useState(null);
 
   useEffect(() => {
     const usuarioGuardado = sessionStorage.getItem('usuario');
@@ -35,6 +37,40 @@ function Chat() {
     iniciarConversacion();
   }, []);
 
+  useEffect(() => {
+    const obtenerUltimaEvaluacion = async () => {
+      const usuarioId = sessionStorage.getItem('usuarioId');
+      if (usuarioId) {
+        try {
+          const response = await axios.get('https://6668e270f53957909ff9675e.mockapi.io/evolucion');
+          const data = response.data;
+          const userData = data.find(item => item.idCliente === parseInt(usuarioId));
+          if (userData) {
+            const fechas = Object.values(userData.fecha);
+            const ultimaFecha = Math.max(...fechas);
+            const ultimaFechaKey = Object.keys(userData.fecha).find(key => userData.fecha[key] === ultimaFecha);
+
+            const ultimaEvaluacion = {
+              fecha: new Date(ultimaFecha * 1000).toLocaleDateString(),
+              pecho: userData.pecho[`pecho${ultimaFechaKey.slice(-1)}`],
+              grasaPorcentaje: userData.grasaPorcentaje[`grasa${ultimaFechaKey.slice(-1)}`],
+              abdomen: userData.abdomen[`abdomen${ultimaFechaKey.slice(-1)}`],
+              pierna: userData.pierna[`pierna${ultimaFechaKey.slice(-1)}`],
+              pesoKg: userData.pesoKg[`peso${ultimaFechaKey.slice(-1)}`],
+              grasaVisceral: userData.grasaVisceral[`grasaVisceral${ultimaFechaKey.slice(-1)}`],
+              imc: userData.imc[`imc${ultimaFechaKey.slice(-1)}`]
+            };
+            setUltimaEvaluacion(ultimaEvaluacion);
+          }
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      }
+    };
+
+    obtenerUltimaEvaluacion();
+  }, []);
+
   const obtenerFechaHoraActual = () => {
     const fecha = new Date();
     const diaSemana = fecha.toLocaleDateString("es-ES", { weekday: "long" });
@@ -51,8 +87,7 @@ function Chat() {
     if (!input.trim()) return;
     console.clear();
 
-    const { diaSemana, dia, mes, año, hora, minutos } =
-      obtenerFechaHoraActual();
+    const { diaSemana, dia, mes, año, hora, minutos } = obtenerFechaHoraActual();
     const nuevoMensaje = {
       role: "user",
       text: input,
@@ -80,8 +115,23 @@ function Chat() {
     const historial = mensajes
       .map((mensaje) => `Role: ${mensaje.role}, Text: ${mensaje.text}`)
       .join("\n");
+
+    const ultimaEvaluacionTexto = ultimaEvaluacion ? `
+      Última evaluación del usuario:
+      Fecha: ${ultimaEvaluacion.fecha}
+      Pecho: ${ultimaEvaluacion.pecho ?? 'N/A'} cm
+      Grasa Porcentaje: ${ultimaEvaluacion.grasaPorcentaje ?? 'N/A'} %
+      Abdomen: ${ultimaEvaluacion.abdomen ?? 'N/A'} cm
+      Pierna: ${ultimaEvaluacion.pierna ?? 'N/A'} cm
+      Peso: ${ultimaEvaluacion.pesoKg ?? 'N/A'} kg
+      Grasa Visceral: ${ultimaEvaluacion.grasaVisceral ?? 'N/A'} %
+      IMC: ${ultimaEvaluacion.imc ?? 'N/A'} kg/m²
+    ` : '';
+
     const instruccion = `
       ${config.instruccionBase}
+      Usuario: ${perfil ? perfil.nombre : 'Usuario'}
+      ${ultimaEvaluacionTexto}
       Usuario: ${input}
       Historial de la conversación:
       ${historial}
