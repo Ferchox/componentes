@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import emailjs from 'emailjs-com';
+import EtiquetaTitulo from '../general/EtiquetaTitulo';
+import './RestablecerContrasena.css'
 emailjs.init('ITZrn_HCKk8ZBUyXs');
 
 const RestablecerContrasena = () => {
@@ -49,8 +51,8 @@ const RestablecerContrasena = () => {
 
     return (
         <div className='contenedor-restablecer-contrasena'>
-            <h2>Restablecer Contraseña</h2>
-            <form onSubmit={handleSubmit}>
+            <EtiquetaTitulo titulo='Restablecer contraseña' />
+            <form className='contenedor-restablecer' onSubmit={handleSubmit}>
                 <h4>Correo electrónico</h4>
                 <input
                     type="email"

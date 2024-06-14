@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import EtiquetaTitulo from '../general/EtiquetaTitulo';
+import "./VerificarCodigo.css"
 
 const VerificarCodigo = () => {
     const [codigo, setCodigo] = useState('');
@@ -39,8 +41,8 @@ const VerificarCodigo = () => {
 
     return (
         <div className='contenedor-verificar-codigo'>
-            <h2>Verificar Código y Restablecer Contraseña</h2>
-            <form onSubmit={handleSubmit}>
+            <EtiquetaTitulo titulo='Verificar Código y Restablecer Contraseña' />
+            <form className='verificar-codigo' onSubmit={handleSubmit}>
                 <h4>Código de Restablecimiento</h4>
                 <input
                     type="text"
