@@ -21,7 +21,7 @@ import AdministrarUsuario from '../pages/AdministrarUsuario';
 import Restablecer from '../pages/Restablecer';
 import VerificarCodigo from '../pages/VerificarCodigoRestablecer';
 
-import AdminPanel from '../components/general/AdminPanel';
+import AdminPanel from '../pages/Administrador';
 
 const Rutas = () => {
     return (

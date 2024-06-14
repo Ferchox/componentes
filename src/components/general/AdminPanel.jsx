@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import emailjs from 'emailjs-com';
+import EtiquetaTitulo from './EtiquetaTitulo'
+import './AdminPanel.css'
 
 const AdminNotifications = () => {
     const [users, setUsers] = useState([]);
@@ -67,8 +69,8 @@ const AdminNotifications = () => {
 
     return (
         <div className="admin-container">
-            <h2>Send Notification</h2>
-            <form onSubmit={sendEmail}>
+            <EtiquetaTitulo titulo='Send Notification' />
+            <form className="contenedor-admin-of" onSubmit={sendEmail}>
                 <div className="field">
                     <label htmlFor="user">Select User</label>
                     <select id="user" value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}>
