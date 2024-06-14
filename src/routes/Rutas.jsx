@@ -19,6 +19,10 @@ import RutaPrivada from './RutaPrivada';
 import RutaAdmin from './RutaAdmin';
 import AdministrarUsuario from '../pages/AdministrarUsuario';
 
+
+import Notificaciones from '../components/general/Notificaciones';
+import AdminPanel from '../components/general/AdminPanel';
+
 const Rutas = () => {
     return (
         <Router>
@@ -40,6 +44,10 @@ const Rutas = () => {
                 <Route path='/VerRutinas' element={<RutaPrivada><VerRutinas /></RutaPrivada>} />
                 <Route path='/AdministrarEntrenador' element={<RutaAdmin><AdministrarEntrenador /></RutaAdmin>} />
                 <Route path='/AdministrarUsuario' element={<RutaAdmin><AdministrarUsuario /></RutaAdmin>} />
+
+
+                <Route path='/Notificaciones' element={<Notificaciones />} />
+                <Route path='/AdminPanel' element={<AdminPanel />} />
             </Routes>
         </Router>
     );
