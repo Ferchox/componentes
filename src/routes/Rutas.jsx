@@ -8,7 +8,7 @@ import Entrenadores from '../components/PantallaEntrenador/pages/PEntrenador'
 import EvaluacionUsuario from '../pages/EvaluacionUsuario'
 import GenerarRutina from '../pages/GenerarRutina';
 import GenerarRutinaIA from '../pages/GenerarRutinaIA'
-import Metas from '../components/metas/pages/Metas'
+import Metas from '../pages/Metas'
 import PerfilCliente from '../components/perfilCliente/pages/Perfil'
 import InfoMaquinasQR from '../pages/InfoMaquinas';
 import InfoMaquinas from '../pages/InformacionMaquinas';

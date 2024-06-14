@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./MetasPendientes.css";
-import TablaMetas from "../moleculas/TablaMetas";
-import BarraProgreso from "../atomos/BarraProgreso";
-import EtiquetaTitulo from "../../general/EtiquetaTitulo";
-import CrearMeta from "../moleculas/CrearMetas";
+import TablaMetas from "./TablaMetas";
+import BarraProgreso from "./BarraProgreso";
+import EtiquetaTitulo from "../general/EtiquetaTitulo";
+import CrearMeta from "./CrearMetas";
 import axios from "axios";
 
 function MetasPendientes() {

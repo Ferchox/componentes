@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./TablaMetas.css";
-import Checkbox from "../atomos/Checkbox";
+import Checkbox from "./Checkbox";
 
 function TablaMetas({ metas, handleCheck, handleDelete, handleEdit }) {
   const [modoEdicion, setModoEdicion] = useState(null);

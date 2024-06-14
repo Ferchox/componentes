@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./Metas.css";
-import MetasPendientes from "../organismos/MetasPendientes.jsx";
-import Cabecera from "../../general/Cabecera.jsx";
-import PiePagina from "../../general/PiePagina.jsx";
-import BarraNavegacion from '../../general/BarraNavegacion.jsx';
+import MetasPendientes from "../components/metas/MetasPendientes.jsx";
+import BarraNavegacion from '../components/general/BarraNavegacion.jsx';
+import Cabecera from '../components/general/Cabecera.jsx';
+import PiePagina from '../components/general/PiePagina.jsx';
 
 function Metas() {
   return (
