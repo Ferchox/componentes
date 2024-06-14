@@ -1,19 +1,19 @@
 import React from 'react';
-import InicioSesionUsuario from '../components/inicioSesionUsuario/InicioSesionUsuario.jsx';
+import RegistroUsuario from '../components/registroUsuario/RegistroUsuario.jsx';
 import BarraNavegacion from '../components/general/BarraNavegacion.jsx';
 import Cabecera from '../components/general/Cabecera.jsx';
 import PiePagina from '../components/general/PiePagina.jsx';
-import './InicioSesion.css';
+import './Registro.css';
 
-const InicioSesion = () => {
+const Registro = () => {
     return (
-        <div className='contenedor-inicio-sesion'>
+        <div className="pagina-registro">
             <Cabecera />
             <BarraNavegacion />
-            <InicioSesionUsuario onSubmit={(datos) => ""} />
+            <RegistroUsuario onSubmit={(datos) => ""} />
             <PiePagina />
         </div>
     );
 };
 
-export default InicioSesion;
+export default Registro;

@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Inicio from '../pages/Inicio';
 import InicioSesionUsuario from '../pages/InicioSesion'
-import RegistroUsuario from '../components/registroUsuario/pages/Registro'
+import RegistroUsuario from '../pages/Registro'
 import Chat from '../pages/Chat';
 import Entrenadores from '../pages/PEntrenador'
 import EvaluacionUsuario from '../pages/EvaluacionUsuario'
