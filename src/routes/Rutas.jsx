@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Inicio from '../components/inicio/pages/Inicio';
 import InicioSesionUsuario from '../components/inicioSesionUsuario/pages/InicioSesion'
 import RegistroUsuario from '../components/registroUsuario/pages/Registro'
-import Chat from '../components/chat/pages/Chat'
+import Chat from '../pages/Chat';
 import CrearMetas from '../components/crearMetas/pages/CrearMeta'
 import Entrenadores from '../components/PantallaEntrenador/pages/PEntrenador'
 import EvaluacionUsuario from '../components/evaluacionUsuario/pages/EvaluacionUsuario'

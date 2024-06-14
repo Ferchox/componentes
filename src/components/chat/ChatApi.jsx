@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { iniciarChat, enviarMensaje } from "../../../GestorApi";
-import "./Chat.css";
-import config from "../../../data/Configuracion.json";
-import FormularioChat from "../organismos/FormularioChat";
-import HistorialChat from "../organismos/HistorialChat";
-import Cabecera from "../../general/organismos/Cabecera";
-import PiePagina from "../../general/organismos/PiePagina";
-import BarraNavegacion from "../../general/organismos/BarraNavegacion";
+import { iniciarChat, enviarMensaje } from "../../GestorApi";
+import "./ChatApi.css";
+import config from "../../data/Configuracion.json";
+import FormularioChat from './FormularioChat'
+import HistorialChat from './HistorialChat'
 
 function Chat() {
   const [mensajes, setMensajes] = useState(config.mensajesIniciales);
@@ -164,21 +161,10 @@ function Chat() {
   };
 
   return (
-    <div className="contenedor-chat-fondo">
-      <Cabecera />
-      <BarraNavegacion />
-      <div className="contenedor-chat">
-        <HistorialChat mensajes={mensajes} escribiendo={escribiendo} className="historial-chat" />
-        <FormularioChat
-          input={input}
-          setInput={setInput}
-          manejarGeneracion={manejarGeneracion}
-          escribiendo={escribiendo}
-          config={config}
-        />
-        {error && <div className="error">{error}</div>}
-      </div>
-      <PiePagina />
+    <div className="contenedor-chat">
+      <HistorialChat mensajes={mensajes} escribiendo={escribiendo} className="historial-chat" />
+      <FormularioChat input={input} setInput={setInput} manejarGeneracion={manejarGeneracion} escribiendo={escribiendo} config={config} />
+      {error && <div className="error">{error}</div>}
     </div>
   );
 }
