@@ -1,12 +1,12 @@
-import React from 'react';
-import './BotonIA.css';
+import React from "react";
+import "./BotonIA.css";
 
-const Boton = ({ onClick, children }) => {
+const Boton = ({ onClick, children, className }) => {
   return (
-    <button className="boton" onClick={onClick} >
+    <button className={`boton ${className}`} onClick={onClick}>
       {children}
     </button>
   );
-}
+};
 
 export default Boton;

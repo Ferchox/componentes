@@ -3,15 +3,12 @@ import { useNavigate } from "react-router-dom";
 import "./SeleccionParteCuerpoIA.css";
 import Boton from "../atomos/BotonIA";
 import ContenedorBotones from "../moleculas/ContenedorBotonesIA";
-import ContenedorEjercicio from "../moleculas/ContenedorEjercicioIA";
-import ContenedorInfoEjercicio from "../moleculas/ContenedorInfoEjercicioIA";
 import EtiquetaTitulo from "../../general/moleculas/EtiquetaTitulo";
 import config from "../../../data/Configuracion.json";
 import { enviarMensaje, iniciarChat } from "../../../GestorApi";
 
 const SeleccionParteCuerpoIA = () => {
-  const [grupoSeleccionado, setGrupoSeleccionado] = useState(null);
-  const [ejercicioSeleccionado, setEjercicioSeleccionado] = useState(null);
+  const [gruposSeleccionados, setGruposSeleccionados] = useState([]);
   const [ejerciciosSeleccionados, setEjerciciosSeleccionados] = useState([]);
   const [rutinas, setRutinas] = useState([]);
   const [ejercicios, setEjercicios] = useState([]);
@@ -46,43 +43,20 @@ const SeleccionParteCuerpoIA = () => {
     obtenerEjercicios();
   }, []);
 
-  const getEjerciciosByGrupo = (grupo) => {
-    const selectedGroup = rutinas.find((g) => g.nombre === grupo);
-    if (!selectedGroup) return [];
-    return selectedGroup.idEjercicio.ejercicios.map((e) =>
-      ejercicios.find((ej) => ej.id === e.id)
-    );
-  };
-  const añadirEjercicio = () => {
-    if (ejercicioSeleccionado) {
-      setEjerciciosSeleccionados([
-        ...ejerciciosSeleccionados,
-        {
-          grupo: grupoSeleccionado,
-          ejercicio: ejercicioSeleccionado.nombre,
-          descripcion: ejercicioSeleccionado.descripcion,
-        },
-      ]);
-      setEjercicioSeleccionado(null);
+  const manejarSeleccionGrupo = (grupo) => {
+    if (gruposSeleccionados.includes(grupo)) {
+      setGruposSeleccionados(gruposSeleccionados.filter((g) => g !== grupo));
+    } else {
+      setGruposSeleccionados([...gruposSeleccionados, grupo]);
     }
   };
 
-  const eliminarEjercicio = (index) => {
-    setEjerciciosSeleccionados(
-      ejerciciosSeleccionados.filter((_, i) => i !== index)
-    );
-  };
-
-  const manejarSeleccionGrupo = (grupo) => {
-    setGrupoSeleccionado(grupo);
-    setEjercicioSeleccionado(null);
-  };
-
-  const manejarSeleccionEjercicio = (ejercicio) => {
-    setEjercicioSeleccionado(ejercicio);
-  };
-
   const generarRutinaConGemini = async () => {
+    if (gruposSeleccionados.length === 0) {
+      alert("Selecciona al menos un grupo muscular.");
+      return;
+    }
+
     let intentos = 0;
     const maxIntentos = 3;
     let rutinaGenerada = false;
@@ -90,11 +64,24 @@ const SeleccionParteCuerpoIA = () => {
     while (intentos < maxIntentos && !rutinaGenerada) {
       try {
         const nuevoChat = await iniciarChat([]);
+        const rutinasSeleccionadas = rutinas.filter((rutina) =>
+          gruposSeleccionados.includes(rutina.nombre)
+        );
+        const ejerciciosSeleccionadosParaGemini = ejercicios.filter(
+          (ejercicio) => {
+            const grupoEjercicio = rutinas.find((grupo) =>
+              grupo.idEjercicio.ejercicios
+                .map((e) => e.id)
+                .includes(ejercicio.id)
+            );
+            return gruposSeleccionados.includes(grupoEjercicio?.nombre);
+          }
+        );
 
         const instruccion = `${config.instruccionGenerarRutina}
-      Rutinas: ${JSON.stringify(rutinas)}
-      Ejercicios: ${JSON.stringify(ejercicios)}
-      `;
+          Rutinas: ${JSON.stringify(rutinasSeleccionadas)}
+          Ejercicios: ${JSON.stringify(ejerciciosSeleccionadosParaGemini)}
+        `;
 
         console.log("Instrucción completa:", instruccion);
 
@@ -106,34 +93,42 @@ const SeleccionParteCuerpoIA = () => {
 
         console.log("Respuesta cruda de Gemini:", respuestaCruda);
 
-        const jsonValido = respuestaCruda
-          .replace(/^```json\n|\n```$/g, "")
-          .replace(/'/g, '"');
+        let data;
+        try {
+          data = JSON.parse(respuestaCruda);
+        } catch (error) {
+          const jsonValido = respuestaCruda
+            .replace(/^```json\n|\n```$/g, "")
+            .replace(/'/g, '"');
+          data = JSON.parse(jsonValido);
+        }
 
-        console.log("JSON válido:", jsonValido);
+        console.log("JSON válido:", data);
 
-        const data = JSON.parse(jsonValido);
-        const nuevaRutina = data.rutina;
+        if (data.rutina && Array.isArray(data.rutina)) {
+          const nuevaRutina = data.rutina;
 
-        data.rutina.forEach((grupo) => {
-          grupo.grupo = grupo.grupo.toLowerCase();
-        });
+          nuevaRutina.forEach((grupo) => {
+            grupo.grupo = grupo.grupo.toLowerCase();
+          });
+          const ejerciciosFormateados = nuevaRutina.flatMap((grupo) =>
+            grupo.ejercicios.map((ejercicioId) => {
+              const ejercicio = ejercicios.find((ej) => ej.id === ejercicioId);
+              return {
+                grupo: grupo.grupo,
+                ejercicio: ejercicio
+                  ? ejercicio.nombre
+                  : "Ejercicio no encontrado",
+                descripcion: ejercicio ? ejercicio.descripcion : "",
+              };
+            })
+          );
 
-        const ejerciciosFormateados = nuevaRutina.flatMap((grupo) =>
-          grupo.ejercicios.map((ejercicioId) => {
-            const ejercicio = ejercicios.find((ej) => ej.id === ejercicioId);
-            return {
-              grupo: grupo.grupo,
-              ejercicio: ejercicio
-                ? ejercicio.nombre
-                : "Ejercicio no encontrado",
-              descripcion: ejercicio ? ejercicio.descripcion : "",
-            };
-          })
-        );
-
-        setEjerciciosSeleccionados(ejerciciosFormateados);
-        rutinaGenerada = true; // La rutina se ha generado correctamente
+          setEjerciciosSeleccionados(ejerciciosFormateados);
+          rutinaGenerada = true; // La rutina se ha generado correctamente
+        } else {
+          console.error("Formato de respuesta de Gemini inválido");
+        }
       } catch (error) {
         console.error(
           `Error al generar la rutina (intento ${intentos + 1}):`,
@@ -177,66 +172,54 @@ const SeleccionParteCuerpoIA = () => {
       });
   };
 
+  const eliminarEjercicio = (index) => {
+    const nuevosEjercicios = [...ejerciciosSeleccionados];
+    nuevosEjercicios.splice(index, 1);
+    setEjerciciosSeleccionados(nuevosEjercicios);
+  };
+
   return (
-    <div className="contenedor-rutina">
+    <div className="contenedor-rutina-ia">
       <EtiquetaTitulo titulo="Generar mi propia rutina" />
-      <h4 className="subtitulo">¿Qué vas a trabajar el día de hoy?</h4>
-      <div className="aplicacion">
-        <div className="contenedor-botones">
+      <h4 className="subtitulo-ia">¿Qué vas a trabajar el día de hoy?</h4>
+      <div className="aplicacion-ia">
+        <div className="contenedor-botones-ia">
           <ContenedorBotones>
             {rutinas.map((grupo) => (
               <Boton
                 key={grupo.id}
                 onClick={() => manejarSeleccionGrupo(grupo.nombre)}
+                className={`boton-grupo ${
+                  gruposSeleccionados.includes(grupo.nombre)
+                    ? "boton-grupo-seleccionado"
+                    : ""
+                }`}
               >
                 {grupo.nombre.charAt(0).toUpperCase() + grupo.nombre.slice(1)}
               </Boton>
             ))}
           </ContenedorBotones>
         </div>
-        <div className="contenido">
-          <ContenedorEjercicio>
-            {grupoSeleccionado &&
-              getEjerciciosByGrupo(grupoSeleccionado).map((ejercicio) => (
-                <Boton
-                  key={ejercicio.id}
-                  onClick={() => manejarSeleccionEjercicio(ejercicio)}
-                >
-                  {ejercicio.nombre}
-                </Boton>
-              ))}
-          </ContenedorEjercicio>
-          <ContenedorInfoEjercicio>
-            {ejercicioSeleccionado && (
-              <>
-                <h3>{ejercicioSeleccionado.nombre}</h3>
-                <p>{ejercicioSeleccionado.descripcion}</p>
-              </>
-            )}
-          </ContenedorInfoEjercicio>
-          <div className="lista-ejercicios">
-            {ejerciciosSeleccionados.length > 0 && (
-              <h4>Ejercicios Seleccionados:</h4>
-            )}
-            <ul>
-              {ejerciciosSeleccionados.map((item, index) => (
-                <li key={index}>
-                  {item.ejercicio} -{" "}
-                  {item.grupo.charAt(0).toUpperCase() + item.grupo.slice(1)}
-                  <button onClick={() => eliminarEjercicio(index)}>
-                    Eliminar
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="botones-accion">
-            <Boton onClick={añadirEjercicio}>Añadir Ejercicio</Boton>
-            <Boton onClick={generarRutinaConGemini}>
-              Generar Rutina con IA
-            </Boton>
-            <Boton onClick={guardarRutina}>Guardar Rutina</Boton>{" "}
-          </div>
+        <div className="lista-ejercicios-ia">
+          {" "}
+          {ejerciciosSeleccionados.length > 0 && (
+            <h4>Ejercicios Seleccionados:</h4>
+          )}
+          <ul>
+            {ejerciciosSeleccionados.map((item, index) => (
+              <li key={index}>
+                {item.ejercicio} -{" "}
+                {item.grupo.charAt(0).toUpperCase() + item.grupo.slice(1)}
+                <button onClick={() => eliminarEjercicio(index)}>
+                  Eliminar
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="botones-accion-ia">
+          <Boton onClick={generarRutinaConGemini}>Generar Rutina con IA</Boton>
+          <Boton onClick={guardarRutina}>Guardar Rutina</Boton>{" "}
         </div>
       </div>
     </div>

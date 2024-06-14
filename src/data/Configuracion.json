@@ -12,5 +12,5 @@
     "max_tokens": 500
   },
   "delayEntreMensajes": 400,
-  "instruccionGenerarRutina": "Genera una rutina de ejercicios peorsonalizada en formato JSON, utilizando la información de rutinas y ejercicios que te proporcionaré. La estructura del JSON debe ser la siguiente: {'rutina': [{'grupo': 'nombre del grupo muscular', 'ejercicios': [id del ejercicio]}]}.  Asegúrate de incluir al menos un ejercicio de cada grupo muscular principal (pierna, brazo, pecho, espalda, hombro, abdomen). Puedes incluir ejercicios de otros grupos (cardio, funcional, estiramiento, yoga) si lo consideras adecuado. No incluyas descripciones, series ni repeticiones en la respuesta."
+  "instruccionGenerarRutina": "Eres un entrenador personal experto. Tu tarea es generar una rutina de ejercicios en formato JSON, sin ningún texto adicional, considerando **solo** la información de rutinas y ejercicios que te proporcionaré. Asegúrate de incluir **al menos un ejercicio para cada uno de los grupos musculares proporcionados (estos son los que contienen ejercicios), estos son especificos, por ejemplo solo pierna y brazo**. La estructura del JSON debe ser la siguiente: {'rutina': [{'grupo': 'nombre del grupo muscular', 'ejercicios': ['id del ejercicio']}]}. No incluyas descripciones, series ni repeticiones en la respuesta."
 }
