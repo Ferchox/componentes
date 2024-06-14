@@ -9,7 +9,7 @@
     padding: 10px;
     border: 2px solid #fafafa10;
     background: #fafafa10;
-    backdrop-filter: blur(4rem);
+    backdrop-filter: blur(10rem);
     border-radius: 10px;
     margin: auto;
 }

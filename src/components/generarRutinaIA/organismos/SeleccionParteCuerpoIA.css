@@ -1,8 +1,8 @@
-.contenedor-rutina {
+.contenedor-rutina-ia {
   padding: 8px;
 }
 
-.aplicacion {
+.aplicacion-ia {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,14 +17,14 @@
   z-index: 1;
 }
 
-.subtitulo {
+.subtitulo-ia {
   width: 90%;
   background-color: var(--morado-oscuro);
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.contenedor-botones {
+.contenedor-botones-ia {
   margin: 5px 0;
 }
 
@@ -32,26 +32,18 @@ button {
   margin: 5px;
 }
 
-.contenedor-botones {
+.contenedor-botones-ia {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
 }
 
-.contenedor-ejercicio,
-.contenedor-info-ejercicio {
-  margin-top: 20px;
-  background-color: #333;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.contenido {
+.contenido-ia {
   margin-top: 5px;
 }
 
-.botones-accion {
+.botones-accion-ia {
   display: flex;
   justify-content: center;
   margin-top: 20px;

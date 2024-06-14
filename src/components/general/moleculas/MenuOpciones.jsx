@@ -88,11 +88,14 @@ const MenuOpciones = () => {
               <NavLink to='/Entrenadores'>
                 <li className="sub-item">Rutina con instructor</li>
               </NavLink>
-              <NavLink to='/Entrenadores'>
+              <NavLink to='/VerRutinas'>
                 <li className="sub-item">Ver rutina</li>
               </NavLink>
             </>
           )}
+          <NavLink to='/RegistroEvaluacion'>
+            <li>Registrar evolución</li>
+          </NavLink>
           <NavLink to='/EvaluacionUsuario'>
             <li>Ver evolución</li>
           </NavLink>

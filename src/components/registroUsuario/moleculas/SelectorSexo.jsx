@@ -9,10 +9,10 @@ const SelectorSexo = ({ valor, onChange }) => {
             className="selector-sexo"
             required
         >
-            <option value="" disabled>Sexo</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Femenino">Femenino</option>
-            <option value="Otro">Otro</option>
+            <option className='opcion' value="" disabled>Selecciona tu género</option>
+            <option className='opcion' value="Masculino">Masculino</option>
+            <option className='opcion' value="Femenino">Femenino</option>
+            <option className='opcion' value="Otro">Otro</option>
         </select>
     );
 };

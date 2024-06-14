@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SeleccionParteCuerpo.css";
 import Boton from "../atomos/Boton";
 import ContenedorBotones from "../moleculas/ContenedorBotones";
@@ -14,6 +15,7 @@ const SeleccionParteCuerpo = () => {
   const [grupoSeleccionado, setGrupoSeleccionado] = useState(null);
   const [ejercicioSeleccionado, setEjercicioSeleccionado] = useState(null);
   const [ejerciciosSeleccionados, setEjerciciosSeleccionados] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://6668e270f53957909ff9675e.mockapi.io/rutinas")
@@ -53,39 +55,33 @@ const SeleccionParteCuerpo = () => {
     );
   };
 
-  const generarPDF = () => {
-    const doc = new jsPDF();
-    const today = new Date();
-    const formattedDate =
-      today.getDate() +
-      "/" +
-      (today.getMonth() + 1) +
-      "/" +
-      today.getFullYear();
+  const guardarRutina = () => {
+    if (ejerciciosSeleccionados.length === 0) {
+      alert("Debe agregar al menos un ejercicio antes de guardar la rutina.");
+      return;
+    }
 
-    const title = "Mi Rutina de Entrenamiento";
-    const header = `${title} ${formattedDate}`;
+    const idCliente = sessionStorage.getItem('usuarioId');
+    const nombreRutina = `Rutina de ${new Date().toLocaleDateString()}`;
+    const fechaCreacion = Date.now();
+    const rutina = {
+      idCliente,
+      nombreRutina,
+      fechaCreacion,
+      ejercicios: ejerciciosSeleccionados,
+    };
 
-    doc.setFontSize(20);
-    doc.text(header, 10, 10);
-
-    let y = 20;
-    doc.setFontSize(12);
-    doc.text("Ejercicios:", 10, y);
-    y += 10;
-
-    autoTable(doc, {
-      head: [["#", "Grupo", "Ejercicio", "Descripción"]],
-      body: ejerciciosSeleccionados.map((item, index) => [
-        index + 1,
-        item.grupo.charAt(0).toUpperCase() + item.grupo.slice(1),
-        item.ejercicio,
-        item.descripcion,
-      ]),
-      startY: y,
-    });
-
-    doc.save(`${title}.pdf`);
+    fetch("https://6668e270f53957909ff9675e.mockapi.io/rutinasCliente", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(rutina),
+    })
+      .then((response) => response.json())
+      .then(() => {
+        navigate("/VerRutinas");
+      });
   };
 
   const manejarSeleccionGrupo = (grupo) => {
@@ -149,7 +145,7 @@ const SeleccionParteCuerpo = () => {
           </div>
           <div className="botones-accion">
             <Boton onClick={añadirEjercicio}>Añadir Ejercicio</Boton>
-            <Boton onClick={generarPDF}>Generar PDF</Boton>
+            <Boton onClick={guardarRutina}>Guardar Rutina</Boton>
           </div>
         </div>
       </div>

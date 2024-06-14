@@ -1,0 +1,26 @@
+.boton {
+  flex: 1 1 calc(33.33% - 20px);
+  max-width: calc(53.33% - 20px);
+  margin-bottom: 15px;
+  background-color: var(--morado-claro);
+  height: auto;
+}
+
+.boton > button {
+  color: var(--blanco);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+}
+.boton > button:hover {
+  background-color: var(--morado-claro);
+}
+.boton-grupo-seleccionado {
+  background-color: var(--morado-oscuro);
+}
