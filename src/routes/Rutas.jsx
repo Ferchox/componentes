@@ -18,9 +18,9 @@ import AdministrarEntrenador from '../pages/Admin';
 import RutaPrivada from './RutaPrivada';
 import RutaAdmin from './RutaAdmin';
 import AdministrarUsuario from '../pages/AdministrarUsuario';
+import RestablecerContrasena from '../components/inicioSesionUsuario/RestablecerContrasena';
+import VerificarCodigo from '../components/inicioSesionUsuario/VerificarCodigo';
 
-
-import Notificaciones from '../components/general/Notificaciones';
 import AdminPanel from '../components/general/AdminPanel';
 
 const Rutas = () => {
@@ -30,6 +30,8 @@ const Rutas = () => {
                 <Route path="/" element={<Inicio />} />
                 <Route path="/IniciarSesionUsuario" element={<InicioSesionUsuario />} />
                 <Route path="/RegistroUsuario" element={<RegistroUsuario />} />
+                <Route path='/RestablecerContrasena' element={<RestablecerContrasena />} />
+                <Route path='/VerificarCodigo' element={<VerificarCodigo />} />
 
                 <Route path='/Chat' element={<RutaPrivada><Chat /></RutaPrivada>} />
                 <Route path='/Entrenadores' element={<RutaPrivada><Entrenadores /></RutaPrivada>} />
@@ -45,9 +47,7 @@ const Rutas = () => {
                 <Route path='/AdministrarEntrenador' element={<RutaAdmin><AdministrarEntrenador /></RutaAdmin>} />
                 <Route path='/AdministrarUsuario' element={<RutaAdmin><AdministrarUsuario /></RutaAdmin>} />
 
-
-                <Route path='/Notificaciones' element={<Notificaciones />} />
-                <Route path='/AdminPanel' element={<AdminPanel />} />
+                <Route path='/AdminPanel' element={<RutaAdmin><AdminPanel /></RutaAdmin>} />
             </Routes>
         </Router>
     );

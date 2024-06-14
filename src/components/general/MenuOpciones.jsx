@@ -110,6 +110,9 @@ const MenuOpciones = () => {
               <NavLink to='/AdministrarUsuario'>
                 <li>Administrar usuarios</li>
               </NavLink>
+              <NavLink to='/AdminPanel'>
+                <li>Enviar notificaciones</li>
+              </NavLink>
             </>
           )}
         </ul>
