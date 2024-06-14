@@ -99,7 +99,7 @@ function AdministrarUsuario() {
           options={usuarios}
           onChange={handleSeleccionarUsuario}
           placeholder="Selecciona un usuario"
-          labelKey="nombre"
+          labelKey="email"
         />
         {usuarioSeleccionado && (
           <div className="acciones-usuario">
