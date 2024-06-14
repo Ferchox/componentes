@@ -18,7 +18,9 @@
   height: auto;
   margin-top: 15px;
 }
-
 .boton > button:hover {
-  background-color: var(--rosa);
+  background-color: var(--morado-claro);
+}
+.boton-grupo-seleccionado {
+  background-color: var(--morado-oscuro);
 }

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
-import "./Rutinas.css";
+import React, { useState, useEffect } from 'react';
+import ListaRutinas from './ListaRutinas';
+import EditarRutina from './EditarRutina';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
+import './Rutinas.css';
 
 const Rutinas = () => {
     const [rutinas, setRutinas] = useState([]);
@@ -24,13 +25,25 @@ const Rutinas = () => {
                     fetch("https://6668e270f53957909ff9675e.mockapi.io/ejercicios")
                 ]);
 
-                const [rutinasData, gruposData, ejerciciosData] = await Promise.all([
-                    rutinasResponse.json(),
+                if (!rutinasResponse.ok) {
+                    if (rutinasResponse.status === 404) {
+                        setRutinas([]);
+                    } else {
+                        throw new Error(`Rutinas API error: ${rutinasResponse.statusText}`);
+                    }
+                } else {
+                    const rutinasData = await rutinasResponse.json();
+                    setRutinas(rutinasData);
+                }
+
+                if (!gruposResponse.ok) throw new Error(`Grupos API error: ${gruposResponse.statusText}`);
+                if (!ejerciciosResponse.ok) throw new Error(`Ejercicios API error: ${ejerciciosResponse.statusText}`);
+
+                const [gruposData, ejerciciosData] = await Promise.all([
                     gruposResponse.json(),
                     ejerciciosResponse.json()
                 ]);
 
-                setRutinas(rutinasData);
                 setGrupos(gruposData);
                 setEjercicios(ejerciciosData);
             } catch (error) {
@@ -77,10 +90,9 @@ const Rutinas = () => {
     const eliminarRutina = (id) => {
         fetch(`https://6668e270f53957909ff9675e.mockapi.io/rutinasCliente/${id}`, {
             method: 'DELETE',
-        })
-            .then(() => {
-                setRutinas(rutinas.filter((rutina) => rutina.id !== id));
-            });
+        }).then(() => {
+            setRutinas(rutinas.filter((rutina) => rutina.id !== id));
+        });
     };
 
     const manejarEdicionRutina = (rutina) => {
@@ -141,119 +153,30 @@ const Rutinas = () => {
         setEjerciciosSeleccionados([]);
     };
 
-    const manejarSeleccionGrupo = (grupo) => {
-        setGrupoSeleccionado(grupo);
-        setEjercicioSeleccionado(null);
-    };
-
-    const manejarSeleccionEjercicio = (ejercicio) => {
-        setEjercicioSeleccionado(ejercicio);
-    };
-
     return (
         <div className="contenedor-rutinas">
             {rutinaEditando ? (
-                <div className="contenedor-editar-rutina">
-                    <h2>Editar mi rutina</h2>
-                    <h4>¿Qué vas a trabajar el día de hoy?</h4>
-                    <div className="aplicacion">
-                        <div className="contenedor-botones">
-                            {grupos.map((grupo) => (
-                                <button key={grupo.id} onClick={() => manejarSeleccionGrupo(grupo.nombre)}>
-                                    {grupo.nombre.charAt(0).toUpperCase() + grupo.nombre.slice(1)}
-                                </button>
-                            ))}
-                        </div>
-                        <div className="contenido">
-                            <div>
-                                {grupoSeleccionado &&
-                                    getEjerciciosByGrupo(grupoSeleccionado).map((ejercicio) => (
-                                        <button
-                                            key={ejercicio.id}
-                                            onClick={() => manejarSeleccionEjercicio(ejercicio)}
-                                        >
-                                            {ejercicio.nombre}
-                                        </button>
-                                    ))}
-                            </div>
-                            <div>
-                                {ejercicioSeleccionado && (
-                                    <>
-                                        <h3>{ejercicioSeleccionado.nombre}</h3>
-                                        <p>{ejercicioSeleccionado.descripcion}</p>
-                                    </>
-                                )}
-                            </div>
-                            <div className="lista-ejercicios">
-                                {ejerciciosSeleccionados.length > 0 && (
-                                    <h4>Ejercicios Seleccionados:</h4>
-                                )}
-                                <ul>
-                                    {ejerciciosSeleccionados.map((item, index) => (
-                                        <li key={index}>
-                                            {item.ejercicio} -{" "}
-                                            {item.grupo.charAt(0).toUpperCase() + item.grupo.slice(1)}
-                                            <button onClick={() => eliminarEjercicio(index)}>
-                                                Eliminar
-                                            </button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="botones-accion">
-                                <button onClick={añadirEjercicio}>Añadir Ejercicio</button>
-                                <button onClick={guardarRutina}>Guardar Rutina</button>
-                                <button onClick={cancelarEdicion}>Cancelar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <EditarRutina
+                    rutinaEditando={rutinaEditando}
+                    grupos={grupos}
+                    ejercicios={ejercicios}
+                    setEjercicioSeleccionado={setEjercicioSeleccionado}
+                    grupoSeleccionado={grupoSeleccionado}
+                    ejercicioSeleccionado={ejercicioSeleccionado}
+                    getEjerciciosByGrupo={getEjerciciosByGrupo}
+                    añadirEjercicio={añadirEjercicio}
+                    ejerciciosSeleccionados={ejerciciosSeleccionados}
+                    eliminarEjercicio={eliminarEjercicio}
+                    guardarRutina={guardarRutina}
+                    cancelarEdicion={cancelarEdicion}
+                />
             ) : (
-                <>
-                    <h2>Mis Rutinas</h2>
-                    <div className="rutinas-aplicacion">
-                        {rutinas.length > 0 ? (
-                            rutinas.map((rutina) => (
-                                <div key={rutina.id} className="rutinas-contenedor-ejercicio">
-                                    <h3>{rutina.nombreRutina}</h3>
-                                    <p>Fecha de Creación: {new Date(rutina.fechaCreacion).toLocaleDateString()}</p>
-                                    <table className="rutinas-tabla">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Grupo</th>
-                                                <th>Ejercicio</th>
-                                                <th>Descripción</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {rutina.ejercicios.map((item, index) => (
-                                                <tr key={index}>
-                                                    <td>{index + 1}</td>
-                                                    <td>{item.grupo.charAt(0).toUpperCase() + item.grupo.slice(1)}</td>
-                                                    <td>{item.ejercicio}</td>
-                                                    <td>{item.descripcion}</td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                    <div className="rutinas-botones-accion">
-                                        <button className="rutinas-boton" onClick={() => generarPDF(rutina)}>Descargar PDF</button>
-                                        <button className="rutinas-boton" onClick={() => eliminarRutina(rutina.id)}>Eliminar Rutina</button>
-                                        <button className="rutinas-boton" onClick={() => manejarEdicionRutina(rutina)}>Editar Rutina</button>
-                                    </div>
-                                </div>
-                            ))
-                        ) : (
-                            <p>No tienes rutinas guardadas.</p>
-                        )}
-                        <div className="rutinas-botones-accion">
-                            <NavLink to='/GenerarRutina'>
-                                <button className="rutinas-boton">Crear rutina</button>
-                            </NavLink>
-                        </div>
-                    </div>
-                </>
+                <ListaRutinas
+                    rutinas={rutinas}
+                    generarPDF={generarPDF}
+                    eliminarRutina={eliminarRutina}
+                    manejarEdicionRutina={manejarEdicionRutina}
+                />
             )}
         </div>
     );
