@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './InformacionPerfil.css';
-import ImagenPerfil from '../moleculas/ImagenPerfil';
-import EtiquetaInformacion from '../moleculas/EtiquetaInformacion';
-import BotonesPerfil from '../moleculas/BotonesPerfil';
-import EtiquetaTitulo from '../../general/EtiquetaTitulo';
+import ImagenPerfil from './ImagenPerfil';
+import EtiquetaInformacion from './EtiquetaInformacion';
+import BotonesPerfil from './BotonesPerfil';
+import EtiquetaTitulo from '../general/EtiquetaTitulo';
 import axios from 'axios';
 import moment from 'moment';
 

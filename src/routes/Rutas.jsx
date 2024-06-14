@@ -9,7 +9,7 @@ import EvaluacionUsuario from '../pages/EvaluacionUsuario'
 import GenerarRutina from '../pages/GenerarRutina';
 import GenerarRutinaIA from '../pages/GenerarRutinaIA'
 import Metas from '../pages/Metas'
-import PerfilCliente from '../components/perfilCliente/pages/Perfil'
+import PerfilCliente from '../pages/Perfil'
 import InfoMaquinasQR from '../pages/InfoMaquinas';
 import InfoMaquinas from '../pages/InformacionMaquinas';
 import RegistroEvaluacion from '../components/ingresarEvaluacion/RegistroEvaluacion';

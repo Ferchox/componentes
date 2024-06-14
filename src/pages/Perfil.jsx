@@ -1,8 +1,8 @@
 import React from 'react';
-import InformacionPerfil from '../organismos/InformacionPerfil';
-import BarraNavegacion from '../../general/BarraNavegacion';
-import Cabecera from '../../general/Cabecera';
-import PiePagina from '../../general/PiePagina';
+import InformacionPerfil from '../components/perfilCliente/InformacionPerfil.jsx';
+import BarraNavegacion from '../components/general/BarraNavegacion.jsx';
+import Cabecera from '../components/general/Cabecera.jsx';
+import PiePagina from '../components/general/PiePagina.jsx';
 import './Perfil.css';
 
 const Perfil = () => {
