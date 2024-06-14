@@ -180,7 +180,7 @@ const SeleccionParteCuerpoIA = () => {
 
   return (
     <div className="contenedor-rutina-ia">
-      <EtiquetaTitulo titulo="Generar mi propia rutina" />
+      <EtiquetaTitulo titulo="Generar mi rutina con IA" />
       <h4 className="subtitulo-ia">¿Qué vas a trabajar el día de hoy?</h4>
       <div className="aplicacion-ia">
         <div className="contenedor-botones-ia">
