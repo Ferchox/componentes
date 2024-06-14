@@ -4,11 +4,13 @@ import { NavLink } from 'react-router-dom';
 const BotonesPerfil = () => {
     return (
         <div>
-            <button >Ver historial de evaluaciones</button>
+            <NavLink to='/EvaluacionUsuario'>
+                <button >Ver historial de evaluaciones</button>
+            </NavLink>
             <NavLink to='/RegistroEvaluacion'>
                 <button >Registrar evaluación</button>
             </NavLink>
-        </div>
+        </div >
     )
 }
 
