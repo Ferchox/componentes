@@ -1,8 +1,8 @@
 import React from 'react'
-import BarraNavegacion from '../../general/BarraNavegacion'
-import Cabecera from '../../general/Cabecera'
-import Rutinas from '../organismos/Rutinas'
-import PiePagina from '../../general/PiePagina'
+import Rutinas from '../components/VerRutinas/Rutinas.jsx';
+import BarraNavegacion from '../components/general/BarraNavegacion.jsx';
+import Cabecera from '../components/general/Cabecera.jsx';
+import PiePagina from '../components/general/PiePagina.jsx';
 import './VerRutinas.css'
 
 const VerRutinas = () => {

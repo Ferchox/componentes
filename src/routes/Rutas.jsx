@@ -13,7 +13,7 @@ import PerfilCliente from '../pages/Perfil'
 import InfoMaquinasQR from '../pages/InfoMaquinas';
 import InfoMaquinas from '../pages/InformacionMaquinas';
 import RegistroEvaluacion from '../components/ingresarEvaluacion/RegistroEvaluacion';
-import VerRutinas from '../components/VerRutinas/pages/VerRutinas';
+import VerRutinas from '../pages/VerRutinas';
 
 const Rutas = () => {
     return (
