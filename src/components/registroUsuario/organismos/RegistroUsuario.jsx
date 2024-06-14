@@ -88,55 +88,61 @@ const RegistroUsuario = () => {
         <div className='contenedor-registrar-usuario'>
             <EtiquetaTitulo titulo='Registrar Usuario' />
             <form className="registro-usuario" onSubmit={handleSubmit}>
+                <h4>Nombre</h4>
                 <CampoTexto
                     tipo="text"
-                    placeholder="Nombre"
+                    placeholder="Ingresa tu nombre"
                     valor={nombre}
                     onChange={(e) => setNombre(e.target.value)}
                 />
-                <div className='contenedor-fecha-nacimiento'>
-                    <h4>Fecha de nacimiento</h4>
-                </div>
+                <h4>Fecha de nacimiento</h4>
                 <CampoTexto
                     tipo="date"
-                    placeholder="Fecha de nacimiento"
+                    placeholder="Ingresa tu fecha de nacimiento"
                     valor={fechaNacimiento}
                     onChange={(e) => setFechaNacimiento(e.target.value)}
                 />
+                <h4>Dirección</h4>
                 <CampoTexto
                     tipo="text"
-                    placeholder="Dirección"
+                    placeholder="Ingresa tu dirección"
                     valor={direccion}
                     onChange={(e) => setDireccion(e.target.value)}
                 />
+                <h4>Número de celular</h4>
                 <CampoTexto
                     tipo="tel"
-                    placeholder="Número de celular"
+                    placeholder="Ingresa tu número de celular"
                     valor={numeroCelular}
                     onChange={(e) => setNumeroCelular(e.target.value)}
                 />
+                <h4>Correo electrónico</h4>
                 <CampoTexto
                     tipo="email"
-                    placeholder="Correo electrónico"
+                    placeholder="Ingresa tu correo electrónico"
                     valor={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
+                <h4>CI</h4>
                 <CampoTexto
                     tipo="text"
-                    placeholder="CI/Pasaporte"
+                    placeholder="CI"
                     valor={ciPasaporte}
                     onChange={(e) => setCiPasaporte(e.target.value)}
                 />
+                <h4>Contraseña</h4>
                 <CampoTexto
                     tipo="password"
-                    placeholder="Contraseña"
+                    placeholder="Ingresa tu contraseña"
                     valor={contrasena}
                     onChange={(e) => setContrasena(e.target.value)}
                 />
+                <h4>Género</h4>
                 <SelectorSexo
                     valor={sexo}
                     onChange={(e) => setSexo(e.target.value)}
                 />
+                <h4>Foto de perfil</h4>
                 <input
                     type="file"
                     accept="image/*"
