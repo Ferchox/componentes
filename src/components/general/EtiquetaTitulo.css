@@ -1,6 +1,6 @@
 .contenedor-etiqueta-titulo {
     background-color: var(--morado-claro);
-    border-radius: 5px;
+    border-radius: 100px;
     margin-top: 10px;
     margin-bottom: 10px;
     padding-top: 6px;
@@ -8,5 +8,4 @@
     padding-left: 42px;
     padding-right: 42px;
     display: inline-block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
 }
